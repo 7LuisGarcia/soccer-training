@@ -1,0 +1,55 @@
+{% extends 'planner/base.html' %}
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+    <h1 class="fw-bold">Coaching</h1>
+    <p class="fs-5 mt-3">
+        Elevate your coaching with structured planning, clear objectives, and tools designed 
+        to help players grow with purpose and consistency.
+    </p>
+</div>
+
+<!-- COACHING PHILOSOPHY -->
+<div class="card mb-4 shadow-sm">
+    <div class="card-body">
+        <h2 class="fw-bold">Our Coaching Philosophy</h2>
+        <p class="mt-3">
+            Great coaching is built on clarity, structure, and communication. The Soccer Training Planner 
+            empowers coaches with the ability to design sessions that are intentional, progressive, and 
+            aligned with long‑term development goals.
+        </p>
+        <p>
+            Whether you're coaching youth players or competitive athletes, our tools help you deliver 
+            sessions that improve technique, decision‑making, fitness, and tactical understanding.
+        </p>
+    </div>
+</div>
+
+<!-- COACHING FEATURES -->
+<div class="card mb-4 shadow-sm">
+    <div class="card-body">
+        <h2 class="fw-bold">Coaching Tools & Features</h2>
+
+        <ul class="mt-3 fs-5">
+            <li class="mb-2">✔ Build structured training sessions with clear objectives</li>
+            <li class="mb-2">✔ Track player progress and performance over time</li>
+            <li class="mb-2">✔ Organize drills, exercises, and tactical activities</li>
+            <li class="mb-2">✔ Plan weekly, monthly, or seasonal training cycles</li>
+            <li class="mb-2">✔ Create balanced sessions that improve all aspects of the game</li>
+        </ul>
+    </div>
+</div>
+
+<!-- CALL TO ACTION -->
+<div class="p-5 bg-success text-white rounded-3 shadow-sm mt-5 text-center">
+    <h2 class="fw-bold mb-3">Start Coaching Smarter</h2>
+    <p class="fs-5 mb-4">
+        Build sessions, track progress, and elevate your coaching with a professional‑grade planner.
+    </p>
+    <a href="{% url 'planner:session_create' %}" class="btn btn-light btn-lg fw-bold px-4">
+        Create a Training Session
+    </a>
+</div>
+
+{% endblock %}

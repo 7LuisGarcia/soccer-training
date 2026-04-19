@@ -1,0 +1,95 @@
+{% extends 'planner/base.html' %}
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+    <h1 class="fw-bold">Features</h1>
+    <p class="fs-5 mt-3">
+        Explore the tools that make the Soccer Training Planner a powerful platform for coaches,
+        players, and training programs of all levels.
+    </p>
+</div>
+
+<!-- FEATURES GRID -->
+<div class="row">
+
+    <!-- Team Management -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm h-100 text-center p-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="70" class="mx-auto mb-3">
+            <h4 class="fw-bold">Team Management</h4>
+            <p class="text-muted mt-2">
+                Organize players, track attendance, and manage team information with ease.
+            </p>
+        </div>
+    </div>
+
+    <!-- Season Planner -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm h-100 text-center p-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/1827/1827370.png" width="70" class="mx-auto mb-3">
+            <h4 class="fw-bold">Season Planner</h4>
+            <p class="text-muted mt-2">
+                Build long‑term training cycles and plan your season with structure and clarity.
+            </p>
+        </div>
+    </div>
+
+    <!-- Training Planner -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm h-100 text-center p-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png" width="70" class="mx-auto mb-3">
+            <h4 class="fw-bold">Training Planner</h4>
+            <p class="text-muted mt-2">
+                Create detailed training sessions with objectives, drills, and performance notes.
+            </p>
+        </div>
+    </div>
+
+    <!-- 2D & 3D Sessions -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm h-100 text-center p-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" width="70" class="mx-auto mb-3">
+            <h4 class="fw-bold">2D & 3D Sessions</h4>
+            <p class="text-muted mt-2">
+                Visualize drills and tactical movements with clean 2D and 3D session diagrams.
+            </p>
+        </div>
+    </div>
+
+    <!-- Player Tracking -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm h-100 text-center p-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" width="70" class="mx-auto mb-3">
+            <h4 class="fw-bold">Player Tracking</h4>
+            <p class="text-muted mt-2">
+                Monitor player progress, performance, and development over time.
+            </p>
+        </div>
+    </div>
+
+    <!-- Analytics -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm h-100 text-center p-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828885.png" width="70" class="mx-auto mb-3">
+            <h4 class="fw-bold">Advanced Analytics</h4>
+            <p class="text-muted mt-2">
+                Gain insights into training efficiency, player workload, and session quality.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<!-- CALL TO ACTION -->
+<div class="p-5 bg-success text-white rounded-3 shadow-sm mt-5 text-center">
+    <h2 class="fw-bold mb-3">Unlock All Features</h2>
+    <p class="fs-5 mb-4">
+        Upgrade your coaching with full access to every tool in the Soccer Training Planner.
+    </p>
+    <a href="{% url 'planner:pricing' %}" class="btn btn-light btn-lg fw-bold px-4">
+        View Pricing
+    </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'planner/base.html' %}
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+    <h1 class="fw-bold">Pricing</h1>
+    <p class="fs-5 mt-3">
+        Choose the plan that fits your coaching needs. Whether you're training a single team or managing
+        a full program, the Soccer Training Planner gives you the tools to plan smarter and train better.
+    </p>
+</div>
+
+<!-- PRICING TIERS -->
+<div class="row text-center">
+
+    <!-- FREE PLAN -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h3 class="fw-bold">Free</h3>
+                <p class="text-muted">Perfect for individual players or casual training.</p>
+                <h2 class="fw-bold">$0</h2>
+
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>✔ Create up to 5 sessions</li>
+                    <li>✔ Basic training planner</li>
+                    <li>✔ Access to core drills</li>
+                    <li>✔ Track session completion</li>
+                </ul>
+
+                <button class="btn btn-dark px-4 fw-bold">Get Started</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRO PLAN -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100 border-success">
+            <div class="card-body">
+                <h3 class="fw-bold text-success">Pro</h3>
+                <p class="text-muted">Ideal for coaches managing weekly training.</p>
+                <h2 class="fw-bold">$9.99 <small class="text-muted">/ month</small></h2>
+
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>✔ Unlimited training sessions</li>
+                    <li>✔ Full drill library</li>
+                    <li>✔ Player performance tracking</li>
+                    <li>✔ Weekly training planner</li>
+                </ul>
+
+                <button class="btn btn-success px-4 fw-bold">Upgrade</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ELITE PLAN -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h3 class="fw-bold">Elite</h3>
+                <p class="text-muted">For clubs, academies, and competitive programs.</p>
+                <h2 class="fw-bold">$19.99 <small class="text-muted">/ month</small></h2>
+
+                <ul class="list-unstyled mt-3 mb-4">
+                    <li>✔ Everything in Pro</li>
+                    <li>✔ Multi‑team management</li>
+                    <li>✔ Season planner tools</li>
+                    <li>✔ Advanced analytics</li>
+                </ul>
+
+                <button class="btn btn-dark px-4 fw-bold">Go Elite</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

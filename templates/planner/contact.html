@@ -1,0 +1,71 @@
+{% extends 'planner/base.html' %}
+{% block content %}
+
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+    <h1 class="fw-bold">Contact Us</h1>
+    <p class="fs-5 mt-3">
+        Have questions, feedback, or want to learn more about the Soccer Training Planner?
+        We’d love to hear from you. Fill out the form below and our team will get back to you.
+    </p>
+</div>
+
+<div class="row">
+    <!-- CONTACT FORM -->
+    <div class="col-md-7 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="fw-bold mb-3">Send a Message</h3>
+
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Full Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Message</label>
+                        <textarea class="form-control" rows="5" placeholder="Write your message here"></textarea>
+                    </div>
+
+                    <button class="btn btn-dark px-4 fw-bold">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT INFO -->
+    <div class="col-md-5 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="fw-bold mb-3">Contact Information</h3>
+
+                <p class="mb-2">
+                    <strong>Email:</strong> support@soccerplanner.com
+                </p>
+
+                <p class="mb-2">
+                    <strong>Phone:</strong> (555) 123‑4567
+                </p>
+
+                <p class="mb-2">
+                    <strong>Location:</strong><br>
+                    Los Angeles, CA
+                </p>
+
+                <hr>
+
+                <p class="text-muted">
+                    Our team is available Monday–Friday to assist with questions, technical support,
+                    and general inquiries about the Soccer Training Planner platform.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

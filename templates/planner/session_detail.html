@@ -1,0 +1,24 @@
+{% extends 'planner/base.html' %}
+{% block content %}
+<h2>{{ session.title }}</h2>
+<p><strong>Date:</strong> {{ session.date }}</p>
+<p><strong>Duration:</strong> {{ session.duration }} minutes</p>
+<p><strong>Notes:</strong> {{ session.notes|default:"No notes" }}</p>
+
+{% if not session.completed %}
+    <a href="{% url 'planner:session_complete' session.pk %}" class="btn btn-success mb-3">Mark as completed</a>
+{% else %}
+    <span class="badge bg-success mb-3">Completed</span>
+{% endif %}
+
+<h3>Drills</h3>
+<ul>
+    {% for drill in session.drills.all %}
+        <li>
+            <strong>{{ drill.name }}</strong> ({{ drill.get_difficulty_display }}) – {{ drill.description }}
+        </li>
+    {% empty %}
+        <li>No drills added yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
