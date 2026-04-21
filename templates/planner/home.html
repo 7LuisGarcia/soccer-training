@@ -1,7 +1,11 @@
 {% extends "planner/base.html" %}
 {% load static %}
 
-{% block title %}About Us | Soccer Training Planner{% endblock %}
+{% block title %}Home | Soccer Training Planner{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'planner/home.css' %}">
+{% endblock %}
 
 {% block content %}
 <div class="container py-5">
@@ -17,6 +21,13 @@
         </div>
     </div>
 
+    <!-- IMAGE 1 -->
+    <div class="row text-center my-5">
+        <div class="col-md-12">
+            <img src="{% static 'planner/image/image1.jpg' %}" class="home-image" alt="Training Image 1">
+        </div>
+    </div>
+
     <!-- OUR MISSION -->
     <div class="card mb-4 shadow-sm border-0">
         <div class="card-body p-4">
@@ -24,9 +35,16 @@
             <p class="mt-3">
                 The Soccer Training Planner was created to bring structure, consistency, and 
                 professional‑level organization to every training environment — from youth academies 
-                to competitive adult teams. Our mission is simple: empower athletes and coaches with 
-                tools that make planning easier, performance clearer, and development measurable.
+                to competitive adult teams.
             </p>
+
+            <!-- IMAGE 2 -->
+            <div class="row text-center my-4">
+                <div class="col-md-12">
+                    <img src="{% static 'planner/image/image2.jpg' %}" class="home-image" alt="Training Image 2">
+                </div>
+            </div>
+
             <p>
                 Whether you're building weekly sessions, tracking player progress, or organizing 
                 drills, our platform helps you stay focused on what truly matters — improving the 
@@ -41,10 +59,16 @@
             <h2 class="h4 fw-bold">Training Overview</h2>
             <p class="mt-3">
                 Each training session is designed to support player development through structured 
-                drills, clear objectives, and measurable outcomes. Coaches can create sessions with 
-                specific durations, difficulty levels, and performance notes — ensuring every workout 
-                has purpose and direction.
+                drills, clear objectives, and measurable outcomes.
             </p>
+
+            <!-- IMAGE 3 -->
+            <div class="row text-center my-4">
+                <div class="col-md-12">
+                    <img src="{% static 'planner/image/image3.jpg' %}" class="home-image" alt="Training Image 3">
+                </div>
+            </div>
+
             <p>
                 From technical drills to tactical exercises, the planner helps you build balanced 
                 training cycles that improve fitness, ball control, decision‑making, and overall 
@@ -61,6 +85,13 @@
                 To make the Soccer Training Planner more complete and performance‑focused, the system 
                 includes five key training categories used in real soccer conditioning programs:
             </p>
+
+            <!-- IMAGE 4 -->
+            <div class="row text-center my-4">
+                <div class="col-md-12">
+                    <img src="{% static 'planner/image/image4.jpg' %}" class="home-image" alt="Training Image 4">
+                </div>
+            </div>
 
             <div class="row">
 
@@ -150,4 +181,3 @@
 
 </div>
 {% endblock %}
-

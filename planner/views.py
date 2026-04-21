@@ -6,11 +6,13 @@ def home(request):
     sessions = TrainingSession.objects.order_by('date')
     return render(request, 'planner/home.html', {'sessions': sessions})
 
+def about(request):
+    sessions = TrainingSession.objects.order_by('date')
+    return render(request, 'planner/about.html', {'sessions': sessions})
 
 def session_detail(request, pk):
     session = get_object_or_404(TrainingSession, pk=pk)
     return render(request, 'planner/session_detail.html', {'session': session})
-
 
 def session_create(request):
     if request.method == 'POST':
@@ -56,6 +58,3 @@ def session_complete(request, pk):
     session.completed = True
     session.save()
     return redirect('planner:session_detail', pk=pk)
-
-def about(request):
-    return render(request, 'planner/about.html')
