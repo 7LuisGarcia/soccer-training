@@ -35,8 +35,8 @@ def coaching(request):
 def pricing(request):
     return render(request, 'planner/pricing.html')
 
-def features(request):
-    return render(request, 'planner/features.html')
+def services(request):
+    return render(request, 'planner/services.html')
 
 def team_management(request):
     return render(request, 'planner/team_management.html')

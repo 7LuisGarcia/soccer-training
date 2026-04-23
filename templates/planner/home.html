@@ -1,13 +1,11 @@
-{% extends "planner/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block title %}Home | Soccer Training Planner{% endblock %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'planner/home.css' %}">
-{% endblock %}
-
 {% block content %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+
 <div class="container py-5">
 
     <!-- HERO -->
@@ -21,12 +19,16 @@
         </div>
     </div>
 
-    <!-- IMAGE 1 -->
-    <div class="row text-center my-5">
-        <div class="col-md-12">
-            <img src="{% static 'planner/image/image1.jpg' %}" class="home-image" alt="Training Image 1">
-        </div>
-    </div>
+    <!-- video -->
+     <div class="ratio ratio-16x9 my-5">
+    <iframe 
+        src="https://www.youtube.com/shorts/Gh9C9pzSSV0?feature=share"
+        title="Training Video"
+        allowfullscreen>
+    </iframe>
+</div>
+
+    
 
     <!-- OUR MISSION -->
     <div class="card mb-4 shadow-sm border-0">
@@ -41,7 +43,7 @@
             <!-- IMAGE 2 -->
             <div class="row text-center my-4">
                 <div class="col-md-12">
-                    <img src="{% static 'planner/image/image2.jpg' %}" class="home-image" alt="Training Image 2">
+                    <img src="/media/image/image2.jpg" class="home-image" alt="Training Image 2">
                 </div>
             </div>
 
@@ -50,6 +52,12 @@
                 drills, our platform helps you stay focused on what truly matters — improving the 
                 game on the field.
             </p>
+        </div>
+    </div>
+
+    <div class="row text-center my-5">
+        <div class="col-md-12">
+            <img src="/media/image/image1.jpg" class="home-image" alt="Training Image 1">
         </div>
     </div>
 
@@ -65,7 +73,8 @@
             <!-- IMAGE 3 -->
             <div class="row text-center my-4">
                 <div class="col-md-12">
-                    <img src="{% static 'planner/image/image3.jpg' %}" class="home-image" alt="Training Image 3">
+                    <img src="/media/image/image3.jpg" class="home-image" alt="Training Image 3">
+
                 </div>
             </div>
 
@@ -89,7 +98,7 @@
             <!-- IMAGE 4 -->
             <div class="row text-center my-4">
                 <div class="col-md-12">
-                    <img src="{% static 'planner/image/image4.jpg' %}" class="home-image" alt="Training Image 4">
+                    <img src="/media/image/image4.jpg" class="home-image" alt="Training Image 4">
                 </div>
             </div>
 
@@ -149,6 +158,12 @@
             </div>
         </div>
     </div>
+
+     <div class="row text-center my-4">
+                <div class="col-md-12">
+                    <img src="/media/image/image5.jpg" class="home-image" alt="Training Image 5">
+                </div>
+            </div>
 
     <!-- HOW IT FITS INTO THE APP -->
     <div class="card mb-4 shadow-sm border-0">
