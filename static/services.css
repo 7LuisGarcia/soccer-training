@@ -1,0 +1,66 @@
+/* PAGE BACKGROUND */
+body {
+     background: linear-gradient(135deg, #2a2a2a, #1f1f1f, #262626);
+    background-attachment: fixed;
+    color: #4c4c4e2c;
+}
+
+/* HERO SECTION */
+.services-hero {
+    background: linear-gradient(135deg, #0d6efd, #0a58ca, #052c65);
+    color: rgba(255, 255, 255, 0.323);
+    border-radius: 14px;
+    padding: 40px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+
+/* SERVICE CARDS */
+.service-card {
+    background: #ffffff29;
+    border-radius: 14px;
+    border: none;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+}
+
+/* ICONS */
+.service-card img {
+    width: 70px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+}
+
+/* TITLES */
+.service-card h4 {
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+/* TEXT */
+.service-card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* CALL TO ACTION */
+.services-cta {
+    background: linear-gradient(135deg, #198754, #157347, #0f5132);
+    color: white;
+    border-radius: 14px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+}
+
+.services-cta .btn {
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 10px;
+}
