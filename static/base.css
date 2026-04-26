@@ -1,64 +1,65 @@
-/* NAVBAR — White / Gray / Blue */
+/* NAVBAR — Blue Background + Gray Text */
 .navbar {
-    background-color: #ffffff !important;
-    border-bottom: 1px solid #e5e7eb; /* soft gray line */
+    background-color: #3b6fc4 !important; /* rich blue */
+    border-bottom: 1px solid #d1d5db; /* soft gray line */
 }
 
 .navbar .navbar-brand {
-    color: #0a55c5 !important; /* premium blue */
+    color: #e5e7eb !important; /* light gray */
     font-weight: 600;
     letter-spacing: 1px;
 }
 
 .navbar .navbar-nav .nav-link {
-    color: #4b5563 !important; /* neutral gray */
+    color: #f3f4f6 !important; /* soft gray/white */
     font-weight: 500;
     transition: 0.2s ease-in-out;
 }
 
 .navbar .navbar-nav .nav-link:hover {
-    color: #0a55c5 !important; /* premium blue hover */
+    color: #cbd5e1 !important; /* lighter gray hover */
     text-decoration: underline;
 }
 
 /* Dropdown */
 .dropdown-menu {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
+    background-color: #3b6fc4; /* match navbar */
+    border: 1px solid #1e3a8a; /* darker blue border */
 }
 
 .dropdown-menu .dropdown-item {
-    color: #4b5563;
+    color: #e5e7eb; /* light gray */
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: #f0f4ff; /* soft blue tint */
-    color: #0a55c5;
+    background-color: #1e3a8a; /* deep blue hover */
+    color: #ffffff; /* clean white text */
 }
-/* FOOTER — White / Gray / Blue */
+
+/* FOOTER — Blue Background + Gray Text */
 .footer {
-    background-color: #ffffff;
-    border-top: 2px solid #0a55c5; /* premium blue line */
+    background-color: #3b6fc4; /* rich blue */
+    border-top: 2px solid #0a55c5; 
     padding: 40px 0;
 }
 
 .footer h5 {
-    color: #0a55c5; /* blue section titles */
+    color: #e5e7eb; /* soft light gray for contrast */
     letter-spacing: 1px;
     font-weight: 600;
 }
 
 .footer p {
-    color: #6b7280; /* soft gray text */
+    color: #d1d5db; /* medium-light gray text */
 }
 
 .footer .social-link {
     font-size: 1.4rem;
-    color: #6b7280; /* gray icons */
+    color: #d1d5db; /* gray icons */
     transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .footer .social-link:hover {
-    color: #0a55c5; /* blue hover */
+    color: #ffffff; /* clean white hover */
     transform: translateY(-3px);
 }

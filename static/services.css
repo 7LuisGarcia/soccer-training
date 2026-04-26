@@ -1,62 +1,62 @@
-/* PAGE BACKGROUND */
+/* PAGE BACKGROUND — Light Blue + Gray */
 body {
-     background: linear-gradient(135deg, #5d5f76, #646272, #4e5da8);
+    background: linear-gradient(135deg, #c3d4f7, #9bb7e8, #6f8fcf);
     background-attachment: fixed;
-    color: #a6a6bf2c;
+    color: #4b5563;
 }
 
-/* HERO SECTION */
+/* HERO SECTION — Soft Blue Gradient */
 .services-hero {
-    background: linear-gradient(135deg, #678abf, #4369a3, #0a3b84);
-    color: rgba(255, 255, 255, 0.323);
+    background: linear-gradient(135deg, #cfe0ff, #a9c4f5, #7ea4e3);
+    color: #1f2937; /* dark gray text for readability */
     border-radius: 14px;
     padding: 40px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
 }
 
-/* SERVICE CARDS */
+/* SERVICE CARDS — White with Blue Shadow */
 .service-card {
-    background: #dedee929;
+    background: #ffffff;
     border-radius: 14px;
-    border: none;
+    border: 1px solid #e5e7eb; /* soft gray border */
     padding: 25px;
     text-align: center;
-    box-shadow: 0 6px 24px rgba(176, 173, 185, 0.35);
+    box-shadow: 0 6px 24px rgba(125, 150, 200, 0.25); /* blue-tinted shadow */
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .service-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(204, 204, 212, 0.45);
+    box-shadow: 0 12px 32px rgba(100, 130, 200, 0.35);
 }
 
 /* ICONS */
 .service-card img {
     width: 70px;
     margin-bottom: 15px;
-    filter: drop-shadow(0 4px 8px rgba(218, 218, 226, 0.25));
+    filter: drop-shadow(0 4px 8px rgba(150, 170, 210, 0.25));
 }
 
 /* TITLES */
 .service-card h4 {
     font-weight: 700;
-    color: #fcfcfc;
+    color: #1f3b70; /* deep blue */
 }
 
 /* TEXT */
 .service-card p {
-    color: #ebebee;
+    color: #4b5563; /* gray */
     font-size: 0.95rem;
 }
 
-/* CALL TO ACTION */
+/* CALL TO ACTION — Blue Gradient */
 .services-cta {
-    background: linear-gradient(135deg, #198754, #157347, #0f5132);
+    background: linear-gradient(135deg, #4a90e2, #3578d4, #1f5fb8);
     color: white;
     border-radius: 14px;
     padding: 40px;
     text-align: center;
-    box-shadow: 0 6px 24px rgba(89, 83, 141, 0.35);
+    box-shadow: 0 6px 24px rgba(50, 80, 150, 0.35);
 }
 
 .services-cta .btn {

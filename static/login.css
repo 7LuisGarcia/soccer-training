@@ -5,7 +5,8 @@
 }
 
 body {
-    background: linear-gradient(135deg, #007bff15, #6610f215);
+    background: linear-gradient(135deg, #3b6fc430, #8aa4c830, #d1d5db40);
+    background-attachment: fixed;
 }
 
 .btn-primary {
