@@ -1,6 +1,6 @@
 /* PAGE BACKGROUND */
 body {
-     background: linear-gradient(135deg, #2a2a2a, #1f1f1f, #262626);
+     background: linear-gradient(135deg, #5d5f76, #646272, #4e5da8);
     background-attachment: fixed;
     color: #4c4c4e2c;
 }
@@ -16,12 +16,12 @@ body {
 
 /* SERVICE CARDS */
 .service-card {
-    background: #ffffff29;
+    background: #adadaf29;
     border-radius: 14px;
     border: none;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+    box-shadow: 0 6px 24px rgba(100, 99, 104, 0.35);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -45,7 +45,7 @@ body {
 
 /* TEXT */
 .service-card p {
-    color: #555;
+    color: #ebebee;
     font-size: 0.95rem;
 }
 
@@ -56,7 +56,7 @@ body {
     border-radius: 14px;
     padding: 40px;
     text-align: center;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+    box-shadow: 0 6px 24px rgba(33, 25, 108, 0.35);
 }
 
 .services-cta .btn {
