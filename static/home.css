@@ -1,40 +1,45 @@
-/* FULL PAGE BACKGROUND — LIGHTER DARK WITH BLUE TINT */
+/* FULL PAGE BACKGROUND — WHITE + SOFT GRAY */
 body {
-    background: linear-gradient(135deg, #0a0f1a, #1c2a3a, #243447);
+    background: linear-gradient(135deg, #ffffff, #f4f5f7, #e9ecf1);
     background-attachment: fixed;
-    color: #f2f4f7; /* brighter base text */
+    color: #34373b;
     font-family: 'Inter', sans-serif;
 }
 
-/* PREMIUM CARD STYLE — LIGHTER + BLUE GLOW */
+/* PREMIUM CARD STYLE — WHITE WITH BLUE SHADOW */
 .card {
-    background: rgba(32, 45, 78, 0.55);
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 14px;
-    border: none;
-    box-shadow: 0 6px 24px rgba(0, 102, 204, 0.25);
+    border: 1px solid #e3e6eb;
+    box-shadow: 0 6px 24px rgba(0, 80, 160, 0.12);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(0, 132, 255, 0.45);
+    box-shadow: 0 10px 28px rgba(0, 80, 160, 0.22);
 }
 
-/* HEADINGS — BRIGHTER BLUE */
+/* HEADINGS — STRONG BLUE */
 .card-body h2,
 .card-body h3,
 .card-body h4,
 .card-body h5 {
-    color: #66b3ff; /* brighter, easier to read */
+    color: #2e5497;
     font-weight: 700;
 }
 
-/* PARAGRAPHS + LISTS — MUCH LIGHTER */
+/* PARAGRAPHS + LISTS — FIXED (READABLE) */
 p, li {
-    color: #f0f2f5; /* clean, readable light gray */
+    color: #4a4f59; /* readable gray */
 }
 
-/* IMAGE ENHANCEMENT */
+/* MUTED TEXT */
+.text-muted {
+    color: #6c7280 !important;
+}
+
+/* IMAGE ENHANCEMENT — BLUE SHADOW */
 .home-image {
     max-width: 700px;
     width: 100%;
@@ -43,22 +48,23 @@ p, li {
     margin-left: auto;
     margin-right: auto;
     border-radius: 12px;
-    box-shadow: 0 8px 28px rgba(0, 132, 255, 0.35);
+    box-shadow: 0 8px 28px rgba(48, 101, 154, 0.25);
 }
 
-/* HERO SECTION — LIGHTER BLUE GRADIENT */
+/* HERO SECTION — BLUE GRADIENT */
 .hero-colored,
 .hero-dark {
-    background: linear-gradient(135deg, #0d3b66, #1a5fb4, #0a58ca);
-    color: #f2f4f7; /* brighter hero text */
+    background: linear-gradient(135deg, #6ba3ff, #3f7bd9, #1f4fa3);
+    color: #f8f9fa;
     border-radius: 14px;
-    box-shadow: 0 6px 24px rgba(0, 102, 204, 0.35);
+    box-shadow: 0 6px 24px rgba(0, 80, 160, 0.25);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.25);
 }
 
 /* SECTION DIVIDER — BLUE FADE */
 .section-divider {
     height: 2px;
-    background: linear-gradient(to right, #66b3ff, transparent);
+    background: linear-gradient(to right, #1f4fa3, transparent);
     margin: 50px 0;
     border-radius: 2px;
 }

@@ -2,12 +2,12 @@
 body {
      background: linear-gradient(135deg, #5d5f76, #646272, #4e5da8);
     background-attachment: fixed;
-    color: #4c4c4e2c;
+    color: #a6a6bf2c;
 }
 
 /* HERO SECTION */
 .services-hero {
-    background: linear-gradient(135deg, #0d6efd, #0a58ca, #052c65);
+    background: linear-gradient(135deg, #678abf, #4369a3, #0a3b84);
     color: rgba(255, 255, 255, 0.323);
     border-radius: 14px;
     padding: 40px;
@@ -16,31 +16,31 @@ body {
 
 /* SERVICE CARDS */
 .service-card {
-    background: #adadaf29;
+    background: #dedee929;
     border-radius: 14px;
     border: none;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 6px 24px rgba(100, 99, 104, 0.35);
+    box-shadow: 0 6px 24px rgba(176, 173, 185, 0.35);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .service-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+    box-shadow: 0 12px 32px rgba(204, 204, 212, 0.45);
 }
 
 /* ICONS */
 .service-card img {
     width: 70px;
     margin-bottom: 15px;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
+    filter: drop-shadow(0 4px 8px rgba(218, 218, 226, 0.25));
 }
 
 /* TITLES */
 .service-card h4 {
     font-weight: 700;
-    color: #0d6efd;
+    color: #fcfcfc;
 }
 
 /* TEXT */
@@ -56,7 +56,7 @@ body {
     border-radius: 14px;
     padding: 40px;
     text-align: center;
-    box-shadow: 0 6px 24px rgba(33, 25, 108, 0.35);
+    box-shadow: 0 6px 24px rgba(89, 83, 141, 0.35);
 }
 
 .services-cta .btn {

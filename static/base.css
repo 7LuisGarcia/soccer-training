@@ -1,47 +1,64 @@
-/* Navbar styling */
-.navbar-dark .navbar-nav .nav-link {
-    color: #e0e0e0;
+/* NAVBAR — White / Gray / Blue */
+.navbar {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e5e7eb; /* soft gray line */
+}
+
+.navbar .navbar-brand {
+    color: #0a55c5 !important; /* premium blue */
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #4b5563 !important; /* neutral gray */
     font-weight: 500;
     transition: 0.2s ease-in-out;
 }
 
-.navbar-dark .navbar-nav .nav-link:hover {
-    color: #ffffff;
+.navbar .navbar-nav .nav-link:hover {
+    color: #0a55c5 !important; /* premium blue hover */
     text-decoration: underline;
 }
 
-/* Dropdown styling */
+/* Dropdown */
+.dropdown-menu {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #4b5563;
+}
+
 .dropdown-menu .dropdown-item:hover {
-    background-color: #f0f0f0;
-    color: #000;
+    background-color: #f0f4ff; /* soft blue tint */
+    color: #0a55c5;
 }
-
-/* Page container spacing */
-.content-wrapper {
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-/* FOOTER STYLING */
+/* FOOTER — White / Gray / Blue */
 .footer {
-    border-top: 1px solid #333;
+    background-color: #ffffff;
+    border-top: 2px solid #0a55c5; /* premium blue line */
+    padding: 40px 0;
 }
 
 .footer h5 {
+    color: #0a55c5; /* blue section titles */
     letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.footer p {
+    color: #6b7280; /* soft gray text */
 }
 
 .footer .social-link {
     font-size: 1.4rem;
-    color: #ccc;
+    color: #6b7280; /* gray icons */
     transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .footer .social-link:hover {
-    color: #0d6efd;
+    color: #0a55c5; /* blue hover */
     transform: translateY(-3px);
-}
-
-.footer p {
-    color: #aaa;
 }
