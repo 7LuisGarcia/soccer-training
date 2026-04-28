@@ -8,7 +8,7 @@ body {
 /* HERO SECTION — Soft Blue Gradient */
 .services-hero {
     background: linear-gradient(135deg, #cfe0ff, #a9c4f5, #7ea4e3);
-    color: #1f2937; /* dark gray text for readability */
+    color: #1f2937;
     border-radius: 14px;
     padding: 40px;
     box-shadow: 0 6px 24px rgba(0,0,0,0.15);
@@ -18,10 +18,10 @@ body {
 .service-card {
     background: #ffffff;
     border-radius: 14px;
-    border: 1px solid #e5e7eb; /* soft gray border */
+    border: 1px solid #e5e7eb;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 6px 24px rgba(125, 150, 200, 0.25); /* blue-tinted shadow */
+    box-shadow: 0 6px 24px rgba(125, 150, 200, 0.25);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -40,12 +40,12 @@ body {
 /* TITLES */
 .service-card h4 {
     font-weight: 700;
-    color: #1f3b70; /* deep blue */
+    color: #1f3b70;
 }
 
 /* TEXT */
 .service-card p {
-    color: #4b5563; /* gray */
+    color: #4b5563;
     font-size: 0.95rem;
 }
 
@@ -63,4 +63,56 @@ body {
     font-weight: 700;
     padding: 12px 30px;
     border-radius: 10px;
+}
+
+/* --------------------------------------------- */
+/* 📱 MOBILE OPTIMIZATION                        */
+/* --------------------------------------------- */
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .services-hero {
+        padding: 25px;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .services-hero h1,
+    .services-hero h2 {
+        font-size: 1.6rem;
+    }
+
+    .services-hero p {
+        font-size: 1rem;
+    }
+
+    .service-card {
+        padding: 20px;
+        margin: 0 10px 20px;
+    }
+
+    .service-card img {
+        width: 60px;
+    }
+
+    .service-card h4 {
+        font-size: 1.1rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+    }
+
+    .services-cta {
+        padding: 30px 20px;
+    }
+
+    .services-cta .btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
 }

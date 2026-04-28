@@ -27,7 +27,11 @@ urlpatterns = [
 
     # Auth
     path('login/', LoginView.as_view(template_name='planner/login.html'), name='login'),
-    path('logout/', LogoutView.as_view(next_page='planner:login'), name='logout'),
+    path(
+    "logout/",
+    LogoutView.as_view(template_name="planner/logged_out.html"),
+    name="logout"
+),
     path('register/', RegisterView.as_view(), name='register'),
 ]
 

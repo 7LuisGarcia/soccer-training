@@ -1,33 +1,86 @@
-/* SECTION WRAPPER — Soft Blue-Gray Background */
-.section-blue {
-    background-color: #dbe1ea; /* same as footer */
-    padding: 60px 0;
-    border-top: 3px solid #1e3a8a; /* premium blue */
-    border-bottom: 3px solid #1e3a8a;
+/* -------------------------------------------------- */
+/* GLOBAL COLOR SYSTEM (your premium palette)         */
+/* -------------------------------------------------- */
+:root {
+    --blue-dark: #1e3a8a;      /* navbar + card base */
+    --blue-mid: #3b82f6;       /* accents */
+    --blue-soft: #bfdbfe;      /* button base */
+    --blue-hover: #93c5fd;     /* button hover */
+    --blue-gray: #dbe1ea;      /* footer + section background */
+    --text-light: #f8fafc;
+    --text-gray: #475569;
 }
 
-/* SECTION TITLE */
+/* -------------------------------------------------- */
+/* NAVBAR FIX — ensure perfect contrast + spacing     */
+/* -------------------------------------------------- */
+.navbar-dark .nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+}
+
+.navbar-dark .nav-link:hover {
+    color: var(--blue-soft) !important;
+}
+
+/* Logout button alignment fix */
+.navbar .btn.nav-link {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* -------------------------------------------------- */
+/* FOOTER — matches section-blue background           */
+/* -------------------------------------------------- */
+.footer {
+    background-color: var(--blue-dark);
+    border-top: 4px solid var(--blue-soft);
+}
+
+.footer .social-link {
+    color: var(--blue-soft);
+    font-size: 1.3rem;
+    transition: 0.2s ease;
+}
+
+.footer .social-link:hover {
+    color: var(--blue-hover);
+}
+
+/* -------------------------------------------------- */
+/* SECTION WRAPPER — Soft Blue-Gray Background        */
+/* -------------------------------------------------- */
+.section-blue {
+    background-color: var(--blue-gray);
+    padding: 60px 0;
+    border-top: 3px solid var(--blue-dark);
+    border-bottom: 3px solid var(--blue-dark);
+}
+
 .section-blue h2 {
-    color: #1e3a8a; /* deep blue */
+    color: var(--blue-dark);
     font-weight: 700;
     letter-spacing: 1px;
     text-align: center;
     margin-bottom: 25px;
 }
 
-/* SECTION TEXT */
 .section-blue p {
-    color: #475569; /* slate gray */
+    color: var(--text-gray);
     font-size: 1.1rem;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
 
-/* BLUE CARD — Matches Navbar Tone */
+/* -------------------------------------------------- */
+/* BLUE CARD — Matches Navbar Tone                    */
+/* -------------------------------------------------- */
 .blue-card {
-    background-color: #1e3a8a; /* premium blue */
-    color: #f8fafc; /* near-white */
+    background-color: var(--blue-dark);
+    color: var(--text-light);
     border-radius: 14px;
     padding: 25px;
     box-shadow: 0 6px 24px rgba(30, 64, 175, 0.25);
@@ -39,21 +92,21 @@
     box-shadow: 0 10px 28px rgba(30, 64, 175, 0.35);
 }
 
-/* CARD TITLE */
 .blue-card h3 {
-    color: #bfdbfe; /* soft blue highlight */
+    color: var(--blue-soft);
     font-weight: 600;
 }
 
-/* CARD TEXT */
 .blue-card p {
-    color: #e2e8f0; /* light gray-blue */
+    color: #e2e8f0;
 }
 
-/* BUTTON — Matches Navbar Hover Color */
+/* -------------------------------------------------- */
+/* BUTTON — Matches Navbar Hover Color                */
+/* -------------------------------------------------- */
 .blue-btn {
-    background-color: #bfdbfe;
-    color: #1e3a8a;
+    background-color: var(--blue-soft);
+    color: var(--blue-dark);
     padding: 10px 20px;
     border-radius: 8px;
     border: none;
@@ -62,17 +115,17 @@
 }
 
 .blue-btn:hover {
-    background-color: #93c5fd;
+    background-color: var(--blue-hover);
     color: #0f1f4b;
 }
 
-/* --------------------------------------------- */
-/* 📱 MOBILE OPTIMIZATION                        */
-/* --------------------------------------------- */
+/* -------------------------------------------------- */
+/* 📱 MOBILE OPTIMIZATION                             */
+/* -------------------------------------------------- */
 @media (max-width: 480px) {
 
     .section-blue {
-        padding: 40px 0; /* tighter spacing */
+        padding: 40px 0;
     }
 
     .section-blue h2 {
@@ -82,12 +135,12 @@
 
     .section-blue p {
         font-size: 1rem;
-        padding: 0 15px; /* breathing room */
+        padding: 0 15px;
     }
 
     .blue-card {
         padding: 20px;
-        margin: 0 15px; /* spacing from edges */
+        margin: 0 15px;
     }
 
     .blue-card h3 {
@@ -99,7 +152,7 @@
     }
 
     .blue-btn {
-        width: 100%; /* full-width button */
+        width: 100%;
         padding: 12px;
         font-size: 1rem;
     }

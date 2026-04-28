@@ -4,11 +4,14 @@ body {
     background-attachment: fixed;
     color: #1e293b;
     font-family: 'Inter', sans-serif;
+    padding: 20px; /* mobile breathing room */
 }
 
 /* AUTH CARD — White With Home-Style Blue Shadow */
 .auth-card {
     max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
     border-radius: 14px;
     background: #ffffff;
     padding: 30px;
@@ -28,7 +31,8 @@ body {
 /* INPUTS — Soft Blue Border + Blue Focus Glow */
 .form-control {
     border-radius: 8px;
-    padding: 10px;
+    padding: 12px;
+    font-size: 1rem;
     border: 1px solid #b7c8e8; /* same soft blue border */
     color: #1e293b;
 }
@@ -46,6 +50,8 @@ body {
     border-radius: 8px;
     font-weight: 600;
     color: #f1f5f9;
+    padding: 12px;
+    width: 100%; /* full width for mobile */
     transition: 0.2s ease-in-out;
 }
 
@@ -57,4 +63,30 @@ body {
 /* SMALL TEXT — Same Muted Blue-Gray */
 .text-muted {
     color: #64748b !important;
+    font-size: 0.9rem;
+}
+
+/* --------------------------------------------- */
+/* 📱 MOBILE OPTIMIZATION                        */
+/* --------------------------------------------- */
+@media (max-width: 480px) {
+
+    .auth-card {
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+
+    .auth-card h2 {
+        font-size: 1.4rem;
+    }
+
+    .form-control {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 10px;
+    }
 }
