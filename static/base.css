@@ -1,65 +1,106 @@
-/* NAVBAR — Blue Background + Gray Text */
-.navbar {
-    background-color: #3b6fc4 !important; /* rich blue */
-    border-bottom: 1px solid #d1d5db; /* soft gray line */
+/* SECTION WRAPPER — Soft Blue-Gray Background */
+.section-blue {
+    background-color: #dbe1ea; /* same as footer */
+    padding: 60px 0;
+    border-top: 3px solid #1e3a8a; /* premium blue */
+    border-bottom: 3px solid #1e3a8a;
 }
 
-.navbar .navbar-brand {
-    color: #e5e7eb !important; /* light gray */
-    font-weight: 600;
+/* SECTION TITLE */
+.section-blue h2 {
+    color: #1e3a8a; /* deep blue */
+    font-weight: 700;
     letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
-.navbar .navbar-nav .nav-link {
-    color: #f3f4f6 !important; /* soft gray/white */
-    font-weight: 500;
+/* SECTION TEXT */
+.section-blue p {
+    color: #475569; /* slate gray */
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* BLUE CARD — Matches Navbar Tone */
+.blue-card {
+    background-color: #1e3a8a; /* premium blue */
+    color: #f8fafc; /* near-white */
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 6px 24px rgba(30, 64, 175, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blue-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(30, 64, 175, 0.35);
+}
+
+/* CARD TITLE */
+.blue-card h3 {
+    color: #bfdbfe; /* soft blue highlight */
+    font-weight: 600;
+}
+
+/* CARD TEXT */
+.blue-card p {
+    color: #e2e8f0; /* light gray-blue */
+}
+
+/* BUTTON — Matches Navbar Hover Color */
+.blue-btn {
+    background-color: #bfdbfe;
+    color: #1e3a8a;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
     transition: 0.2s ease-in-out;
 }
 
-.navbar .navbar-nav .nav-link:hover {
-    color: #cbd5e1 !important; /* lighter gray hover */
-    text-decoration: underline;
+.blue-btn:hover {
+    background-color: #93c5fd;
+    color: #0f1f4b;
 }
 
-/* Dropdown */
-.dropdown-menu {
-    background-color: #3b6fc4; /* match navbar */
-    border: 1px solid #1e3a8a; /* darker blue border */
-}
+/* --------------------------------------------- */
+/* 📱 MOBILE OPTIMIZATION                        */
+/* --------------------------------------------- */
+@media (max-width: 480px) {
 
-.dropdown-menu .dropdown-item {
-    color: #e5e7eb; /* light gray */
-}
+    .section-blue {
+        padding: 40px 0; /* tighter spacing */
+    }
 
-.dropdown-menu .dropdown-item:hover {
-    background-color: #1e3a8a; /* deep blue hover */
-    color: #ffffff; /* clean white text */
-}
+    .section-blue h2 {
+        font-size: 1.5rem;
+        margin-bottom: 18px;
+    }
 
-/* FOOTER — Blue Background + Gray Text */
-.footer {
-    background-color: #3b6fc4; /* rich blue */
-    border-top: 2px solid #0a55c5; 
-    padding: 40px 0;
-}
+    .section-blue p {
+        font-size: 1rem;
+        padding: 0 15px; /* breathing room */
+    }
 
-.footer h5 {
-    color: #e5e7eb; /* soft light gray for contrast */
-    letter-spacing: 1px;
-    font-weight: 600;
-}
+    .blue-card {
+        padding: 20px;
+        margin: 0 15px; /* spacing from edges */
+    }
 
-.footer p {
-    color: #d1d5db; /* medium-light gray text */
-}
+    .blue-card h3 {
+        font-size: 1.2rem;
+    }
 
-.footer .social-link {
-    font-size: 1.4rem;
-    color: #d1d5db; /* gray icons */
-    transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
-}
+    .blue-card p {
+        font-size: 0.95rem;
+    }
 
-.footer .social-link:hover {
-    color: #ffffff; /* clean white hover */
-    transform: translateY(-3px);
+    .blue-btn {
+        width: 100%; /* full-width button */
+        padding: 12px;
+        font-size: 1rem;
+    }
 }

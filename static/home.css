@@ -1,70 +1,128 @@
-/* FULL PAGE BACKGROUND — WHITE + SOFT GRAY */
-body {
-    background: linear-gradient(135deg, #44468c, #426bbb, #567cb9);
-    background-attachment: fixed;
-    color: #34373b;
-    font-family: 'Inter', sans-serif;
+/* --------------------------------------------- */
+/* UNIFORM IMAGE SIZE FOR FEATURE CARDS          */
+/* --------------------------------------------- */
+.feature-card img {
+    width: 100%;
+    height: 250px; /* consistent size */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-/* PREMIUM CARD STYLE — WHITE WITH BLUE SHADOW */
-.card {
-    background: rgba(145, 145, 172, 0.85);
+@media (max-width: 480px) {
+    .feature-card img {
+        height: 180px; /* mobile-friendly height */
+    }
+}
+
+/* --------------------------------------------- */
+/* BLUE SECTION — Matches Your Background + Hero */
+/* --------------------------------------------- */
+.section-blue {
+    background: linear-gradient(135deg, #dbe8ff, #c7d9f7, #b3c8ef);
+    padding: 60px 0;
+    border-top: 3px solid #1e3a8a;
+    border-bottom: 3px solid #1e3a8a;
+}
+
+/* SECTION TITLE — Deep Blue */
+.section-blue h2 {
+    color: #1e3a8a;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* SECTION TEXT — Slate Blue-Gray */
+.section-blue p {
+    color: #1e293b;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* --------------------------------------------- */
+/* BLUE FEATURE CARD — Matches Hero + Shadows    */
+/* --------------------------------------------- */
+.feature-card {
+    background: rgba(255, 255, 255, 0.96);
     border-radius: 14px;
-    border: 1px solid #334e78;
-    box-shadow: 0 6px 24px rgba(0, 80, 160, 0.12);
+    border: 1px solid #b7c8e8;
+    padding: 25px;
+    box-shadow: 0 6px 24px rgba(30, 64, 175, 0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(0, 80, 160, 0.22);
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(30, 64, 175, 0.25);
 }
 
-/* HEADINGS — STRONG BLUE */
-.card-body h2,
-.card-body h3,
-.card-body h4,
-.card-body h5 {
-    color: #0d0d0e;
-    font-weight: 700;
+/* CARD TITLE — Deep Blue */
+.feature-card h3 {
+    color: #1e3a8a;
+    font-weight: 600;
 }
 
-/* PARAGRAPHS + LISTS */
-p, li {
-    color: #0f0f0f; 
+/* CARD TEXT — Slate Blue-Gray */
+.feature-card p {
+    color: #1e293b;
 }
 
-/* MUTED TEXT */
-.text-muted {
-    color: #0b0b0b !important;
+/* --------------------------------------------- */
+/* BLUE BUTTON — Matches Hero + Divider          */
+/* --------------------------------------------- */
+.blue-btn {
+    background-color: #3b6fc4;
+    color: #f1f5f9;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
 }
 
-/* IMAGE ENHANCEMENT — BLUE SHADOW */
-.home-image {
-    max-width: 700px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 12px;
-    box-shadow: 0 8px 28px rgba(48, 101, 154, 0.25);
+.blue-btn:hover {
+    background-color: #2f5aa3;
+    color: #ffffff;
 }
 
-/* HERO SECTION — BLUE GRADIENT */
-.hero-colored,
-.hero-dark {
-    background: linear-gradient(135deg, #6ba3ff, #3f7bd9, #1f4fa3);
-    color: #0c0c0c;
-    border-radius: 14px;
-    box-shadow: 0 6px 24px rgba(0, 80, 160, 0.25);
-    text-shadow: 0 1px 3px rgba(0,0,0,0.25);
-}
+/* --------------------------------------------- */
+/* 📱 MOBILE OPTIMIZATION                        */
+/* --------------------------------------------- */
+@media (max-width: 480px) {
 
-/* SECTION DIVIDER — BLUE FADE */
-.section-divider {
-    height: 2px;
-    background: linear-gradient(to right, #081a38, transparent);
-    margin: 50px 0;
-    border-radius: 2px;
+    .section-blue {
+        padding: 40px 0;
+    }
+
+    .section-blue h2 {
+        font-size: 1.5rem;
+        margin-bottom: 18px;
+    }
+
+    .section-blue p {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    .feature-card {
+        padding: 20px;
+        margin: 0 15px;
+    }
+
+    .feature-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-card p {
+        font-size: 0.95rem;
+    }
+
+    .blue-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+    }
 }

@@ -1,30 +1,60 @@
+/* FULL PAGE BACKGROUND — Same as Home */
+body {
+    background: linear-gradient(135deg, #dbe8ff, #c7d9f7, #b3c8ef);
+    background-attachment: fixed;
+    color: #1e293b;
+    font-family: 'Inter', sans-serif;
+}
+
+/* AUTH CARD — White With Home-Style Blue Shadow */
 .auth-card {
     max-width: 420px;
-    border-radius: 12px;
+    border-radius: 14px;
     background: #ffffff;
+    padding: 30px;
+    border: 1px solid #b7c8e8; /* same border as home cards */
+    box-shadow: 0 6px 24px rgba(30, 64, 175, 0.18); /* same blue shadow */
 }
 
-body {
-    background: linear-gradient(135deg, #3b6fc430, #8aa4c830, #d1d5db40);
-    background-attachment: fixed;
+/* TITLE — Deep Blue (Matches Home Headings) */
+.auth-card h2 {
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #1e3a8a; /* deep premium blue */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.btn-primary {
-    background-color: #007bff;
-    border: none;
-    font-size: 1.1rem;
-    border-radius: 8px;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
+/* INPUTS — Soft Blue Border + Blue Focus Glow */
 .form-control {
     border-radius: 8px;
     padding: 10px;
+    border: 1px solid #b7c8e8; /* same soft blue border */
+    color: #1e293b;
 }
 
-.auth-card h2 {
-    letter-spacing: 1px;
+.form-control:focus {
+    border-color: #3b6fc4; /* hero blue */
+    box-shadow: 0 0 0 3px rgba(59, 111, 196, 0.25); /* soft blue glow */
+}
+
+/* BUTTON — Hero Blue (Matches Home Buttons + Hero Section) */
+.btn-primary {
+    background-color: #3b6fc4; /* hero blue */
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #f1f5f9;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #2f5aa3; /* darker hero blue */
+    color: #ffffff;
+}
+
+/* SMALL TEXT — Same Muted Blue-Gray */
+.text-muted {
+    color: #64748b !important;
 }
