@@ -25,13 +25,18 @@ urlpatterns = [
     path('drill-library/', views.drill_library, name='drill_library'),
     path('about/', views.about, name='about'),
 
+    # Pricing sub‑pages
+    path("pricing/free/", views.free_plan, name="free_plan"),
+    path("pricing/pro/", views.pro_plan, name="pro_plan"),
+    path("pricing/elite/", views.elite_plan, name="elite_plan"),
+
     # Auth
     path('login/', LoginView.as_view(template_name='planner/login.html'), name='login'),
     path(
-    "logout/",
-    LogoutView.as_view(template_name="planner/logged_out.html"),
-    name="logout"
-),
+        "logout/",
+        LogoutView.as_view(template_name="planner/logged_out.html"),
+        name="logout"
+    ),
     path('register/', RegisterView.as_view(), name='register'),
 ]
 

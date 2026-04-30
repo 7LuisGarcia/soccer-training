@@ -1,5 +1,6 @@
+/* Dark background wrapper */
 .coaching-dark-bg {
-    background: linear-gradient(180deg, #1a1a1a 0%, #222 100%);
+    background: linear-gradient(180deg, #62b77d 0%, #8aaa8c 100%);
     min-height: 100vh;
     padding-top: 40px;
     padding-bottom: 60px;
@@ -7,23 +8,19 @@
     z-index: 1;
 }
 
-/* Remove overlay since no image is behind it */
 .coaching-dark-bg::before {
     content: none;
 }
 
-/* Smooth, modern spacing */
 .coaching-hero {
-    border-left: 6px solid #0d6efd;
+    border-left: 6px solid #0e0e0e;
 }
 
-/* Improve list spacing */
 .coaching-list li {
     margin-bottom: 10px;
     line-height: 1.6;
 }
 
-/* CTA hover effect */
 .coaching-cta .btn:hover {
     background-color: #f8f9fa;
     color: #198754;
@@ -52,5 +49,71 @@ h1, h2 {
 /* Softer text */
 .card p,
 .card li {
-    color: #555;
+    color: #141414;
 }
+
+
+
+.coaching-cta-modern {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1e8f3c;
+    border-radius: 20px;
+    padding: 50px;
+    color: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+
+.coaching-cta-modern .cta-content {
+    max-width: 50%;
+    z-index: 2;
+}
+
+.coaching-cta-modern .cta-image {
+    width: 45%;
+    height: 260px;
+    background-image: url('/static/images/soccer-kids.jpg');
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    border-radius: 12px;
+}
+
+.coaching-cta-modern button {
+    transition: all 0.25s ease;
+}
+
+.coaching-cta-modern button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(255,255,255,0.4);
+}
+
+.coaching-cta-modern button:active {
+    transform: scale(0.96);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .coaching-cta-modern {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .coaching-cta-modern .cta-content {
+        max-width: 100%;
+    }
+
+    .coaching-cta-modern .cta-image {
+        width: 100%;
+        height: 200px;
+        clip-path: none;
+        margin-top: 20px;
+        border-radius: 12px;
+    }
+}
+

@@ -48,15 +48,24 @@
         </div>
     </div>
 
-    <!-- CALL TO ACTION -->
-    <div class="p-5 bg-success text-white rounded-4 shadow-sm mt-5 text-center coaching-cta">
-        <h2 class="fw-bold mb-3">Start Coaching Smarter</h2>
-        <p class="fs-5 mb-4">
-            Build sessions, track progress, and elevate your coaching with a professional‑grade planner.
-        </p>
-        <a href="{% url 'planner:session_create' %}" class="btn btn-light btn-lg fw-bold px-4">
-            Create a Training Session
-        </a>
+    <div class="coaching-cta-modern mt-5">
+
+        <div class="cta-content">
+            <h2 class="fw-bold mb-3">Start Coaching Smarter</h2>
+            <p class="fs-5 mb-4">
+                Build sessions, track progress, and elevate your coaching with a professional‑grade planner.
+            </p>
+
+            <form method="POST" action="{% url 'planner:session_create' %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-light btn-lg fw-bold px-4">
+                    Create a Training Session
+                </button>
+            </form>
+        </div>
+
+        <div class="cta-image"></div>
+
     </div>
 
 </div>

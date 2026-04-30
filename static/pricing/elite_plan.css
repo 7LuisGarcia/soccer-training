@@ -1,0 +1,63 @@
+body {
+    background: linear-gradient(180deg, #4b5563 0%, #1f2937 100%);
+    min-height: 100vh;
+}
+
+.bg-white {
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.text-muted {
+    color: #6b7280 !important;
+}
+
+.plan-card {
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.22);
+}
+
+.plan-card h2 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.plan-card ul li {
+    padding: 6px 0;
+    font-size: 1.05rem;
+    color: #1e293b;
+}
+
+.pricing-btn {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    border-radius: 10px;
+}
+
+.pricing-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.pricing-btn:active {
+    transform: scale(0.92);
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+    .plan-card {
+        margin-top: 20px;
+    }
+
+    .pricing-btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 1.1rem;
+    }
+}

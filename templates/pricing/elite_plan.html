@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'pricing/elite_plan.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- HERO -->
+    <div class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+        <h1 class="fw-bold text-dark">Elite Plan</h1>
+        <p class="fs-5 mt-3 text-muted">
+            Advanced analytics, multi‑team management, and season planning tools.
+        </p>
+    </div>
+
+    <!-- PLAN CARD -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 plan-card">
+                <div class="card-body text-center p-4">
+
+                    <h2 class="fw-bold mb-2 text-dark">Elite</h2>
+                    <p class="text-muted mb-4">For clubs, academies, and competitive programs.</p>
+
+                    <h1 class="fw-bold display-5 text-success">$19.99 
+                        <span class="fs-5 text-muted">/ month</span>
+                    </h1>
+
+                    <ul class="list-unstyled mt-4 mb-4 text-start mx-auto" style="max-width: 320px;">
+                        <li>✔ Everything in Pro</li>
+                        <li>✔ Multi‑team management</li>
+                        <li>✔ Season planner tools</li>
+                        <li>✔ Advanced analytics</li>
+                        <li>✔ Priority + dedicated support</li>
+                    </ul>
+
+                    <a href="{% url 'planner:register' %}" class="btn btn-dark px-4 py-2 fw-bold pricing-btn">
+                        Go Elite
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

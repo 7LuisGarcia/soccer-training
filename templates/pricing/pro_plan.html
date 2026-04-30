@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'pricing/pro_plan.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- HERO -->
+    <div class="p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+        <h1 class="fw-bold text-success">Pro Plan</h1>
+        <p class="fs-5 mt-3 text-muted">
+            Unlimited sessions, full drill library, and weekly training planner.
+        </p>
+    </div>
+
+    <!-- PLAN CARD -->
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 plan-card">
+                <div class="card-body text-center p-4">
+
+                    <h2 class="fw-bold mb-2">Pro</h2>
+                    <p class="text-muted mb-4">Perfect for coaches managing weekly training.</p>
+
+                    <h1 class="fw-bold display-5 text-success">$9.99 <span class="fs-5 text-muted">/ month</span></h1>
+
+                    <ul class="list-unstyled mt-4 mb-4 text-start mx-auto" style="max-width: 320px;">
+                        <li>✔ Unlimited training sessions</li>
+                        <li>✔ Full drill library access</li>
+                        <li>✔ Weekly training planner</li>
+                        <li>✔ Player tracking tools</li>
+                        <li>✔ Priority support</li>
+                    </ul>
+
+                    <a href="{% url 'planner:register' %}" class="btn btn-success px-4 py-2 fw-bold pricing-btn">
+                        Upgrade to Pro
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

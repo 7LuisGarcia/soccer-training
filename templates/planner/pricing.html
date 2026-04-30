@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
-{% block content %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'pricing.css' %}">
+{% endblock %}
 
+{% block content %}
 <!-- HERO SECTION -->
 <div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
     <h1 class="fw-bold">Pricing</h1>
@@ -27,8 +31,9 @@
                     <li>✔ Access to core drills</li>
                     <li>✔ Track session completion</li>
                 </ul>
-
-                <button class="btn btn-dark px-4 fw-bold">Get Started</button>
+                <a href="{% url 'planner:free_plan' %}" class="btn btn-dark px-4 fw-bold pricing-btn">
+                    Get Started
+                </a>
             </div>
         </div>
     </div>
@@ -47,8 +52,10 @@
                     <li>✔ Player performance tracking</li>
                     <li>✔ Weekly training planner</li>
                 </ul>
+                <a href="{% url 'planner:pro_plan' %}" class="btn btn-success px-4 fw-bold pricing-btn">
+                    Upgrade
+                </a>
 
-                <button class="btn btn-success px-4 fw-bold">Upgrade</button>
             </div>
         </div>
     </div>
@@ -67,8 +74,9 @@
                     <li>✔ Season planner tools</li>
                     <li>✔ Advanced analytics</li>
                 </ul>
-
-                <button class="btn btn-dark px-4 fw-bold">Go Elite</button>
+                <a href="{% url 'planner:elite_plan' %}" class="btn btn-dark px-4 fw-bold pricing-btn">
+                    Go Elite
+                </a>   
             </div>
         </div>
     </div>
