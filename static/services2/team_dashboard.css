@@ -1,0 +1,19 @@
+.dashboard-card {
+    cursor: pointer;
+    border: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+    border-radius: 12px;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-card h3 {
+    color: #0d6efd;
+}
+
+.dashboard-card p {
+    font-size: 0.95rem;
+}

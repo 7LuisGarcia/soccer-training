@@ -93,6 +93,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # Authentication redirects
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = 'planner:login'
+LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = 'planner:login'
-

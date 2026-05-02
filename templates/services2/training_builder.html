@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+    <h1 class="fw-bold">Training Session Builder</h1>
+    <p class="fs-5 mt-3">
+        Design detailed training sessions with drills, timing, and objectives.
+    </p>
+</div>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h2 class="fw-bold">Create a Session</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Session Title</label>
+                <input type="text" class="form-control" placeholder="e.g. Passing & Movement">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Objective</label>
+                <textarea class="form-control" rows="3" placeholder="What is the goal of this session?"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Duration (minutes)</label>
+                <input type="number" class="form-control" placeholder="90">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Drills</label>
+                <textarea class="form-control" rows="4" placeholder="List drills with details..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">
+                Save Session
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

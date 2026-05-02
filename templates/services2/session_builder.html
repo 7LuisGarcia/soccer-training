@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+    <h1 class="fw-bold">Session Builder</h1>
+    <p class="fs-5 mt-3">
+        Create 2D and 3D training session visuals for your team.
+    </p>
+</div>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h2 class="fw-bold">Build Your Visual Session</h2>
+        <p class="mt-3">
+            Use this page to design drills, player movements, field layouts, and tactical ideas.
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label">Session Title</label>
+                <input type="text" class="form-control" placeholder="e.g. Pressing Shape Drill">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Session Type</label>
+                <select class="form-select">
+                    <option>2D Drill Diagram</option>
+                    <option>3D Tactical Animation</option>
+                    <option>Field Layout</option>
+                    <option>Player Movement Pattern</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Tactical Notes</label>
+                <textarea class="form-control" rows="4" placeholder="Describe player positioning, movements, and coaching points..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Save Visual Session
+            </button>
+        </form>
+    </div>
+</div>
+
+<a href="{% url 'planner:sessions_2d3d' %}" class="btn btn-outline-secondary">
+    Back to 2D & 3D Sessions
+</a>
+
+{% endblock %}

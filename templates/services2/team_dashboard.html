@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services2/team_dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <!-- PAGE HEADER -->
+    <div class="mb-4">
+        <h1 class="fw-bold">Team Dashboard</h1>
+        <p class="text-muted fs-5">Quick access to your team’s essential tools.</p>
+    </div>
+
+    <!-- DASHBOARD GRID -->
+    <div class="row g-4">
+
+        <!-- PLAYERS -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card dashboard-card shadow-sm"
+                 onclick="window.location.href='{% url 'planner:team_management' %}'"
+                 >
+                <div class="card-body">
+                    <h3 class="fw-bold">Players</h3>
+                    <p class="text-muted mt-2">View roster, add players, update profiles.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ATTENDANCE -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card dashboard-card shadow-sm"
+                 onclick="window.location.href='{% url 'planner:season_planner' %}'">
+                <div class="card-body">
+                    <h3 class="fw-bold">Attendance</h3>
+                    <p class="text-muted mt-2">Track availability and attendance history.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- POSITIONS -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card dashboard-card shadow-sm"
+                 onclick="window.location.href='{% url 'planner:training_planner' %}'">
+                <div class="card-body">
+                    <h3 class="fw-bold">Positions</h3>
+                    <p class="text-muted mt-2">Assign roles and build tactical structure.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card dashboard-card shadow-sm"
+                 onclick="window.location.href='{% url 'planner:sessions_2d3d' %}'">
+                <div class="card-body">
+                    <h3 class="fw-bold">Stats</h3>
+                    <p class="text-muted mt-2">Monitor performance and player progress.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTES -->
+        <div class="col-md-6 col-lg-4">
+            <div class="card dashboard-card shadow-sm"
+                 onclick="window.location.href='{% url 'planner:drill_library' %}'">
+                <div class="card-body">
+                    <h3 class="fw-bold">Notes</h3>
+                    <p class="text-muted mt-2">Store observations and coaching insights.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

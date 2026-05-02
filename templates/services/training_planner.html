@@ -8,20 +8,22 @@
     </p>
 </div>
 
-<div class="card shadow-sm mb-4">
-    <div class="card-body">
-        <h2 class="fw-bold">Plan Your Sessions</h2>
-        <p class="mt-3">
-            Build sessions that improve technique, fitness, tactical awareness, and decision‑making.
-        </p>
+<a href="{% url 'planner:training_planner' %}" class="text-decoration-none text-dark">
+    <div class="card shadow-sm mb-4 service-click">
+        <div class="card-body">
+            <h2 class="fw-bold">Plan Your Sessions</h2>
+            <p class="mt-3">
+                Build sessions that improve technique, fitness, tactical awareness, and decision-making.
+            </p>
 
-        <ul class="fs-5 mt-3">
-            <li>✔ Add drills with difficulty and duration</li>
-            <li>✔ Set session objectives</li>
-            <li>✔ Track completed sessions</li>
-            <li>✔ Organize sessions by week or category</li>
-        </ul>
+            <ul class="fs-5 mt-3">
+                <li>✔ Add drills with difficulty and duration</li>
+                <li>✔ Set session objectives</li>
+                <li>✔ Track completed sessions</li>
+                <li>✔ Organize sessions by week or category</li>
+            </ul>
+        </div>
     </div>
-</div>
+</a>
 
 {% endblock %}

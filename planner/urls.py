@@ -21,25 +21,38 @@ urlpatterns = [
     path('team-management/', views.team_management, name='team_management'),
     path('season-planner/', views.season_planner, name='season_planner'),
     path('training-planner/', views.training_planner, name='training_planner'),
+    path('training-builder/', views.training_builder, name='training_builder'),
     path('sessions-2d3d/', views.sessions_2d3d, name='sessions_2d3d'),
     path('drill-library/', views.drill_library, name='drill_library'),
     path('about/', views.about, name='about'),
-
-    # Pricing sub‑pages
+    path('sessions-builder/', views.sessions_builder, name='sessions_builder'),
+    path('sessions-builder/', views.sessions_builder, name='sessions_builder'), 
+    
+    
+    
+    # Pricing
     path("pricing/free/", views.free_plan, name="free_plan"),
     path("pricing/pro/", views.pro_plan, name="pro_plan"),
     path("pricing/elite/", views.elite_plan, name="elite_plan"),
 
     # Auth
-    path('login/', LoginView.as_view(template_name='planner/login.html'), name='login'),
+    path(
+        'login/',
+        LoginView.as_view(
+            template_name='planner/login.html',
+            redirect_authenticated_user=True
+        ),
+        name='login'
+    ),
     path(
         "logout/",
         LogoutView.as_view(template_name="planner/logged_out.html"),
         name="logout"
     ),
+
     path('register/', RegisterView.as_view(), name='register'),
+    path('team-dashboard/', views.team_dashboard, name='team_dashboard'),
 ]
 
-# Serve media files during development
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
