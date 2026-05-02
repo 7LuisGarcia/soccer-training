@@ -79,6 +79,97 @@
         </div>
     </div>
 
+    <!-- Session Drills -->
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="service-card h-100">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828914.png" width="70" class="mx-auto mb-3">
+            <h4 class="fw-bold">Session Drills</h4>
+            <p class="text-muted mt-2">
+                Add drills to sessions, track difficulty, and build structured training routines.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<!-- DRILL LIBRARY SECTION -->
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm mt-5">
+    <h1 class="fw-bold">Drill Library</h1>
+    <p class="fs-5 mt-3">
+        Browse a collection of drills designed to improve technical skills, tactical awareness, and overall performance.
+    </p>
+</div>
+
+<div class="card shadow-sm mb-5">
+    <div class="card-body">
+        <h2 class="fw-bold">Explore Drills</h2>
+        <p class="mt-3">
+            Access drills categorized by skill focus, difficulty, and training objectives.
+        </p>
+
+        <ul class="fs-5 mt-3">
+            <li>✔ Technical drills (passing, dribbling, shooting)</li>
+            <li>✔ Tactical drills (pressing, buildup, transitions)</li>
+            <li>✔ Fitness and conditioning drills</li>
+            <li>✔ Goalkeeper‑specific drills</li>
+        </ul>
+    </div>
+</div>
+
+<!-- SESSION FORM SECTION -->
+<div class="container py-5 fade-in">
+
+    <div class="mb-4">
+        <h1 class="fw-bold">Create Training Session</h1>
+        <p class="text-muted fs-5">
+            Add a new training session with key details and notes.
+        </p>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+
+            <form method="POST" action="{% url 'planner:session_create' %}">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Session Title</label>
+                    <input type="text" name="title" class="form-control form-control-lg"
+                           placeholder="e.g., Passing & Possession Session" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Date</label>
+                    <input type="date" name="date" class="form-control form-control-lg" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Duration (minutes)</label>
+                    <input type="number" name="duration" class="form-control form-control-lg"
+                           placeholder="e.g., 90" min="1" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Notes</label>
+                    <textarea name="notes" class="form-control form-control-lg" rows="4"
+                              placeholder="Optional notes about the session..."></textarea>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'planner:home' %}" class="btn btn-outline-secondary btn-lg px-4">
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="btn btn-primary btn-lg fw-bold px-4">
+                        Create Session
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
 </div>
 
 <!-- CALL TO ACTION -->
