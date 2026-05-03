@@ -1,28 +1,69 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
 {% block content %}
-
-<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-    <h1 class="fw-bold">Team Management</h1>
-    <p class="fs-5 mt-3">
-        Organize players, track attendance, and manage team information with a clean and efficient interface.
+<section class="page-header">
+    <h1>Team Management</h1>
+    <p>
+        Organize your soccer team, manage player information, track attendance,
+        plan communication, and keep your season running smoothly.
     </p>
-</div>
+</section>
 
-<div class="card shadow-sm mb-4 service-click">
-    <a href="{% url 'planner:team_dashboard' %}" class="stretched-link"></a>
-    <div class="card-body">
-        <h2 class="fw-bold">Manage Your Team</h2>
-        <p class="mt-3">
-            Keep your roster organized with player profiles, positions, performance notes, and attendance tracking.
-        </p>
+<section class="team-section">
+    <h2>What Team Management Helps With</h2>
 
-        <ul class="fs-5 mt-3">
-            <li>✔ Add and edit player profiles</li>
-            <li>✔ Track attendance and availability</li>
-            <li>✔ Assign positions and roles</li>
-            <li>✔ Monitor player development</li>
-        </ul>
+    <div class="team-grid">
+        <div class="team-card">
+            <h3>Player Roster</h3>
+            <p>
+                Keep track of player names, positions, contact details, jersey numbers,
+                and availability throughout the season.
+            </p>
+        </div>
+
+        <div class="team-card">
+            <h3>Attendance</h3>
+            <p>
+                Monitor who attends practices and games so you can understand commitment,
+                consistency, and player availability.
+            </p>
+        </div>
+
+        <div class="team-card">
+            <h3>Lineups & Positions</h3>
+            <p>
+                Plan formations, assign positions, rotate players, and prepare match-day
+                lineups more easily.
+            </p>
+        </div>
+
+        <div class="team-card">
+            <h3>Team Communication</h3>
+            <p>
+                Keep players and families informed about training times, match schedules,
+                updates, and team expectations.
+            </p>
+        </div>
     </div>
-</div>
+</section>
 
+<section class="team-section">
+    <h2>Team Management Checklist</h2>
+    <ul>
+        <li>Create and update your player roster.</li>
+        <li>Track attendance for every training session.</li>
+        <li>Record player positions and development goals.</li>
+        <li>Plan match lineups and substitutions.</li>
+        <li>Review player progress throughout the season.</li>
+    </ul>
+</section>
+
+<section class="team-section">
+    <h2>How This Helps Coaches</h2>
+    <p>
+        Good team management helps coaches stay organized and make better decisions.
+        When player information, schedules, attendance, and goals are easy to access,
+        coaches can spend less time managing details and more time developing players.
+    </p>
+</section>
 {% endblock %}

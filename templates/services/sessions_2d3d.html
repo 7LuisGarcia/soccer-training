@@ -1,30 +1,186 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
 {% block content %}
-
-<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-    <h1 class="fw-bold">2D & 3D Sessions</h1>
-    <p class="fs-5 mt-3">
-        Visualize drills and tactical movements with clean 2D and 3D session diagrams.
+<section class="page-header">
+    <h1>2-Day / 3-Day Soccer Sessions</h1>
+    <p>
+        Plan weekly soccer training schedules using either 2-day or 3-day session formats.
+        These plans help players improve skills, fitness, confidence, and game understanding.
     </p>
-</div>
+</section>
 
-<a href="{% url 'planner:sessions_builder' %}" class="text-decoration-none text-dark">
-    <div class="card shadow-sm mb-4 service-click">
-        <div class="card-body">
-            <h2 class="fw-bold">Session Visualization</h2>
-            <p class="mt-3">
-                Bring your training sessions to life with visual tools that help players understand positioning,
-                movement, and tactical concepts.
-            </p>
+<section class="sessions-section">
+    <h2>Why Use 2-Day or 3-Day Training Plans?</h2>
+    <p>
+        A structured weekly plan helps coaches balance technical work, tactical learning,
+        fitness, recovery, and match preparation. Instead of random practices, each session
+        connects to a larger development goal.
+    </p>
+</section>
 
-            <ul class="fs-5 mt-3">
-                <li>✔ 2D drill diagrams</li>
-                <li>✔ 3D tactical animations</li>
-                <li>✔ Field layouts and player markers</li>
-                <li>✔ Export and share session visuals</li>
+<section class="sessions-section">
+    <h2>2-Day Session Plan</h2>
+    <p>
+        A 2-day plan works well for beginner teams, busy schedules, or teams with one match
+        per week. Each session should be focused, simple, and high quality.
+    </p>
+
+    <div class="session-grid">
+        <div class="session-card">
+            <h3>Day 1: Technical Skills</h3>
+            <ul>
+                <li>Warm-up with ball control</li>
+                <li>Passing and first touch drills</li>
+                <li>Dribbling or shooting activity</li>
+                <li>Small-sided game</li>
+            </ul>
+        </div>
+
+        <div class="session-card">
+            <h3>Day 2: Game Preparation</h3>
+            <ul>
+                <li>Dynamic warm-up</li>
+                <li>Team shape and positioning</li>
+                <li>Attacking or defending situations</li>
+                <li>Set pieces and match review</li>
             </ul>
         </div>
     </div>
-</a>
+</section>
 
+<section class="sessions-section">
+    <h2>3-Day Session Plan</h2>
+    <p>
+        A 3-day plan gives players more time to develop. It allows coaches to separate
+        technical training, tactical training, and match preparation.
+    </p>
+
+    <div class="session-grid">
+        <div class="session-card">
+            <h3>Day 1: Technical Development</h3>
+            <ul>
+                <li>Ball mastery and footwork</li>
+                <li>Passing patterns</li>
+                <li>Receiving under pressure</li>
+                <li>Finishing practice</li>
+            </ul>
+        </div>
+
+        <div class="session-card">
+            <h3>Day 2: Tactical Understanding</h3>
+            <ul>
+                <li>Positioning and spacing</li>
+                <li>Pressing and defending as a unit</li>
+                <li>Transitions from attack to defense</li>
+                <li>Small-sided tactical games</li>
+            </ul>
+        </div>
+
+        <div class="session-card">
+            <h3>Day 3: Match Preparation</h3>
+            <ul>
+                <li>Team formation review</li>
+                <li>Set pieces</li>
+                <li>Game scenarios</li>
+                <li>Confidence-building finishing games</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="sessions-section">
+    <h2>How Sessions Help Players</h2>
+
+    <div class="session-grid">
+        <div class="session-card">
+            <h3>Skill Improvement</h3>
+            <p>
+                Repeated practice helps players improve passing, dribbling, shooting,
+                defending, and first touch.
+            </p>
+        </div>
+
+        <div class="session-card">
+            <h3>Better Fitness</h3>
+            <p>
+                Planned sessions build speed, stamina, agility, and strength without
+                overloading the player.
+            </p>
+        </div>
+
+        <div class="session-card">
+            <h3>Game Awareness</h3>
+            <p>
+                Tactical drills help players understand positioning, spacing,
+                decision-making, and teamwork.
+            </p>
+        </div>
+
+        <div class="session-card">
+            <h3>Confidence</h3>
+            <p>
+                Consistent training gives players more confidence during matches
+                because they know what to do in game situations.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="sessions-section">
+    <h2>Sample Weekly Schedule</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Plan</th>
+                <th>Day</th>
+                <th>Focus</th>
+                <th>Example Activity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2-Day</td>
+                <td>Day 1</td>
+                <td>Technical Skills</td>
+                <td>Passing, dribbling, shooting, small-sided game</td>
+            </tr>
+            <tr>
+                <td>2-Day</td>
+                <td>Day 2</td>
+                <td>Match Preparation</td>
+                <td>Team shape, set pieces, attacking/defending scenarios</td>
+            </tr>
+            <tr>
+                <td>3-Day</td>
+                <td>Day 1</td>
+                <td>Technique</td>
+                <td>Ball mastery, passing patterns, finishing</td>
+            </tr>
+            <tr>
+                <td>3-Day</td>
+                <td>Day 2</td>
+                <td>Tactics</td>
+                <td>Positioning, pressing, transitions, team shape</td>
+            </tr>
+            <tr>
+                <td>3-Day</td>
+                <td>Day 3</td>
+                <td>Game Prep</td>
+                <td>Set pieces, match scenarios, confidence games</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="sessions-section">
+    <h2>Coaching Tips</h2>
+    <ul>
+        <li>Keep each session focused on one main goal.</li>
+        <li>Use drills that connect to real match situations.</li>
+        <li>Give players enough rest between intense sessions.</li>
+        <li>End sessions with a game-based activity.</li>
+        <li>Review progress weekly and adjust the plan when needed.</li>
+    </ul>
+</section>
 {% endblock %}

@@ -1,35 +1,157 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'services/season_planner.css' %}">
-{% endblock %}
+{% extends "base.html" %}
 
 {% block content %}
-
-<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-    <h1 class="fw-bold">Season Planner</h1>
-    <p class="fs-5 mt-3">
-        Build long-term training cycles and structure your season with clarity and purpose.
+<section class="page-header">
+    <h1>Season Planner</h1>
+    <p>
+        Organize your soccer season from preseason preparation to final matches.
+        Build a clear plan for training, games, player development, and team goals.
     </p>
-</div>
+</section>
 
-<a href="{% url 'planner:season_planner' %}" class="text-decoration-none text-dark">
-    <div class="card shadow-sm mb-4 service-click">
-        <div class="card-body">
-            <h2 class="fw-bold">Plan Your Season</h2>
-            <p class="mt-3">
-                Create a roadmap for your team’s development with weekly, monthly, and seasonal planning tools.
+<section class="season-section">
+    <h2>Season Planning Steps</h2>
+
+    <div class="season-grid">
+        <div class="season-card">
+            <h3>1. Set Team Goals</h3>
+            <p>
+                Decide what your team wants to achieve this season, such as improving
+                fitness, building teamwork, developing technical skills, or competing
+                for a championship.
             </p>
+        </div>
 
-            <ul class="fs-5 mt-3">
-                <li>✔ Define season goals and milestones</li>
-                <li>✔ Build weekly and monthly training cycles</li>
-                <li>✔ Track progress throughout the season</li>
-                <li>✔ Adjust plans based on team performance</li>
-            </ul>
+        <div class="season-card">
+            <h3>2. Build a Training Calendar</h3>
+            <p>
+                Schedule training sessions, match days, recovery days, tournaments,
+                and team meetings so players and coaches know what to expect.
+            </p>
+        </div>
+
+        <div class="season-card">
+            <h3>3. Plan Training Phases</h3>
+            <p>
+                Divide the season into preseason, early season, midseason, and
+                postseason phases. Each phase should focus on different priorities.
+            </p>
+        </div>
+
+        <div class="season-card">
+            <h3>4. Track Player Development</h3>
+            <p>
+                Monitor attendance, performance, fitness, technical skills, and
+                personal goals to help each player improve throughout the season.
+            </p>
         </div>
     </div>
-</a>
+</section>
 
+<section class="season-section">
+    <h2>Season Phases</h2>
+
+    <ul>
+        <li><strong>Preseason:</strong> Build fitness, team chemistry, and basic tactics.</li>
+        <li><strong>Early Season:</strong> Establish formations, roles, and match routines.</li>
+        <li><strong>Midseason:</strong> Adjust tactics, review performance, and prevent burnout.</li>
+        <li><strong>Late Season:</strong> Sharpen match preparation and focus on key games.</li>
+        <li><strong>Postseason:</strong> Review progress and set goals for next season.</li>
+    </ul>
+</section>
+
+<section class="season-section">
+    <h2>What to Include in Your Plan</h2>
+
+    <div class="season-grid">
+        <div class="season-card">
+            <h3>Training Focus</h3>
+            <p>
+                Choose weekly themes such as passing, pressing, finishing, defending,
+                possession, transitions, or set pieces.
+            </p>
+        </div>
+
+        <div class="season-card">
+            <h3>Match Schedule</h3>
+            <p>
+                Keep track of opponents, match locations, kickoff times, travel plans,
+                and preparation notes.
+            </p>
+        </div>
+
+        <div class="season-card">
+            <h3>Player Rotation</h3>
+            <p>
+                Plan playing time, substitutions, position changes, and opportunities
+                for player growth.
+            </p>
+        </div>
+
+        <div class="season-card">
+            <h3>Recovery & Rest</h3>
+            <p>
+                Add rest days and lighter sessions to reduce fatigue and lower the
+                risk of injury.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="season-section">
+    <h2>Example Weekly Plan</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Focus</th>
+                <th>Example Activity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday</td>
+                <td>Recovery</td>
+                <td>Light stretching, mobility, and match review</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>Technical Training</td>
+                <td>Passing patterns, first touch, and possession drills</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>Tactical Work</td>
+                <td>Team shape, pressing, and defensive organization</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td>Game Preparation</td>
+                <td>Set pieces, finishing, and opponent-specific tactics</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>Light Session</td>
+                <td>Short-sided games and confidence-building activities</td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td>Match Day</td>
+                <td>Warm-up, team talk, match, and post-game notes</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="season-section">
+    <h2>Coaching Tips</h2>
+    <ul>
+        <li>Plan ahead, but stay flexible when games, weather, or player availability changes.</li>
+        <li>Balance hard training days with recovery days.</li>
+        <li>Use player feedback to adjust the season plan.</li>
+        <li>Review progress every few weeks and update team goals.</li>
+        <li>Connect every training session to a larger season objective.</li>
+    </ul>
+</section>
 {% endblock %}

@@ -1,27 +1,90 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
 {% block content %}
-
-<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-    <h1 class="fw-bold">Drill Library</h1>
-    <p class="fs-5 mt-3">
-        Browse a collection of drills designed to improve technical skills, tactical awareness, and overall performance.
+<section class="page-header">
+    <h1>Drill Library</h1>
+    <p>
+        Explore a wide range of soccer drills designed to improve technical skills,
+        tactical awareness, fitness, and teamwork for players of all levels.
     </p>
-</div>
+</section>
 
-<div class="card shadow-sm mb-4">
-    <div class="card-body">
-        <h2 class="fw-bold">Explore Drills</h2>
-        <p class="mt-3">
-            Access drills categorized by skill focus, difficulty, and training objectives.
-        </p>
+<section class="drill-categories">
+    <h2>Drill Categories</h2>
 
-        <ul class="fs-5 mt-3">
-            <li>✔ Technical drills (passing, dribbling, shooting)</li>
-            <li>✔ Tactical drills (pressing, buildup, transitions)</li>
-            <li>✔ Fitness and conditioning drills</li>
-            <li>✔ Goalkeeper‑specific drills</li>
-        </ul>
+    <div class="drill-grid">
+        <div class="drill-card">
+            <h3>Technical Skills</h3>
+            <p>
+                Improve ball control, passing accuracy, dribbling, and shooting
+                techniques through focused repetition.
+            </p>
+        </div>
+
+        <div class="drill-card">
+            <h3>Tactical Awareness</h3>
+            <p>
+                Develop positioning, decision-making, and game understanding with
+                small-sided and situational drills.
+            </p>
+        </div>
+
+        <div class="drill-card">
+            <h3>Fitness & Conditioning</h3>
+            <p>
+                Build endurance, speed, agility, and strength to enhance overall
+                player performance.
+            </p>
+        </div>
+
+        <div class="drill-card">
+            <h3>Team Play</h3>
+            <p>
+                Focus on communication, teamwork, and coordination with drills
+                designed for group dynamics.
+            </p>
+        </div>
     </div>
-</div>
+</section>
 
+<section class="featured-drills">
+    <h2>Featured Drills</h2>
+
+    <div class="drill-list">
+        <div class="drill-item">
+            <h3>Passing Triangle</h3>
+            <p>
+                Players form a triangle and practice quick, accurate passing while
+                constantly moving to support teammates.
+            </p>
+        </div>
+
+        <div class="drill-item">
+            <h3>1v1 Attacking Drill</h3>
+            <p>
+                Focus on beating defenders using skill moves, speed, and creativity
+                in a controlled 1v1 scenario.
+            </p>
+        </div>
+
+        <div class="drill-item">
+            <h3>Small-Sided Game (4v4)</h3>
+            <p>
+                Encourages quick decision-making, teamwork, and high involvement
+                from all players.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="tips-section">
+    <h2>Coaching Tips</h2>
+    <ul>
+        <li>Keep drills simple and focused on one objective at a time.</li>
+        <li>Encourage communication and constant movement.</li>
+        <li>Adjust difficulty based on player skill level.</li>
+        <li>Provide quick feedback and positive reinforcement.</li>
+        <li>Always relate drills to real match situations.</li>
+    </ul>
+</section>
 {% endblock %}

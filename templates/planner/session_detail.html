@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <a href="{% url 'planner:home' %}" class="btn btn-outline-secondary mb-4">
+        ← Back
+    </a>
+
+    <div class="card shadow-sm p-4">
+        <h1 class="fw-bold">{{ session.title }}</h1>
+
+        <p class="text-muted mb-2">
+            {{ session.date }}{% if session.duration %} • {{ session.duration }} minutes{% endif %}
+        </p>
+
+        {% if session.description %}
+            <p>{{ session.description }}</p>
+        {% else %}
+            <p class="text-muted">No session description added yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
