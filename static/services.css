@@ -1,118 +1,120 @@
-/* PAGE BACKGROUND — Light Blue + Gray */
-body {
-    background: linear-gradient(135deg, #c3d4f7, #9bb7e8, #6f8fcf);
-    background-attachment: fixed;
-    color: #4b5563;
-}
-
-/* HERO SECTION — Soft Blue Gradient */
-.services-hero {
-    background: linear-gradient(135deg, #cfe0ff, #a9c4f5, #7ea4e3);
-    color: #1f2937;
-    border-radius: 14px;
-    padding: 40px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
-}
-
-/* SERVICE CARDS — White with Blue Shadow */
+/* SERVICE CARDS — STRONGER GREEN STYLE */
 .service-card {
-    background: #ffffff;
-    border-radius: 14px;
-    border: 1px solid #e5e7eb;
+    background: var(--white);
+    border-radius: 20px;
+    border: 2px solid rgba(30, 143, 60, 0.25); /* 🔥 stronger green border */
     padding: 25px;
     text-align: center;
-    box-shadow: 0 6px 24px rgba(125, 150, 200, 0.25);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+/* TOP GREEN ACCENT LINE */
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background: var(--green);
+}
+
+/* HOVER */
 .service-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(100, 130, 200, 0.35);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.12);
+    border-color: var(--green);
 }
 
 /* ICONS */
 .service-card img {
     width: 70px;
     margin-bottom: 15px;
-    filter: drop-shadow(0 4px 8px rgba(150, 170, 210, 0.25));
+    filter: drop-shadow(0 4px 10px rgba(30, 143, 60, 0.25)); /* 🔥 green glow */
 }
 
-/* TITLES */
+/* TITLES — MORE GREEN */
 .service-card h4 {
-    font-weight: 700;
-    color: #1f3b70;
+    font-weight: 800;
+    color: var(--green);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+/* OPTIONAL: underline accent */
+.service-card h4::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--green);
+    margin: 8px auto 0;
+    border-radius: 2px;
 }
 
 /* TEXT */
 .service-card p {
-    color: #4b5563;
+    color: var(--text-muted);
     font-size: 0.95rem;
+    line-height: 1.7;
 }
 
-/* CALL TO ACTION — Blue Gradient */
-.services-cta {
-    background: linear-gradient(135deg, #4a90e2, #3578d4, #1f5fb8);
-    color: white;
-    border-radius: 14px;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0 6px 24px rgba(50, 80, 150, 0.35);
-}
-
-.services-cta .btn {
-    font-weight: 700;
-    padding: 12px 30px;
-    border-radius: 10px;
-}
-
-/* --------------------------------------------- */
-/* 📱 MOBILE OPTIMIZATION                        */
-/* --------------------------------------------- */
-@media (max-width: 480px) {
-
-    body {
-        padding: 15px;
-    }
-
-    .services-hero {
-        padding: 25px;
-        border-radius: 12px;
-        text-align: center;
-    }
-
-    .services-hero h1,
-    .services-hero h2 {
-        font-size: 1.6rem;
-    }
-
-    .services-hero p {
-        font-size: 1rem;
-    }
+/* 📱 MOBILE OPTIMIZATION FOR SERVICE CARDS */
+@media (max-width: 768px) {
 
     .service-card {
-        padding: 20px;
+        padding: 20px 18px;
+        border-radius: 16px;
         margin: 0 10px 20px;
     }
 
-    .service-card img {
-        width: 60px;
+    /* slightly smaller top accent */
+    .service-card::before {
+        height: 4px;
     }
 
+    /* ICONS */
+    .service-card img {
+        width: 60px;
+        margin-bottom: 12px;
+    }
+
+    /* TITLES */
     .service-card h4 {
         font-size: 1.1rem;
     }
 
+    .service-card h4::after {
+        width: 30px;
+        height: 2px;
+    }
+
+    /* TEXT */
     .service-card p {
         font-size: 0.9rem;
     }
+}
 
-    .services-cta {
-        padding: 30px 20px;
+/* EXTRA SMALL PHONES */
+@media (max-width: 480px) {
+
+    .service-card {
+        padding: 18px 15px;
+        margin: 0 8px 18px;
     }
 
-    .services-cta .btn {
-        width: 100%;
-        padding: 12px;
+    .service-card img {
+        width: 55px;
+    }
+
+    .service-card h4 {
         font-size: 1rem;
+    }
+
+    .service-card p {
+        font-size: 0.85rem;
     }
 }

@@ -1,92 +1,100 @@
-/* FULL PAGE BACKGROUND — Same as Home */
-body {
-    background: linear-gradient(135deg, #dbe8ff, #c7d9f7, #b3c8ef);
-    background-attachment: fixed;
-    color: #1e293b;
-    font-family: 'Inter', sans-serif;
-    padding: 20px; /* mobile breathing room */
+:root {
+    --green: #1e8f3c;
+    --green-dark: #166b2f;
+    --green-soft: #e8f5ec;
+    --text-dark: #102014;
+    --text-muted: #6b7280;
+    --white: #ffffff;
 }
 
-/* AUTH CARD — White With Home-Style Blue Shadow */
+/* PAGE BACKGROUND */
+body {
+    background: #f4f7f5; /* same as home */
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+}
+
+/* AUTH CARD */
 .auth-card {
     max-width: 420px;
     width: 100%;
-    margin: 0 auto;
-    border-radius: 14px;
-    background: #ffffff;
-    padding: 30px;
-    border: 1px solid #b7c8e8; /* same border as home cards */
-    box-shadow: 0 6px 24px rgba(30, 64, 175, 0.18); /* same blue shadow */
+    margin: 60px auto;
+    border-radius: 18px;
+    background: var(--white); /* 🔥 keep card white */
+    padding: 32px;
+    border: 1px solid rgba(30, 143, 60, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* TITLE — Deep Blue (Matches Home Headings) */
+/* TITLE */
 .auth-card h2 {
-    letter-spacing: 1px;
-    font-weight: 700;
-    color: #1e3a8a; /* deep premium blue */
+    font-weight: 800;
+    color: var(--green);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
-/* INPUTS — Soft Blue Border + Blue Focus Glow */
+/* INPUTS */
 .form-control {
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 12px;
     font-size: 1rem;
-    border: 1px solid #b7c8e8; /* same soft blue border */
-    color: #1e293b;
+    border: 1px solid #d1d5db;
+    color: var(--text-dark);
 }
 
 .form-control:focus {
-    border-color: #3b6fc4; /* hero blue */
-    box-shadow: 0 0 0 3px rgba(59, 111, 196, 0.25); /* soft blue glow */
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(30, 143, 60, 0.2);
 }
 
-/* BUTTON — Hero Blue (Matches Home Buttons + Hero Section) */
+/* BUTTON */
 .btn-primary {
-    background-color: #3b6fc4; /* hero blue */
+    background-color: var(--green);
     border: none;
     font-size: 1.1rem;
-    border-radius: 8px;
-    font-weight: 600;
-    color: #f1f5f9;
+    border-radius: 999px; /* 🔥 matches your home buttons */
+    font-weight: 700;
+    color: white;
     padding: 12px;
-    width: 100%; /* full width for mobile */
-    transition: 0.2s ease-in-out;
+    width: 100%;
+    transition: 0.2s ease;
 }
 
 .btn-primary:hover {
-    background-color: #2f5aa3; /* darker hero blue */
-    color: #ffffff;
+    background-color: var(--green-dark);
+    transform: translateY(-2px);
 }
 
-/* SMALL TEXT — Same Muted Blue-Gray */
+/* TEXT */
 .text-muted {
-    color: #64748b !important;
+    color: var(--text-muted) !important;
     font-size: 0.9rem;
 }
 
-/* --------------------------------------------- */
-/* 📱 MOBILE OPTIMIZATION                        */
-/* --------------------------------------------- */
-@media (max-width: 480px) {
+/* OPTIONAL HEADER STRIP */
+.auth-card::before {
+    content: "";
+    display: block;
+    height: 6px;
+    width: 100%;
+    background: var(--green);
+    border-radius: 18px 18px 0 0;
+    margin: -32px -32px 20px -32px;
+}
 
+/* MOBILE */
+@media (max-width: 480px) {
     .auth-card {
         padding: 24px 20px;
-        border-radius: 12px;
     }
 
     .auth-card h2 {
         font-size: 1.4rem;
     }
 
-    .form-control {
-        padding: 10px;
-        font-size: 0.95rem;
-    }
-
     .btn-primary {
         font-size: 1rem;
-        padding: 10px;
     }
 }
