@@ -7,7 +7,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-jk*4g@no)9h9u!dv3*()(q&e+hju61ehpme2f3e31(4upvqmjz'
-
+SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'planner',
+    'embed_video',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,12 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.template.context_processors.request',
+]
+
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 

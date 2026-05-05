@@ -1,4 +1,5 @@
 from django.db import models
+from embed_video.fields import EmbedVideoField
 
 class TrainingSession(models.Model):
     title = models.CharField(max_length=200)
@@ -6,7 +7,7 @@ class TrainingSession(models.Model):
     duration = models.PositiveIntegerField(help_text="Duration in minutes")
     notes = models.TextField(blank=True)
     completed = models.BooleanField(default=False)
-
+    video = EmbedVideoField(blank=True, null=True)
     def __str__(self):
         return f"{self.title} ({self.date})"
 
