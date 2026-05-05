@@ -62,59 +62,116 @@
     line-height: 1.7;
 }
 
-/* 📱 MOBILE OPTIMIZATION FOR SERVICE CARDS */
+/* PREMIUM MOBILE SERVICE CARDS */
 @media (max-width: 768px) {
 
+    .service-grid,
+    .services-grid,
+    .row {
+        gap: 18px;
+    }
+
     .service-card {
-        padding: 20px 18px;
-        border-radius: 16px;
-        margin: 0 10px 20px;
+        padding: 24px 20px;
+        margin: 0 8px 22px;
+        border-radius: 22px;
+        border: 1px solid rgba(30, 143, 60, 0.22);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+        background: linear-gradient(180deg, #ffffff 0%, #f7fff9 100%);
     }
 
-    /* slightly smaller top accent */
     .service-card::before {
-        height: 4px;
+        height: 7px;
+        background: linear-gradient(90deg, var(--green), #2fae52);
     }
 
-    /* ICONS */
+    .service-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+    }
+
     .service-card img {
-        width: 60px;
-        margin-bottom: 12px;
+        width: 62px;
+        height: 62px;
+        object-fit: contain;
+        margin: 0 auto 14px;
+        padding: 10px;
+        border-radius: 18px;
+        background: #e8f5ec;
+        filter: drop-shadow(0 5px 10px rgba(30, 143, 60, 0.25));
     }
 
-    /* TITLES */
     .service-card h4 {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
+        font-weight: 900;
+        color: var(--green);
+        margin-bottom: 10px;
     }
 
     .service-card h4::after {
-        width: 30px;
-        height: 2px;
+        width: 36px;
+        height: 3px;
+        margin-top: 9px;
     }
 
-    /* TEXT */
     .service-card p {
-        font-size: 0.9rem;
+        font-size: 0.92rem;
+        line-height: 1.65;
+        color: var(--text-muted);
+        margin-bottom: 0;
     }
 }
 
-/* EXTRA SMALL PHONES */
 @media (max-width: 480px) {
 
+    body {
+        padding: 12px;
+    }
+
+    .services-hero {
+        padding: 30px 22px;
+        border-radius: 22px;
+        text-align: center;
+    }
+
+    .services-hero h1,
+    .services-hero h2 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    .services-hero p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
     .service-card {
-        padding: 18px 15px;
-        margin: 0 8px 18px;
+        padding: 22px 18px;
+        margin: 0 0 20px;
+        border-radius: 20px;
     }
 
     .service-card img {
-        width: 55px;
+        width: 58px;
+        height: 58px;
     }
 
     .service-card h4 {
-        font-size: 1rem;
+        font-size: 1.08rem;
     }
 
     .service-card p {
-        font-size: 0.85rem;
+        font-size: 0.88rem;
+    }
+
+    .services-cta {
+        padding: 32px 22px;
+        border-radius: 22px;
+    }
+
+    .services-cta .btn {
+        width: 100%;
+        border-radius: 999px;
+        padding: 13px;
     }
 }
