@@ -1,100 +1,193 @@
 :root {
     --green: #1e8f3c;
     --green-dark: #166b2f;
-    --green-soft: #e8f5ec;
-    --text-dark: #102014;
+    --green-soft: #eef8f1;
+    --text-dark: #111827;
     --text-muted: #6b7280;
     --white: #ffffff;
 }
 
-/* PAGE BACKGROUND */
+/* PAGE */
 body {
-    background: #f4f7f5; /* same as home */
-    color: var(--text-dark);
+    background: linear-gradient(to bottom, #f4f7f5, #eef4ef);
     font-family: 'Inter', sans-serif;
-    padding: 20px;
+    color: var(--text-dark);
 }
 
-/* AUTH CARD */
+/* CENTER WRAPPER */
+.auth-wrapper {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 16px;
+}
+
+/* PREMIUM CARD */
 .auth-card {
-    max-width: 420px;
     width: 100%;
-    margin: 60px auto;
-    border-radius: 18px;
-    background: var(--white); /* 🔥 keep card white */
-    padding: 32px;
-    border: 1px solid rgba(30, 143, 60, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    max-width: 470px;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
+
+    border-radius: 28px;
+    padding: 42px;
+
+    border: 1px solid rgba(255,255,255,0.7);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08),
+        0 1px 2px rgba(0,0,0,0.04);
+
+    position: relative;
+    overflow: hidden;
+
+    transition: all 0.3s ease;
+}
+
+/* TOP ACCENT */
+.auth-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(
+        90deg,
+        #1e8f3c,
+        #35b558
+    );
+}
+
+/* HOVER EFFECT */
+.auth-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.10),
+        0 4px 10px rgba(0,0,0,0.06);
 }
 
 /* TITLE */
 .auth-card h2 {
+    font-size: 2.4rem;
     font-weight: 800;
     color: var(--green);
     text-align: center;
-    margin-bottom: 22px;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+/* SUBTEXT */
+.auth-card p {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 34px;
+    font-size: 1rem;
+}
+
+/* LABELS */
+.form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1f2937;
 }
 
 /* INPUTS */
 .form-control {
-    border-radius: 10px;
-    padding: 12px;
+    background: #f3f6fb;
+    border: 1px solid #dbe2ea;
+
+    border-radius: 18px;
+
+    padding: 16px 18px;
+
     font-size: 1rem;
-    border: 1px solid #d1d5db;
-    color: var(--text-dark);
+
+    transition: all 0.25s ease;
+
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
 }
 
 .form-control:focus {
     border-color: var(--green);
-    box-shadow: 0 0 0 3px rgba(30, 143, 60, 0.2);
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(30,143,60,0.12);
+
+    outline: none;
 }
 
 /* BUTTON */
 .btn-primary {
-    background-color: var(--green);
+    background: linear-gradient(
+        135deg,
+        #1e8f3c,
+        #2ab14f
+    );
+
     border: none;
-    font-size: 1.1rem;
-    border-radius: 999px; /* 🔥 matches your home buttons */
+
+    border-radius: 999px;
+
+    padding: 15px;
+
+    font-size: 1.2rem;
     font-weight: 700;
-    color: white;
-    padding: 12px;
+
     width: 100%;
-    transition: 0.2s ease;
+
+    margin-top: 10px;
+
+    transition: all 0.25s ease;
+
+    box-shadow:
+        0 8px 18px rgba(30,143,60,0.22);
 }
 
 .btn-primary:hover {
-    background-color: var(--green-dark);
     transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 26px rgba(30,143,60,0.28);
+
+    background: linear-gradient(
+        135deg,
+        #187532,
+        #259947
+    );
 }
 
-/* TEXT */
-.text-muted {
-    color: var(--text-muted) !important;
-    font-size: 0.9rem;
+/* LINK */
+.auth-card a {
+    color: var(--green);
+    font-weight: 700;
+    text-decoration: none;
 }
 
-/* OPTIONAL HEADER STRIP */
-.auth-card::before {
-    content: "";
-    display: block;
-    height: 6px;
-    width: 100%;
-    background: var(--green);
-    border-radius: 18px 18px 0 0;
-    margin: -32px -32px 20px -32px;
+.auth-card a:hover {
+    text-decoration: underline;
 }
 
 /* MOBILE */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+
     .auth-card {
-        padding: 24px 20px;
+        padding: 32px 24px;
+        border-radius: 24px;
     }
 
     .auth-card h2 {
-        font-size: 1.4rem;
+        font-size: 2rem;
+    }
+
+    .form-control {
+        padding: 14px 16px;
     }
 
     .btn-primary {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 }
