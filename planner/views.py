@@ -70,20 +70,23 @@ def session_detail(request, pk):
     session = get_object_or_404(TrainingSession, pk=pk)
     return render(request, "planner/session_detail.html", {"session": session})
 
-
 def session_create(request):
     if request.method == "POST":
+        title = request.POST.get("title")
+        date = request.POST.get("date")
+        duration = request.POST.get("duration")
+        notes = request.POST.get("notes")
+
         session = TrainingSession.objects.create(
-            title="New Training Session",
-            date=timezone.now().date(),
-            duration=60,
-            notes="Auto-created from Coaching page",
+            title=title,
+            date=date,
+            duration=duration,
+            notes=notes,
         )
+
         return redirect("planner:session_detail", pk=session.pk)
 
     return render(request, "planner/session_form.html")
-
-
 def session_complete(request, pk):
     session = get_object_or_404(TrainingSession, pk=pk)
     session.completed = True
@@ -159,7 +162,4 @@ def player_tracking(request):
 
 def advanced_analytics(request):
     return render(request, "services/advanced_analytics.html")
-
-def planner_team_management(request):
-    return render(request, "services/team_management.html")
 

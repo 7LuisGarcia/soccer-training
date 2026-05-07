@@ -5,7 +5,7 @@ class TrainingSession(models.Model):
     title = models.CharField(max_length=200)
     date = models.DateField()
     duration = models.PositiveIntegerField(help_text="Duration in minutes")
-    notes = models.TextField(blank=True)
+    notes = models.TextField(blank=True, null=True)
     completed = models.BooleanField(default=False)
     video = EmbedVideoField(blank=True, null=True)
     def __str__(self):
