@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'analytics.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="analytics-hero my-4">
+    <div>
+        <h1>Analytics Center</h1>
+        <p>Track attendance, player progress, training load, and team performance.</p>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="analytics-stat">
+            <h6>Attendance</h6>
+            <h2>87%</h2>
+            <p>Team average</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="analytics-stat">
+            <h6>Training Load</h6>
+            <h2>High</h2>
+            <p>This week</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="analytics-stat">
+            <h6>Goals</h6>
+            <h2>24</h2>
+            <p>This month</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="analytics-stat">
+            <h6>Injuries</h6>
+            <h2>2</h2>
+            <p>Unavailable</p>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-lg-8">
+        <div class="analytics-card mb-4">
+            <h3>Player Performance Charts</h3>
+
+            <div class="performance-row">
+                <span>Diego Martinez</span>
+                <div class="progress flex-grow-1">
+                    <div class="progress-bar bg-success" style="width: 92%">92%</div>
+                </div>
+            </div>
+
+            <div class="performance-row">
+                <span>Alex Johnson</span>
+                <div class="progress flex-grow-1">
+                    <div class="progress-bar bg-success" style="width: 86%">86%</div>
+                </div>
+            </div>
+
+            <div class="performance-row">
+                <span>Carlos Rivera</span>
+                <div class="progress flex-grow-1">
+                    <div class="progress-bar bg-success" style="width: 78%">78%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="analytics-card">
+            <h3>Player Heatmap</h3>
+            <p class="text-muted">Example movement zones from recent sessions.</p>
+
+            <div class="soccer-field">
+                <div class="field-line center-line"></div>
+                <div class="center-circle"></div>
+
+                <div class="heat heat-1"></div>
+                <div class="heat heat-2"></div>
+                <div class="heat heat-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="analytics-card mb-4">
+            <h3>Training Load</h3>
+
+            <div class="load-item">
+                <span>Intensity</span>
+                <strong>8/10</strong>
+            </div>
+
+            <div class="load-item">
+                <span>Duration</span>
+                <strong>90 min</strong>
+            </div>
+
+            <div class="load-item">
+                <span>Fatigue</span>
+                <strong>Medium</strong>
+            </div>
+        </div>
+
+        <div class="analytics-card mb-4">
+            <h3>Attendance Status</h3>
+
+            <ul class="status-list">
+                <li><span>Present</span><strong>18</strong></li>
+                <li><span>Absent</span><strong>2</strong></li>
+                <li><span>Late</span><strong>1</strong></li>
+                <li><span>Injured</span><strong>2</strong></li>
+            </ul>
+        </div>
+
+        <div class="analytics-card">
+            <h3>Tactical Board</h3>
+            <p class="text-muted">Simple formation preview.</p>
+
+            <div class="mini-field">
+                <span class="player-dot gk">GK</span>
+                <span class="player-dot d1">D</span>
+                <span class="player-dot d2">D</span>
+                <span class="player-dot m1">M</span>
+                <span class="player-dot m2">M</span>
+                <span class="player-dot f1">F</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

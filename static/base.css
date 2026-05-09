@@ -1,159 +1,84 @@
-/* -------------------------------------------------- */
-/* GLOBAL COLOR SYSTEM (your premium palette)         */
-/* -------------------------------------------------- */
 :root {
-    --blue-dark: #1e3a8a;      /* navbar + card base */
-    --blue-mid: #3b82f6;       /* accents */
-    --blue-soft: #bfdbfe;      /* button base */
-    --blue-hover: #93c5fd;     /* button hover */
-    --blue-gray: #dbe1ea;      /* footer + section background */
-    --text-light: #f8fafc;
-    --text-gray: #475569;
+    --green: #1e8f3c;
+    --green-dark: #0f7a35;
+    --green-light: #dcfce7;
+    --dark: #0f172a;
+    --gray: #64748b;
+    --light: #f8fafc;
+    --white: #ffffff;
+
+    --radius-sm: 12px;
+    --radius: 20px;
+    --radius-lg: 28px;
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 18px 45px rgba(0, 0, 0, 0.14);
+
+    --transition: all 0.25s ease;
 }
 
-/* -------------------------------------------------- */
-/* NAVBAR FIX — ensure perfect contrast + spacing     */
-/* -------------------------------------------------- */
-.navbar-dark .nav-link {
-    color: var(--text-light) !important;
-    font-weight: 500;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--dark);
 }
 
-.navbar-dark .nav-link:hover {
-    color: var(--blue-soft) !important;
-}
-
-/* Logout button alignment fix */
-.navbar .btn.nav-link {
-    display: flex;
-    align-items: center;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-/* -------------------------------------------------- */
-/* FOOTER — matches section-blue background           */
-/* -------------------------------------------------- */
-.footer {
-    background-color: var(--blue-dark);
-    border-top: 4px solid var(--blue-soft);
-}
-
-.footer .social-link {
-    color: var(--blue-soft);
-    font-size: 1.3rem;
-    transition: 0.2s ease;
-}
-
-.footer .social-link:hover {
-    color: var(--blue-hover);
-}
-
-/* -------------------------------------------------- */
-/* SECTION WRAPPER — Soft Blue-Gray Background        */
-/* -------------------------------------------------- */
-.section-blue {
-    background-color: var(--blue-gray);
-    padding: 60px 0;
-    border-top: 3px solid var(--blue-dark);
-    border-bottom: 3px solid var(--blue-dark);
-}
-
-.section-blue h2 {
-    color: var(--blue-dark);
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.section-blue p {
-    color: var(--text-gray);
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* -------------------------------------------------- */
-/* BLUE CARD — Matches Navbar Tone                    */
-/* -------------------------------------------------- */
-.blue-card {
-    background-color: var(--blue-dark);
-    color: var(--text-light);
-    border-radius: 14px;
-    padding: 25px;
-    box-shadow: 0 6px 24px rgba(30, 64, 175, 0.25);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.blue-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(30, 64, 175, 0.35);
-}
-
-.blue-card h3 {
-    color: var(--blue-soft);
-    font-weight: 600;
-}
-
-.blue-card p {
-    color: #e2e8f0;
-}
-
-/* -------------------------------------------------- */
-/* BUTTON — Matches Navbar Hover Color                */
-/* -------------------------------------------------- */
-.blue-btn {
-    background-color: var(--blue-soft);
-    color: var(--blue-dark);
-    padding: 10px 20px;
-    border-radius: 8px;
+.card,
+.service-card,
+.premium-card,
+.analytics-card,
+.builder-card,
+.stat-card {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
     border: none;
-    font-weight: 600;
-    transition: 0.2s ease-in-out;
+    transition: var(--transition);
 }
 
-.blue-btn:hover {
-    background-color: var(--blue-hover);
-    color: #0f1f4b;
+.card:hover,
+.service-card:hover,
+.premium-card:hover,
+.analytics-card:hover,
+.builder-card:hover,
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
-/* -------------------------------------------------- */
-/* 📱 MOBILE OPTIMIZATION                             */
-/* -------------------------------------------------- */
-@media (max-width: 480px) {
+.btn,
+.btn-contact,
+.btn-premium {
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    transition: var(--transition);
+}
 
-    .section-blue {
-        padding: 40px 0;
-    }
+.btn-success,
+.btn-contact {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+}
 
-    .section-blue h2 {
-        font-size: 1.5rem;
-        margin-bottom: 18px;
-    }
+.btn-success:hover,
+.btn-contact:hover {
+    background: var(--green-dark);
+    border-color: var(--green-dark);
+}
 
-    .section-blue p {
-        font-size: 1rem;
-        padding: 0 15px;
-    }
+.page-header,
+.services-hero,
+.dashboard-hero,
+.analytics-hero,
+.builder-hero {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+}
 
-    .blue-card {
-        padding: 20px;
-        margin: 0 15px;
-    }
+h1, h2, h3, h4 {
+    font-weight: 800;
+}
 
-    .blue-card h3 {
-        font-size: 1.2rem;
-    }
-
-    .blue-card p {
-        font-size: 0.95rem;
-    }
-
-    .blue-btn {
-        width: 100%;
-        padding: 12px;
-        font-size: 1rem;
-    }
+p {
+    line-height: 1.7;
 }

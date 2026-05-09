@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="p-5 bg-white rounded-4 shadow-sm mb-5">
+        <h1 class="fw-bold">Complete Coaching System</h1>
+        <p class="fs-5">
+            Team → Season → Weekly Goals → Training Sessions → Drills → Attendance → Performance
+        </p>
+    </div>
+
+    {% for team in teams %}
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+
+            <h2 class="fw-bold">{{ team.name }}</h2>
+            <p class="text-muted">{{ team.age_group }}</p>
+
+            <h4 class="mt-4">Players</h4>
+            <div class="row">
+                {% for player in team.players.all %}
+                <div class="col-md-4 mb-3">
+                    <div class="border rounded-3 p-3">
+                        <strong>{{ player.first_name }} {{ player.last_name }}</strong>
+                        <p class="mb-0">{{ player.position }}</p>
+                    </div>
+                </div>
+                {% empty %}
+                <p>No players added yet.</p>
+                {% endfor %}
+            </div>
+
+            <hr>
+
+            {% for season in team.seasons.all %}
+            <h3 class="fw-bold mt-4">{{ season.title }}</h3>
+            <p>{{ season.start_date }} - {{ season.end_date }}</p>
+
+                {% for goal in season.weekly_goals.all %}
+                <div class="bg-light rounded-4 p-4 mb-4">
+                    <h4>Week {{ goal.week_number }}</h4>
+                    <p>{{ goal.goal }}</p>
+
+                    {% for session in goal.sessions.all %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="fw-bold">{{ session.title }}</h5>
+                            <p>
+                                <strong>Date:</strong> {{ session.date }} <br>
+                                <strong>Focus:</strong> {{ session.focus }}
+                            </p>
+
+                            <h6>Drills</h6>
+                            <ul>
+                                {% for item in session.session_drills.all %}
+                                <li>
+                                    {{ item.order }}. {{ item.drill.title }}
+                                    — {{ item.duration_minutes }} min
+                                </li>
+                                {% empty %}
+                                <li>No drills assigned.</li>
+                                {% endfor %}
+                            </ul>
+
+                            <h6>Attendance</h6>
+                            <ul>
+                                {% for record in session.attendance.all %}
+                                <li>{{ record.player }} — {{ record.status }}</li>
+                                {% empty %}
+                                <li>No attendance marked.</li>
+                                {% endfor %}
+                            </ul>
+
+                            <h6>Performance</h6>
+                            <ul>
+                                {% for performance in session.performances.all %}
+                                <li>
+                                    {{ performance.player }} —
+                                    Rating: {{ performance.rating }}/10
+                                </li>
+                                {% empty %}
+                                <li>No performance records yet.</li>
+                                {% endfor %}
+                            </ul>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            {% endfor %}
+
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

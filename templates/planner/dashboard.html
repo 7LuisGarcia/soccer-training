@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-hero mb-4">
+    <div>
+        <h1>Coach Dashboard</h1>
+        <p>Manage today’s training, player progress, attendance, and weekly goals.</p>
+    </div>
+    <a href="#" class="btn-premium">+ New Session</a>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h6>Team Attendance</h6>
+            <h2>87%</h2>
+            <p>Last 7 sessions</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h6>Upcoming Sessions</h6>
+            <h2>4</h2>
+            <p>This week</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h6>Injured Players</h6>
+            <h2>2</h2>
+            <p>Unavailable</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="stat-card">
+            <h6>Training Load</h6>
+            <h2>High</h2>
+            <p>Intensity level</p>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="premium-card mb-4">
+            <h3>Today’s Session</h3>
+            <p class="text-muted">Passing, possession, and finishing under pressure.</p>
+
+            <div class="session-box">
+                <div>
+                    <h5>U16 Elite Training</h5>
+                    <p>6:00 PM • Field 2 • 90 minutes</p>
+                </div>
+                <span class="badge bg-success">Active</span>
+            </div>
+        </div>
+
+        <div class="premium-card">
+            <h3>Top Performing Players</h3>
+
+            <div class="player-progress">
+                <div>
+                    <strong>Diego Martinez</strong>
+                    <p>Passing accuracy</p>
+                </div>
+                <div class="progress w-50">
+                    <div class="progress-bar bg-success" style="width: 92%"></div>
+                </div>
+                <span>92%</span>
+            </div>
+
+            <div class="player-progress">
+                <div>
+                    <strong>Alex Johnson</strong>
+                    <p>Fitness score</p>
+                </div>
+                <div class="progress w-50">
+                    <div class="progress-bar bg-success" style="width: 86%"></div>
+                </div>
+                <span>86%</span>
+            </div>
+
+            <div class="player-progress">
+                <div>
+                    <strong>Carlos Rivera</strong>
+                    <p>Coach rating</p>
+                </div>
+                <div class="progress w-50">
+                    <div class="progress-bar bg-success" style="width: 81%"></div>
+                </div>
+                <span>81%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="premium-card mb-4">
+            <h3>Weekly Objectives</h3>
+            <ul class="goal-list">
+                <li>Improve first touch</li>
+                <li>Build defensive shape</li>
+                <li>Increase finishing accuracy</li>
+                <li>Improve transition speed</li>
+            </ul>
+        </div>
+
+        <div class="premium-card mb-4">
+            <h3>Recent Activity</h3>
+            <div class="activity-item">Attendance marked for Monday session</div>
+            <div class="activity-item">New drill added: Pressing Grid</div>
+            <div class="activity-item">Player report updated</div>
+        </div>
+
+        <div class="premium-card">
+            <h3>Quick Actions</h3>
+            <div class="d-grid gap-2">
+                <a href="#" class="btn btn-success">Create Session</a>
+                <a href="#" class="btn btn-outline-success">Add Player</a>
+                <a href="#" class="btn btn-outline-success">Mark Attendance</a>
+                <a href="#" class="btn btn-outline-success">View Analytics</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

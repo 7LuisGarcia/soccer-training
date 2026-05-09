@@ -15,6 +15,7 @@ urlpatterns = [
     path("session/new/", views.session_create, name="session_create"),
     path("session/<int:pk>/", views.session_detail, name="session_detail"),
     path("session/<int:pk>/complete/", views.session_complete, name="session_complete"),
+    path('real-app-features/', views.real_app_features, name='real_app_features'),
 
     # Main pages
     path("about/", views.about, name="about"),
@@ -35,13 +36,14 @@ urlpatterns = [
     path("training-builder/", views.training_builder, name="training_builder"),
     path("sessions-builder/", views.sessions_builder, name="sessions_builder"),
     path("services/team-management/", views.services_team_management, name="services_team_management"),
+    path('session-builder/', views.sessions_builder, name='session_builder'),
 
     # Players / dashboard
     path("player/<int:id>/", views.player_detail, name="player_detail"),
     path("team-dashboard/", views.team_dashboard, name="team_dashboard"),
     path("advanced-analytics/", views.advanced_analytics, name="advanced_analytics"),
-
-    
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('analytics/', views.analytics, name='analytics'),
     # Pricing plans
     path("pricing/free/", views.free_plan, name="free_plan"),
     path("pricing/pro/", views.pro_plan, name="pro_plan"),
@@ -66,3 +68,6 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+    path("coaching-system/", views.coaching_system, name="coaching_system"),

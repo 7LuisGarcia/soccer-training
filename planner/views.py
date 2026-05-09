@@ -3,6 +3,8 @@ from django.contrib.auth import login
 from django.contrib import messages
 from django.views import View
 from django.utils import timezone
+from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 from .models import TrainingSession
 from .forms import CustomUserCreationForm
@@ -17,10 +19,51 @@ def about(request):
     sessions = TrainingSession.objects.order_by("date")
     return render(request, "planner/about.html", {"sessions": sessions})
 
+def real_app_features(request):
+    return render(request, "services/real_app_features.html")
+
 
 def contact(request):
+
+    if request.method == "POST":
+
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        message = request.POST.get("message")
+
+        full_message = f"""
+        Name: {name}
+        Email: {email}
+
+        Message:
+        {message}
+        """
+
+        send_mail(
+            subject="New Contact Form Message",
+            message=full_message,
+            from_email="your_email@gmail.com",
+            recipient_list=["your_email@gmail.com"],
+            fail_silently=False,
+        )
+
+        messages.success(request, "Message sent successfully!")
+
     return render(request, "planner/contact.html")
 
+from django.shortcuts import redirect
+
+def coach_required(view_func):
+    def wrapper(request, *args, **kwargs):
+        if request.user.is_authenticated and request.user.userprofile.role == "coach":
+            return view_func(request, *args, **kwargs)
+        return redirect("planner:dashboard")
+    return wrapper
+
+@login_required
+@coach_required
+def create_session(request):
+    return render(request, "planner/create_session.html")
 
 def coaching(request):
     return render(request, "planner/coaching.html")
@@ -35,7 +78,7 @@ def services(request):
 
 
 def planner_team_management(request):
-    return render(request, "planner/team_management.html")
+    return render(request, "services/team_management.html")
 
 
 def season_planner(request):
@@ -125,7 +168,7 @@ def training_builder(request):
 
 
 def sessions_builder(request):
-    return render(request, "services/session_builder.html")
+    return render(request, "services/sessions_builder.html")
 
 
 def services_team_management(request):
@@ -163,3 +206,29 @@ def player_tracking(request):
 def advanced_analytics(request):
     return render(request, "services/advanced_analytics.html")
 
+def sessions_builder(request):
+    return render(request, "services/session_builder.html")
+
+from django.shortcuts import render
+from .models import Team
+
+def coaching_system(request):
+    teams = Team.objects.prefetch_related(
+        "players",
+        "seasons__weekly_goals__sessions__session_drills__drill",
+        "seasons__weekly_goals__sessions__attendance",
+        "seasons__weekly_goals__sessions__performances",
+    )
+
+    return render(request, "planner/coaching_system.html", {
+        "teams": teams
+    })
+
+@login_required
+def dashboard(request):
+    return render(request, "planner/dashboard.html")
+
+
+@login_required
+def analytics(request):
+    return render(request, "planner/analytics.html")
