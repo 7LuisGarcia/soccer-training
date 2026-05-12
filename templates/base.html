@@ -18,8 +18,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
     <div class="container">
 
-        <a class="navbar-brand fw-bold fs-4" href="{% url 'planner:home' %}">
-            Soccer Home
+        <a class="navbar-brand fw-bold fs-4 d-flex align-items-center gap-2"
+        href="{% url 'planner:home' %}">
+
+        <i class="bi bi-dribbble"></i>
+
+        <span>Soccer Home</span>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
@@ -103,13 +107,67 @@
     {% block content %}{% endblock %}
 </div>
 
-<footer class="footer bg-dark text-light py-4 mt-5">
+<footer class="footer bg-dark text-light py-5 mt-5">
     <div class="container text-center">
+
         <h5 class="fw-bold mb-3">Soccer Training Planner</h5>
 
-        <p class="small mb-0">
+        <p class="mb-4">
+            Build smarter training sessions, track player development,
+            and improve your coaching experience.
+        </p>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="d-flex justify-content-center gap-4 mb-4 social-icons">
+
+            <a href="https://facebook.com" target="_blank" class="text-light fs-4">
+                <i class="bi bi-facebook"></i>
+            </a>
+
+            <a href="https://instagram.com" target="_blank" class="text-light fs-4">
+                <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="https://twitter.com" target="_blank" class="text-light fs-4">
+                <i class="bi bi-twitter-x"></i>
+            </a>
+
+            <a href="https://youtube.com" target="_blank" class="text-light fs-4">
+                <i class="bi bi-youtube"></i>
+            </a>
+
+            <a href="https://tiktok.com" target="_blank" class="text-light fs-4">
+                <i class="bi bi-tiktok"></i>
+            </a>
+
+        </div>
+
+        <!-- FOOTER LINKS -->
+        <div class="d-flex justify-content-center flex-wrap gap-4 mb-4">
+
+            <a href="{% url 'planner:home' %}" class="text-light text-decoration-none">
+                Home
+            </a>
+
+            <a href="{% url 'planner:services' %}" class="text-light text-decoration-none">
+                Services
+            </a>
+
+            <a href="{% url 'planner:pricing' %}" class="text-light text-decoration-none">
+                Pricing
+            </a>
+
+            <a href="{% url 'planner:contact' %}" class="text-light text-decoration-none">
+                Contact
+            </a>
+
+        </div>
+
+        <!-- COPYRIGHT -->
+        <p class="small mb-0 border-top pt-3 border-secondary">
             © {{ now|date:"Y" }} Soccer Training Planner — All Rights Reserved
         </p>
+
     </div>
 </footer>
 

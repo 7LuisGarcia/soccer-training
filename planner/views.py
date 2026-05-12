@@ -5,6 +5,7 @@ from django.views import View
 from django.utils import timezone
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
 from .models import TrainingSession
 from .forms import CustomUserCreationForm
@@ -31,34 +32,41 @@ def contact(request):
         email = request.POST.get("email")
         message = request.POST.get("message")
 
-        full_message = f"""
-        Name: {name}
-        Email: {email}
+        subject = f"New Contact Form Message from {name}"
 
-        Message:
-        {message}
-        """
+        body = f"""
+Name: {name}
+Email: {email}
+
+Message:
+{message}
+"""
 
         send_mail(
-            subject="New Contact Form Message",
-            message=full_message,
-            from_email="your_email@gmail.com",
-            recipient_list=["your_email@gmail.com"],
+            subject,
+            body,
+            settings.EMAIL_HOST_USER,
+            [settings.CONTACT_EMAIL],
             fail_silently=False,
         )
 
         messages.success(request, "Message sent successfully!")
 
+        return redirect("planner:contact")
+
     return render(request, "planner/contact.html")
 
-from django.shortcuts import redirect
-
 def coach_required(view_func):
+
     def wrapper(request, *args, **kwargs):
-        if request.user.is_authenticated and request.user.userprofile.role == "coach":
+
+        if request.user.is_authenticated:
             return view_func(request, *args, **kwargs)
-        return redirect("planner:dashboard")
+
+        return redirect("planner:login")
+
     return wrapper
+
 
 @login_required
 @coach_required
