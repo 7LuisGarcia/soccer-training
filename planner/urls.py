@@ -44,6 +44,9 @@ urlpatterns = [
     path("advanced-analytics/", views.advanced_analytics, name="advanced_analytics"),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('analytics/', views.analytics, name='analytics'),
+    path("my-sessions/", views.my_sessions, name="my_sessions"),
+    path("my-progress/", views.my_progress, name="my_progress"),
+    
     # Pricing plans
     path("pricing/free/", views.free_plan, name="free_plan"),
     path("pricing/pro/", views.pro_plan, name="pro_plan"),

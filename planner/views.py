@@ -193,6 +193,13 @@ def advanced_analytics(request):
 def team_dashboard(request):
     return render(request, "planner/team_dashboard.html")
 
+def my_sessions(request):
+    return render(request, "planner/my_sessions.html")
+
+
+def my_progress(request):
+    return render(request, "planner/my_progress.html")
+
 def drill_library(request):
     return render(request, "services/drill_library.html")
 
@@ -240,3 +247,26 @@ def dashboard(request):
 @login_required
 def analytics(request):
     return render(request, "planner/analytics.html")
+
+
+from django.shortcuts import render, redirect
+from .models import TrainingSession
+
+def session_create(request):
+    if request.method == "POST":
+        title = request.POST.get("title")
+        date = request.POST.get("date")
+        duration = request.POST.get("duration")
+        notes = request.POST.get("notes")
+
+        if title:
+            TrainingSession.objects.create(
+                title=title,
+                date=date,
+                duration=duration,
+                notes=notes
+            )
+
+            return redirect("planner:dashboard")
+
+    return render(request, "planner/session_form.html")

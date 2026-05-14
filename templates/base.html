@@ -44,20 +44,37 @@
                     <a class="nav-link" href="{% url 'planner:services' %}">Services</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'planner:dashboard' %}">Dashboard</a>
-                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dashboardDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                        Dashboard
+                    </a>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'planner:analytics' %}">Analytics</a>
-                </li>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dashboardDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'planner:dashboard' %}">
+                                Overview
+                            </a>
+                        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">My Sessions</a>
-                </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'planner:analytics' %}">
+                                Analytics
+                            </a>
+                        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">My Progress</a>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'planner:my_sessions' %}">
+                                My Sessions
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="{% url 'planner:my_progress' %}">
+                                My Progress
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
             {% endif %}

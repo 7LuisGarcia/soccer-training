@@ -1,163 +1,154 @@
 .coaching-dark-bg {
-    background: #000000;
+    background: #f8fafc;
     min-height: 100vh;
-    padding-top: 40px;
-    padding-bottom: 60px;
-    position: relative;
-    z-index: 1;
+    padding: 60px 0 80px;
 }
 
-.coaching-dark-bg::before {
-    content: none;
-}
-
-/* CLEAN HERO */
 .coaching-hero {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding: 70px 0 60px;
+    max-width: 850px;
 }
 
-/* REMOVE ANY IMAGE OVERLAY */
-.coaching-hero-img {
-    background: transparent !important;
-}
-
-/* HERO TITLE */
 .coaching-hero h1 {
-    font-size: 5rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 24px;
-    letter-spacing: -2px;
+    color: #0f172a !important;
+    font-size: 4.8rem;
+    font-weight: 900;
+    letter-spacing: -3px;
+    line-height: 1;
 }
 
-/* HERO TEXT */
 .hero-text {
-    font-size: 1.35rem;
-    line-height: 1.9;
-    color: rgba(255,255,255,0.82);
-    max-width: 760px;
-}
-
-/* REMOVE ALL CARD LOOK */
-.coaching-hero.card,
-.coaching-hero .card,
-.coaching-hero.card-body {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* CLEAN TEXT */
-.coaching-hero h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin-bottom: 24px;
-}
-
-.coaching-hero p {
+    color: #475569;
     font-size: 1.25rem;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.82);
+    line-height: 1.9;
     max-width: 760px;
 }
 
-.coaching-list li {
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
-
-.coaching-cta .btn:hover {
-    background-color: #f8f9fa;
-    color: #198754;
-}
-
-/* Typography polish */
-h1, h2 {
-    letter-spacing: -0.5px;
-}
-
-/* Card hover animation */
 .card {
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.06) !important;
+    border-radius: 26px !important;
+    box-shadow: 0 16px 45px rgba(15, 23, 42, 0.06) !important;
+    transition: all 0.25s ease;
 }
 
 .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 22px 60px rgba(15, 23, 42, 0.1) !important;
 }
 
-/* White cards */
-.card {
-    background-color: #ffffff;
+.card-body {
+    padding: 42px !important;
 }
 
-/* Softer text */
+.card h2 {
+    color: #0f172a;
+    font-size: 2rem;
+    letter-spacing: -1px;
+}
+
 .card p,
 .card li {
-    color: #141414;
+    color: #475569 !important;
+    line-height: 1.8;
+}
+
+.coaching-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.coaching-list li {
+    margin-bottom: 14px;
+    font-size: 1.05rem;
 }
 
 .coaching-cta-modern {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: transparent;
-    border-radius: 20px;
-    padding: 50px;
-    color: white;
-    box-shadow: none;
+    gap: 40px;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 30px;
+    padding: 55px;
+    box-shadow: 0 18px 55px rgba(15, 23, 42, 0.08);
     overflow: hidden;
-    position: relative;
+}
+
+.cta-content {
+    max-width: 52%;
+}
+
+.coaching-cta-modern h2 {
+    color: #0f172a;
+    font-size: 2.6rem;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+}
+
+.coaching-cta-modern p {
+    color: #64748b;
+    line-height: 1.8;
+}
+
+.coaching-cta-modern .btn {
+    background: #0f172a;
+    color: #ffffff;
     border: none;
-}
-
-.coaching-cta-modern .cta-content {
-    max-width: 50%;
-    z-index: 2;
-}
-
-.coaching-cta-modern .cta-image {
-    width: 45%;
-    height: 260px;
-    background-image: url('/static/images/soccer-kids.jpg');
-    background-size: cover;
-    background-position: center;
-    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-    border-radius: 12px;
-}
-
-.coaching-cta-modern button {
+    border-radius: 14px;
+    padding: 14px 26px;
     transition: all 0.25s ease;
 }
 
-.coaching-cta-modern button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(255,255,255,0.4);
+.coaching-cta-modern .btn:hover {
+    background: #1e8f3c;
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
-.coaching-cta-modern button:active {
-    transform: scale(0.96);
+.cta-image {
+    width: 44%;
+    height: 280px;
+    background-image: url("/static/images/soccer-kids.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
+    .coaching-dark-bg {
+        padding: 30px 0 50px;
+    }
 
     .coaching-hero {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding: 40px 0;
     }
 
     .coaching-hero h1 {
-        font-size: 3rem;
+        font-size: 3.2rem;
     }
 
     .hero-text {
         font-size: 1.05rem;
+    }
+
+    .card-body {
+        padding: 26px !important;
+    }
+
+    .coaching-cta-modern {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px;
+    }
+
+    .cta-content {
+        max-width: 100%;
+    }
+
+    .cta-image {
+        width: 100%;
+        height: 220px;
     }
 }

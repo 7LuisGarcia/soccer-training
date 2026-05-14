@@ -324,26 +324,127 @@ Avoid images smaller than 1000px wide for large sections.
     }
 }
 
-@media (max-width: 480px) {
-    .container {
-        padding-bottom: 40px;
+/* =========================
+   PREMIUM BLACK FOOTER
+========================= */
+
+.footer {
+    background: linear-gradient(135deg, #000000, #0f0f0f);
+    color: #f8fafc !important;
+
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+
+    padding-top: 42px !important;
+    padding-bottom: 24px !important;
+
+    margin-top: 60px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 -10px 35px rgba(0,0,0,0.25);
+}
+
+/* FOOTER TITLE */
+
+.footer h5 {
+    color: #ffffff !important;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+
+    margin-bottom: 14px;
+}
+
+/* FOOTER PARAGRAPH */
+
+.footer p {
+    color: rgba(255,255,255,0.72) !important;
+    font-size: 1.05rem;
+    line-height: 1.8;
+
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* FOOTER LINKS */
+
+.footer a {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: all 0.25s ease;
+}
+
+.footer a:hover {
+    color: #d1d5db !important;
+    transform: translateY(-1px);
+}
+
+/* SOCIAL ICONS */
+
+.social-icons {
+    gap: 24px !important;
+}
+
+.social-icons a {
+    color: #ffffff !important;
+    font-size: 1.4rem !important;
+
+    transition: all 0.25s ease;
+}
+
+.social-icons a:hover {
+    color: #d1d5db !important;
+    transform: translateY(-4px) scale(1.08);
+}
+
+/* FOOTER LINKS ROW */
+
+.footer .d-flex {
+    gap: 24px !important;
+}
+
+/* COPYRIGHT */
+
+.footer .small {
+    color: rgba(255,255,255,0.45) !important;
+    font-size: 0.92rem;
+
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+
+    margin-top: 24px;
+    padding-top: 18px !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .footer {
+        border-top-left-radius: 22px;
+        border-top-right-radius: 22px;
+
+        padding-top: 32px !important;
     }
 
-    .hero-dark,
-    .page-header {
-        border-radius: 18px;
-        padding: 28px 20px;
+    .footer h5 {
+        font-size: 1.6rem;
     }
 
-    .home-image,
-    .feature-card img {
-        border-radius: 14px;
+    .footer p {
+        font-size: 0.98rem;
     }
 
-    .blue-btn,
-    .btn-primary {
-        width: 100%;
-        display: inline-block;
-        text-align: center;
+    .social-icons {
+        gap: 18px !important;
+    }
+
+    .footer .d-flex {
+        gap: 16px !important;
+        flex-wrap: wrap;
     }
 }

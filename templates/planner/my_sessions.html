@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'my_sessions.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="sessions-wrapper">
+
+    <!-- HERO -->
+    <section class="sessions-hero">
+        <div class="hero-content">
+            <span class="hero-badge">Training Dashboard</span>
+
+            <h1>My Sessions</h1>
+
+            <p>
+                Organize, manage, and review your training sessions with a clean
+                professional coaching workspace.
+            </p>
+
+            <a href="{% url 'planner:session_create' %}" class="btn-create">
+                Create New Session
+            </a>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="session-stats">
+
+        <div class="stat-card">
+            <h3>24</h3>
+            <p>Total Sessions</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>8</h3>
+            <p>This Month</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>92%</h3>
+            <p>Attendance</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>14</h3>
+            <p>Completed</p>
+        </div>
+
+    </section>
+
+    <!-- FILTERS -->
+    <section class="sessions-toolbar">
+
+        <input type="text" placeholder="Search sessions..." class="search-box">
+
+        <select class="filter-select">
+            <option>All Categories</option>
+            <option>Technical</option>
+            <option>Tactical</option>
+            <option>Fitness</option>
+            <option>Recovery</option>
+        </select>
+
+    </section>
+
+    <!-- SESSIONS GRID -->
+    <section class="sessions-grid">
+
+        <!-- CARD -->
+        <div class="session-card">
+
+            <div class="session-top">
+                <span class="session-tag">Technical</span>
+                <span class="session-date">May 13, 2026</span>
+            </div>
+
+            <h2>Ball Control & Passing</h2>
+
+            <p>
+                Improve first touch, short passing combinations,
+                and movement under pressure.
+            </p>
+
+            <div class="session-meta">
+                <span>⏱ 90 mins</span>
+                <span>👥 18 Players</span>
+            </div>
+
+            <div class="session-actions">
+                <a href="#" class="btn-session">View</a>
+                <a href="#" class="btn-session-outline">Edit</a>
+            </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="session-card">
+
+            <div class="session-top">
+                <span class="session-tag tactical">Tactical</span>
+                <span class="session-date">May 10, 2026</span>
+            </div>
+
+            <h2>Defensive Shape</h2>
+
+            <p>
+                Team organization, compact defending,
+                and pressing triggers.
+            </p>
+
+            <div class="session-meta">
+                <span>⏱ 75 mins</span>
+                <span>👥 20 Players</span>
+            </div>
+
+            <div class="session-actions">
+                <a href="#" class="btn-session">View</a>
+                <a href="#" class="btn-session-outline">Edit</a>
+            </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="session-card">
+
+            <div class="session-top">
+                <span class="session-tag fitness">Fitness</span>
+                <span class="session-date">May 08, 2026</span>
+            </div>
+
+            <h2>Speed & Agility</h2>
+
+            <p>
+                Explosive movement drills focused on acceleration,
+                agility, and reaction speed.
+            </p>
+
+            <div class="session-meta">
+                <span>⏱ 60 mins</span>
+                <span>👥 16 Players</span>
+            </div>
+
+            <div class="session-actions">
+                <a href="#" class="btn-session">View</a>
+                <a href="#" class="btn-session-outline">Edit</a>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

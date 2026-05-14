@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'my_progress.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="progress-wrapper">
+
+    <!-- HERO -->
+    <section class="progress-hero">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">Player Development</span>
+
+            <h1>My Progress</h1>
+
+            <p>
+                Track player growth, performance improvements,
+                attendance, fitness, and long-term development goals.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- PROGRESS STATS -->
+    <section class="progress-stats">
+
+        <div class="progress-stat-card">
+            <h2>92%</h2>
+            <p>Attendance Rate</p>
+        </div>
+
+        <div class="progress-stat-card">
+            <h2>18</h2>
+            <p>Sessions Completed</p>
+        </div>
+
+        <div class="progress-stat-card">
+            <h2>84%</h2>
+            <p>Training Consistency</p>
+        </div>
+
+        <div class="progress-stat-card">
+            <h2>+12%</h2>
+            <p>Performance Growth</p>
+        </div>
+
+    </section>
+
+    <!-- DEVELOPMENT TRACKER -->
+    <section class="development-section">
+
+        <div class="section-header">
+            <h2>Development Tracker</h2>
+            <p>
+                Monitor improvements across key areas of development.
+            </p>
+        </div>
+
+        <div class="development-grid">
+
+            <!-- CARD -->
+            <div class="development-card">
+
+                <div class="development-top">
+                    <h3>Ball Control</h3>
+                    <span class="progress-percent">88%</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 88%;"></div>
+                </div>
+
+                <p>
+                    Strong improvement in first touch and close control under pressure.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="development-card">
+
+                <div class="development-top">
+                    <h3>Passing Accuracy</h3>
+                    <span class="progress-percent">82%</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 82%;"></div>
+                </div>
+
+                <p>
+                    Improved short passing combinations and movement timing.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="development-card">
+
+                <div class="development-top">
+                    <h3>Fitness Level</h3>
+                    <span class="progress-percent">76%</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 76%;"></div>
+                </div>
+
+                <p>
+                    Better endurance and recovery during high-intensity sessions.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="development-card">
+
+                <div class="development-top">
+                    <h3>Tactical Awareness</h3>
+                    <span class="progress-percent">91%</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 91%;"></div>
+                </div>
+
+                <p>
+                    Excellent positioning, decision-making, and defensive shape.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- RECENT ACTIVITY -->
+    <section class="activity-section">
+
+        <div class="section-header">
+            <h2>Recent Activity</h2>
+            <p>
+                Review the latest training updates and milestones.
+            </p>
+        </div>
+
+        <div class="activity-list">
+
+            <div class="activity-item">
+                <div class="activity-icon">⚽</div>
+
+                <div class="activity-content">
+                    <h4>Completed Ball Mastery Session</h4>
+                    <p>May 13, 2026 • Technical Development</p>
+                </div>
+            </div>
+
+            <div class="activity-item">
+                <div class="activity-icon">📈</div>
+
+                <div class="activity-content">
+                    <h4>Performance Increased by 5%</h4>
+                    <p>Weekly training consistency improved.</p>
+                </div>
+            </div>
+
+            <div class="activity-item">
+                <div class="activity-icon">🏃</div>
+
+                <div class="activity-content">
+                    <h4>Fitness Goal Achieved</h4>
+                    <p>Completed endurance benchmark successfully.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

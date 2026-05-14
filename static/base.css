@@ -201,17 +201,6 @@ p {
     line-height: 1.7;
 }
 
-.footer {
-    background: linear-gradient(135deg, #1e8f3c, #0f7a35);
-    border-top-left-radius: 22px;
-    border-top-right-radius: 22px;
-
-    padding-top: 28px !important;
-    padding-bottom: 18px !important;
-
-    margin-top: 40px;
-}
-
 /* TEXT */
 .footer h5 {
     margin-bottom: 10px;
@@ -235,7 +224,6 @@ p {
 
 .social-icons a:hover {
     transform: translateY(-4px) scale(1.12);
-    color: #dcfce7 !important;
 }
 
 /* LINKS */
@@ -248,9 +236,6 @@ p {
     transition: all 0.25s ease;
 }
 
-.footer a:hover {
-    color: #dcfce7 !important;
-}
 
 /* =========================MOBILE VERSION========================= */
 

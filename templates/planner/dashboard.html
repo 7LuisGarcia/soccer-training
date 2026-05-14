@@ -12,7 +12,7 @@
         <h1>Coach Dashboard</h1>
         <p>Manage today’s training, player progress, attendance, and weekly goals.</p>
     </div>
-    <a href="#" class="btn-premium">+ New Session</a>
+    <a href="{% url 'planner:session_create' %}" class="btn-premium">+ New Session</a>
 </div>
 
 <div class="row g-4 mb-4">
@@ -123,10 +123,29 @@
         <div class="premium-card">
             <h3>Quick Actions</h3>
             <div class="d-grid gap-2">
-                <a href="#" class="btn btn-success">Create Session</a>
-                <a href="#" class="btn btn-outline-success">Add Player</a>
-                <a href="#" class="btn btn-outline-success">Mark Attendance</a>
-                <a href="#" class="btn btn-outline-success">View Analytics</a>
+                <div class="premium-card">
+                    <h3>Quick Actions</h3>
+
+                    <div class="d-grid gap-2">
+
+                        <a href="{% url 'planner:session_create' %}" class="btn btn-success">
+                            Create Session
+                        </a>
+
+                        <a href="{% url 'planner:team_management' %}" class="btn btn-outline-success">
+                            Add Player
+                        </a>
+
+                        <a href="{% url 'planner:my_sessions' %}" class="btn btn-outline-success">
+                            Mark Attendance
+                        </a>
+
+                        <a href="{% url 'planner:analytics' %}" class="btn btn-outline-success">
+                            View Analytics
+                        </a>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
