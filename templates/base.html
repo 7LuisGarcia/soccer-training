@@ -34,31 +34,33 @@
 
             <ul class="navbar-nav mx-auto">
 
+            {% if user.is_authenticated %}
+
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'planner:coaching' %}">Coaching</a>
                 </li>
 
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'planner:dashboard' %}">Dashboard</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'planner:analytics' %}">Analytics</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">My Sessions</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">My Progress</a>
-                    </li>
-                {% endif %}
-
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'planner:services' %}">Services</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'planner:dashboard' %}">Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'planner:analytics' %}">Analytics</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">My Sessions</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">My Progress</a>
+                </li>
+
+            {% endif %}
 
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'planner:pricing' %}">Pricing</a>

@@ -1,6 +1,5 @@
-/* Dark background wrapper */
 .coaching-dark-bg {
-    background: linear-gradient(180deg, #62b77d 0%, #8aaa8c 100%);
+    background: #000000;
     min-height: 100vh;
     padding-top: 40px;
     padding-bottom: 60px;
@@ -12,8 +11,60 @@
     content: none;
 }
 
+/* CLEAN HERO */
 .coaching-hero {
-    border-left: 6px solid #0e0e0e;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* REMOVE ANY IMAGE OVERLAY */
+.coaching-hero-img {
+    background: transparent !important;
+}
+
+/* HERO TITLE */
+.coaching-hero h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+}
+
+/* HERO TEXT */
+.hero-text {
+    font-size: 1.35rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.82);
+    max-width: 760px;
+}
+
+/* REMOVE ALL CARD LOOK */
+.coaching-hero.card,
+.coaching-hero .card,
+.coaching-hero.card-body {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* CLEAN TEXT */
+.coaching-hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 24px;
+}
+
+.coaching-hero p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.82);
+    max-width: 760px;
 }
 
 .coaching-list li {
@@ -52,21 +103,19 @@ h1, h2 {
     color: #141414;
 }
 
-
-
 .coaching-cta-modern {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #1e8f3c;
+    background: transparent;
     border-radius: 20px;
     padding: 50px;
     color: white;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    box-shadow: none;
     overflow: hidden;
     position: relative;
+    border: none;
 }
-
 
 .coaching-cta-modern .cta-content {
     max-width: 50%;
@@ -96,24 +145,19 @@ h1, h2 {
     transform: scale(0.96);
 }
 
-/* Mobile responsive */
+/* MOBILE */
 @media (max-width: 768px) {
-    .coaching-cta-modern {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px;
+
+    .coaching-hero {
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
-    .coaching-cta-modern .cta-content {
-        max-width: 100%;
+    .coaching-hero h1 {
+        font-size: 3rem;
     }
 
-    .coaching-cta-modern .cta-image {
-        width: 100%;
-        height: 200px;
-        clip-path: none;
-        margin-top: 20px;
-        border-radius: 12px;
+    .hero-text {
+        font-size: 1.05rem;
     }
 }
-

@@ -26,9 +26,10 @@ body {
 /* =========================NAVBAR========================= */
 
 .navbar {
-    background: linear-gradient(135deg, var(--green), var(--green-dark));
+    background: linear-gradient(135deg, #000000, #111111);
     padding: 14px 0;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 /* SOCCER BRAND ICON */
@@ -45,7 +46,8 @@ body {
 }
 
 .navbar-nav .nav-link {
-    color: rgba(255,255,255,0.9) !important;
+    color: #d1d5db !important;
+    transform: translateY(-1px);
     font-weight: 600;
     margin-left: 12px;
     transition: var(--transition);
@@ -84,15 +86,16 @@ body {
 /* =========================FOOTER========================= */
 
 .footer {
-    background: linear-gradient(135deg, #1e8f3c, #0f7a35);
+    background: linear-gradient(135deg, #000000, #111111);
     border-top-left-radius: 22px;
     border-top-right-radius: 22px;
 
-    /* SHORTER FOOTER */
     padding-top: 28px !important;
     padding-bottom: 18px !important;
 
     margin-top: 40px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 /* Reduce spacing inside footer */
@@ -117,7 +120,7 @@ body {
 
 .social-icons a:hover {
     transform: translateY(-4px) scale(1.12);
-    color: #dcfce7 !important;
+    color: #d1d5db !important;
 }
 
 /* Footer links spacing */
@@ -131,7 +134,7 @@ body {
 }
 
 .footer a:hover {
-    color: #dcfce7 !important;
+    color: #d1d5db !important;
 }
 
 /* ========================= CARDS========================= */
