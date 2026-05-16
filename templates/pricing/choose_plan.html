@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="card shadow-lg border-0 rounded-4 p-5 text-center">
+
+        <h1 class="fw-bold mb-3">
+            {{ selected_plan|title }} Plan Selected
+        </h1>
+
+        <p class="text-muted fs-5 mb-4">
+            You are about to activate the
+            <strong>{{ selected_plan|title }}</strong> plan.
+        </p>
+
+        {% if selected_plan == "free" %}
+
+            <h2 class="fw-bold text-success mb-4">$0</h2>
+
+        {% elif selected_plan == "pro" %}
+
+            <h2 class="fw-bold text-success mb-4">
+                $9.99 <small class="text-muted">/ month</small>
+            </h2>
+
+        {% elif selected_plan == "elite" %}
+
+            <h2 class="fw-bold text-success mb-4">
+                $19.99 <small class="text-muted">/ month</small>
+            </h2>
+
+        {% endif %}
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+            <a href="#" class="btn btn-success btn-lg px-5 fw-bold rounded-pill">
+                Continue
+            </a>
+
+            <a href="{% url 'planner:pricing' %}"
+               class="btn btn-outline-dark btn-lg px-5 fw-bold rounded-pill">
+                Back
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

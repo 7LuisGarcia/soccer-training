@@ -10,11 +10,31 @@ class UserProfile(models.Model):
         ("parent", "Parent"),
     ]
 
+    PLAN_CHOICES = [
+        ("free", "Free"),
+        ("pro", "Pro"),
+        ("elite", "Elite"),
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default="player")
+
+    role = models.CharField(
+        max_length=20,
+        choices=ROLE_CHOICES,
+        default="player"
+    )
+
+    plan = models.CharField(
+        max_length=20,
+        choices=PLAN_CHOICES,
+        default="free"
+    )
+
+    subscription_active = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.user.username} - {self.role}"
+        return f"{self.user.username} - {self.role} - {self.plan}"
+
 
 class Team(models.Model):
     name = models.CharField(max_length=100)
@@ -25,7 +45,12 @@ class Team(models.Model):
 
 
 class Player(models.Model):
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="players")
+    team = models.ForeignKey(
+        Team,
+        on_delete=models.CASCADE,
+        related_name="players"
+    )
+
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     position = models.CharField(max_length=50)
@@ -35,7 +60,12 @@ class Player(models.Model):
 
 
 class Season(models.Model):
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="seasons")
+    team = models.ForeignKey(
+        Team,
+        on_delete=models.CASCADE,
+        related_name="seasons"
+    )
+
     title = models.CharField(max_length=100)
     start_date = models.DateField()
     end_date = models.DateField()
@@ -45,7 +75,12 @@ class Season(models.Model):
 
 
 class WeeklyGoal(models.Model):
-    season = models.ForeignKey(Season, on_delete=models.CASCADE, related_name="weekly_goals")
+    season = models.ForeignKey(
+        Season,
+        on_delete=models.CASCADE,
+        related_name="weekly_goals"
+    )
+
     week_number = models.PositiveIntegerField()
     goal = models.CharField(max_length=200)
 
@@ -61,12 +96,25 @@ class TrainingSession(models.Model):
         null=True,
         blank=True
     )
+
     title = models.CharField(max_length=200)
     date = models.DateField()
-    duration = models.PositiveIntegerField(help_text="Duration in minutes", default=60)
-    focus = models.CharField(max_length=100, blank=True, default="")
+
+    duration = models.PositiveIntegerField(
+        help_text="Duration in minutes",
+        default=60
+    )
+
+    focus = models.CharField(
+        max_length=100,
+        blank=True,
+        default=""
+    )
+
     notes = models.TextField(blank=True, null=True)
+
     completed = models.BooleanField(default=False)
+
     video = EmbedVideoField(blank=True, null=True)
 
     def __str__(self):
@@ -74,6 +122,7 @@ class TrainingSession(models.Model):
 
 
 class Drill(models.Model):
+
     DIFFICULTY_CHOICES = [
         ("easy", "Easy"),
         ("medium", "Medium"),
@@ -81,13 +130,23 @@ class Drill(models.Model):
     ]
 
     title = models.CharField(max_length=100)
-    category = models.CharField(max_length=100, default="General")
-    description = models.TextField(blank=True, default="")
+
+    category = models.CharField(
+        max_length=100,
+        default="General"
+    )
+
+    description = models.TextField(
+        blank=True,
+        default=""
+    )
+
     difficulty = models.CharField(
         max_length=10,
         choices=DIFFICULTY_CHOICES,
         default="medium"
     )
+
     duration_minutes = models.PositiveIntegerField(default=10)
 
     def __str__(self):
@@ -95,13 +154,20 @@ class Drill(models.Model):
 
 
 class SessionDrill(models.Model):
+
     session = models.ForeignKey(
         TrainingSession,
         on_delete=models.CASCADE,
         related_name="session_drills"
     )
-    drill = models.ForeignKey(Drill, on_delete=models.CASCADE)
+
+    drill = models.ForeignKey(
+        Drill,
+        on_delete=models.CASCADE
+    )
+
     order = models.PositiveIntegerField(default=1)
+
     duration_minutes = models.PositiveIntegerField(default=10)
 
     def __str__(self):
@@ -109,6 +175,7 @@ class SessionDrill(models.Model):
 
 
 class Attendance(models.Model):
+
     STATUS_CHOICES = [
         ("present", "Present"),
         ("absent", "Absent"),
@@ -122,7 +189,12 @@ class Attendance(models.Model):
         on_delete=models.CASCADE,
         related_name="attendance"
     )
-    player = models.ForeignKey(Player, on_delete=models.CASCADE)
+
+    player = models.ForeignKey(
+        Player,
+        on_delete=models.CASCADE
+    )
+
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
@@ -134,13 +206,20 @@ class Attendance(models.Model):
 
 
 class PlayerPerformance(models.Model):
+
     session = models.ForeignKey(
         TrainingSession,
         on_delete=models.CASCADE,
         related_name="performances"
     )
-    player = models.ForeignKey(Player, on_delete=models.CASCADE)
+
+    player = models.ForeignKey(
+        Player,
+        on_delete=models.CASCADE
+    )
+
     rating = models.PositiveIntegerField(default=5)
+
     notes = models.TextField(blank=True)
 
     def __str__(self):

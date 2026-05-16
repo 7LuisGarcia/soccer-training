@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'pricing/payment_page.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="payment-wrapper mx-auto">
+
+        <div class="payment-card">
+
+            <div class="payment-icon">
+                <i class="bi bi-credit-card-2-front"></i>
+            </div>
+
+            <span class="payment-badge">Secure Checkout</span>
+
+            <h1>Complete Your Payment</h1>
+
+            <p class="payment-subtitle">
+                You selected the <strong>{{ plan|title }}</strong> plan.
+                Review your plan before activating your subscription.
+            </p>
+
+            <div class="selected-plan-box">
+
+                <p class="mb-1 text-muted">Selected Plan</p>
+
+                <h2>{{ plan|title }}</h2>
+
+                {% if plan == "pro" %}
+                    <h3>$9.99 <span>/ month</span></h3>
+
+                {% elif plan == "elite" %}
+                    <h3>$19.99 <span>/ month</span></h3>
+
+                {% else %}
+                    <h3>$0 <span>/ month</span></h3>
+                {% endif %}
+
+            </div>
+
+            <div class="payment-features">
+
+                <div>
+                    <i class="bi bi-shield-check"></i>
+                    <span>Secure payment simulation</span>
+                </div>
+
+                <div>
+                    <i class="bi bi-lightning-charge"></i>
+                    <span>Instant plan activation</span>
+                </div>
+
+                <div>
+                    <i class="bi bi-stars"></i>
+                    <span>Unlock premium features</span>
+                </div>
+
+            </div>
+
+            <div class="payment-actions">
+
+                <a href="{% url 'planner:payment_success' %}"
+                class="btn payment-primary-btn">
+                    Simulate Payment
+                </a>
+
+                <a href="{% url 'planner:pricing' %}"
+                class="btn payment-secondary-btn">
+                    Change Plan
+                </a>
+
+            </div>
+
+            <p class="payment-note">
+                This is a demo checkout page. Later, this button can connect to Stripe.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

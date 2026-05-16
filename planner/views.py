@@ -2,12 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login
 from django.contrib import messages
 from django.views import View
-from django.utils import timezone
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
-from .models import TrainingSession
+from .models import TrainingSession, UserProfile, Team
 from .forms import CustomUserCreationForm
 
 
@@ -20,14 +19,9 @@ def about(request):
     sessions = TrainingSession.objects.order_by("date")
     return render(request, "planner/about.html", {"sessions": sessions})
 
-def real_app_features(request):
-    return render(request, "services/real_app_features.html")
-
 
 def contact(request):
-
     if request.method == "POST":
-
         name = request.POST.get("name")
         email = request.POST.get("email")
         message = request.POST.get("message")
@@ -51,27 +45,10 @@ Message:
         )
 
         messages.success(request, "Message sent successfully!")
-
         return redirect("planner:contact")
 
     return render(request, "planner/contact.html")
 
-def coach_required(view_func):
-
-    def wrapper(request, *args, **kwargs):
-
-        if request.user.is_authenticated:
-            return view_func(request, *args, **kwargs)
-
-        return redirect("planner:login")
-
-    return wrapper
-
-
-@login_required
-@coach_required
-def create_session(request):
-    return render(request, "planner/create_session.html")
 
 def coaching(request):
     return render(request, "planner/coaching.html")
@@ -85,24 +62,47 @@ def services(request):
     return render(request, "planner/services.html")
 
 
-def planner_team_management(request):
-    return render(request, "services/team_management.html")
+@login_required
+def choose_plan(request, plan):
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    profile.plan = plan
+
+    if plan == "free":
+        profile.subscription_active = True
+        profile.save()
+
+        messages.success(request, "Free plan activated successfully!")
+        return redirect("planner:dashboard")
+
+    profile.subscription_active = False
+    profile.save()
+
+    return redirect("planner:payment_page")
 
 
-def season_planner(request):
-    return render(request, "planner/season_planner.html")
+@login_required
+def payment_page(request):
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    return render(request, "pricing/payment_page.html", {
+        "plan": profile.plan
+    })
 
 
-def training_planner(request):
-    return render(request, "planner/training_planner.html")
+@login_required
+def payment_success(request):
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
 
+    profile.subscription_active = True
+    profile.save()
 
-def sessions_2d3d(request):
-    return render(request, "planner/sessions_2d3d.html")
+    messages.success(
+        request,
+        f"{profile.plan.title()} plan activated successfully!"
+    )
 
-
-def drill_library(request):
-    return render(request, "planner/drill_library.html")
+    return redirect("planner:dashboard")
 
 
 def free_plan(request):
@@ -117,9 +117,32 @@ def elite_plan(request):
     return render(request, "pricing/elite_plan.html")
 
 
+@login_required
+def dashboard(request):
+    return render(request, "planner/dashboard.html")
+
+
+@login_required
+def analytics(request):
+    return render(request, "planner/analytics.html")
+
+
+def team_dashboard(request):
+    return render(request, "planner/team_dashboard.html")
+
+
+def my_sessions(request):
+    return render(request, "planner/my_sessions.html")
+
+
+def my_progress(request):
+    return render(request, "planner/my_progress.html")
+
+
 def session_detail(request, pk):
     session = get_object_or_404(TrainingSession, pk=pk)
     return render(request, "planner/session_detail.html", {"session": session})
+
 
 def session_create(request):
     if request.method == "POST":
@@ -128,20 +151,24 @@ def session_create(request):
         duration = request.POST.get("duration")
         notes = request.POST.get("notes")
 
-        session = TrainingSession.objects.create(
-            title=title,
-            date=date,
-            duration=duration,
-            notes=notes,
-        )
+        if title:
+            session = TrainingSession.objects.create(
+                title=title,
+                date=date,
+                duration=duration,
+                notes=notes
+            )
 
-        return redirect("planner:session_detail", pk=session.pk)
+            return redirect("planner:session_detail", pk=session.pk)
 
     return render(request, "planner/session_form.html")
+
+
 def session_complete(request, pk):
     session = get_object_or_404(TrainingSession, pk=pk)
     session.completed = True
     session.save()
+
     return redirect("planner:session_detail", pk=pk)
 
 
@@ -158,13 +185,43 @@ class RegisterView(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
+
             messages.success(
                 request,
-                f"Welcome aboard, {user.username}! Your account is ready.",
+                f"Welcome aboard, {user.username}! Your account is ready."
             )
+
             return redirect("planner:home")
 
         return render(request, self.template_name, {"form": form})
+
+
+def real_app_features(request):
+    return render(request, "services/real_app_features.html")
+
+
+def planner_team_management(request):
+    return render(request, "services/team_management.html")
+
+
+def services_team_management(request):
+    return render(request, "services/team_management.html")
+
+
+def season_planner(request):
+    return render(request, "services/season_planner.html")
+
+
+def training_planner(request):
+    return render(request, "services/training_planner.html")
+
+
+def sessions_2d3d(request):
+    return render(request, "services/sessions_2d3d.html")
+
+
+def drill_library(request):
+    return render(request, "services/drill_library.html")
 
 
 def player_tracking(request):
@@ -176,56 +233,16 @@ def training_builder(request):
 
 
 def sessions_builder(request):
-    return render(request, "services/sessions_builder.html")
-
-
-def services_team_management(request):
-    return render(request, "services/team_management.html")
+    return render(request, "services/session_builder.html")
 
 
 def player_detail(request, id):
     return render(request, "services/player_detail.html", {"player_id": id})
 
-def advanced_analytics(request):
-    return render(request, "services/advanced_analytics.html")
-
-
-def team_dashboard(request):
-    return render(request, "planner/team_dashboard.html")
-
-def my_sessions(request):
-    return render(request, "planner/my_sessions.html")
-
-
-def my_progress(request):
-    return render(request, "planner/my_progress.html")
-
-def drill_library(request):
-    return render(request, "services/drill_library.html")
-
-def season_planner(request):
-    return render(request, "services/season_planner.html")
-
-def training_planner(request):
-    return render(request, "services/training_planner.html")
-
-def sessions_2d3d(request):
-    return render(request, "services/sessions_2d3d.html")
-
-def player_tracking(request):
-    return render(request, "services/player_tracking.html")
-
-def player_tracking(request):
-    return render(request, "services/player_tracking.html")
 
 def advanced_analytics(request):
     return render(request, "services/advanced_analytics.html")
 
-def sessions_builder(request):
-    return render(request, "services/session_builder.html")
-
-from django.shortcuts import render
-from .models import Team
 
 def coaching_system(request):
     teams = Team.objects.prefetch_related(
@@ -238,35 +255,3 @@ def coaching_system(request):
     return render(request, "planner/coaching_system.html", {
         "teams": teams
     })
-
-@login_required
-def dashboard(request):
-    return render(request, "planner/dashboard.html")
-
-
-@login_required
-def analytics(request):
-    return render(request, "planner/analytics.html")
-
-
-from django.shortcuts import render, redirect
-from .models import TrainingSession
-
-def session_create(request):
-    if request.method == "POST":
-        title = request.POST.get("title")
-        date = request.POST.get("date")
-        duration = request.POST.get("duration")
-        notes = request.POST.get("notes")
-
-        if title:
-            TrainingSession.objects.create(
-                title=title,
-                date=date,
-                duration=duration,
-                notes=notes
-            )
-
-            return redirect("planner:dashboard")
-
-    return render(request, "planner/session_form.html")
