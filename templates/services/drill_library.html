@@ -1,90 +1,157 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/drill_library.css' %}">
+{% endblock %}
 
 {% block content %}
-<section class="page-header">
-    <h1>Drill Library</h1>
-    <p>
-        Explore a wide range of soccer drills designed to improve technical skills,
-        tactical awareness, fitness, and teamwork for players of all levels.
-    </p>
-</section>
 
-<section class="drill-categories">
-    <h2>Drill Categories</h2>
+<div class="container py-5">
 
-    <div class="drill-grid">
-        <div class="drill-card">
-            <h3>Technical Skills</h3>
-            <p>
-                Improve ball control, passing accuracy, dribbling, and shooting
-                techniques through focused repetition.
-            </p>
+    <section class="drill-hero mb-5">
+        <span class="drill-badge">Coaching Resources</span>
+
+        <h1 class="fw-bold mt-3 mb-3">Drill Library</h1>
+
+        <p>
+            Explore soccer drills designed to improve technical skills, tactical awareness,
+            fitness, teamwork, and confidence for players of all levels.
+        </p>
+
+        <div class="drill-actions">
+            <a href="{% url 'planner:training_builder' %}" class="btn-drill-primary">
+                <i class="bi bi-grid-3x3-gap"></i>
+                Build Session
+            </a>
+
+            <a href="{% url 'planner:session_create' %}" class="btn-drill-light">
+                Create Session
+            </a>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="section-heading">
+            <span>Categories</span>
+            <h2>Drill Categories</h2>
         </div>
 
-        <div class="drill-card">
-            <h3>Tactical Awareness</h3>
-            <p>
-                Develop positioning, decision-making, and game understanding with
-                small-sided and situational drills.
-            </p>
+        <div class="row g-4">
+            <div class="col-md-6 col-xl-3">
+                <div class="drill-card h-100">
+                    <i class="bi bi-dribbble"></i>
+                    <h3>Technical Skills</h3>
+                    <p>Improve ball control, passing, dribbling, shooting, and first touch.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="drill-card h-100">
+                    <i class="bi bi-diagram-3"></i>
+                    <h3>Tactical Awareness</h3>
+                    <p>Develop positioning, spacing, pressing, and decision-making.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="drill-card h-100">
+                    <i class="bi bi-heart-pulse"></i>
+                    <h3>Fitness</h3>
+                    <p>Build endurance, speed, agility, strength, and recovery habits.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="drill-card h-100">
+                    <i class="bi bi-people"></i>
+                    <h3>Team Play</h3>
+                    <p>Improve communication, teamwork, movement, and group coordination.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row g-4 mb-5">
+        <div class="col-lg-8">
+            <div class="drill-panel h-100">
+                <div class="section-heading">
+                    <span>Popular</span>
+                    <h2>Featured Drills</h2>
+                </div>
+
+                <div class="featured-drill">
+                    <div class="drill-number">01</div>
+                    <div>
+                        <h3>Passing Triangle</h3>
+                        <p>
+                            Players form a triangle and practice quick, accurate passing
+                            while constantly moving to support teammates.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="featured-drill">
+                    <div class="drill-number">02</div>
+                    <div>
+                        <h3>1v1 Attacking Drill</h3>
+                        <p>
+                            Focus on beating defenders using skill moves, speed,
+                            and creativity in a controlled 1v1 scenario.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="featured-drill">
+                    <div class="drill-number">03</div>
+                    <div>
+                        <h3>Small-Sided Game 4v4</h3>
+                        <p>
+                            Encourages quick decision-making, teamwork, communication,
+                            and high involvement from all players.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="drill-card">
-            <h3>Fitness & Conditioning</h3>
-            <p>
-                Build endurance, speed, agility, and strength to enhance overall
-                player performance.
-            </p>
+        <div class="col-lg-4">
+            <div class="drill-panel h-100">
+                <div class="section-heading">
+                    <span>Coach Notes</span>
+                    <h2>Coaching Tips</h2>
+                </div>
+
+                <div class="tip-list">
+                    <div class="tip-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Keep drills simple and focused on one objective.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Encourage communication and constant movement.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Adjust difficulty based on player skill level.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Provide quick feedback and positive reinforcement.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Always relate drills to real match situations.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="drill-card">
-            <h3>Team Play</h3>
-            <p>
-                Focus on communication, teamwork, and coordination with drills
-                designed for group dynamics.
-            </p>
-        </div>
-    </div>
-</section>
+</div>
 
-<section class="featured-drills">
-    <h2>Featured Drills</h2>
-
-    <div class="drill-list">
-        <div class="drill-item">
-            <h3>Passing Triangle</h3>
-            <p>
-                Players form a triangle and practice quick, accurate passing while
-                constantly moving to support teammates.
-            </p>
-        </div>
-
-        <div class="drill-item">
-            <h3>1v1 Attacking Drill</h3>
-            <p>
-                Focus on beating defenders using skill moves, speed, and creativity
-                in a controlled 1v1 scenario.
-            </p>
-        </div>
-
-        <div class="drill-item">
-            <h3>Small-Sided Game (4v4)</h3>
-            <p>
-                Encourages quick decision-making, teamwork, and high involvement
-                from all players.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section class="tips-section">
-    <h2>Coaching Tips</h2>
-    <ul>
-        <li>Keep drills simple and focused on one objective at a time.</li>
-        <li>Encourage communication and constant movement.</li>
-        <li>Adjust difficulty based on player skill level.</li>
-        <li>Provide quick feedback and positive reinforcement.</li>
-        <li>Always relate drills to real match situations.</li>
-    </ul>
-</section>
 {% endblock %}

@@ -1,4 +1,4 @@
-.training-hero {
+.drill-hero {
     background: linear-gradient(135deg, #0f7a35, #1e8f3c);
     color: #ffffff;
     border-radius: 30px;
@@ -6,7 +6,7 @@
     box-shadow: 0 20px 50px rgba(15, 122, 53, 0.25);
 }
 
-.training-badge,
+.drill-badge,
 .section-heading span {
     display: inline-block;
     color: #1e8f3c;
@@ -18,30 +18,30 @@
     text-transform: uppercase;
 }
 
-.training-hero .training-badge {
+.drill-hero .drill-badge {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.18);
 }
 
-.training-hero h1 {
+.drill-hero h1 {
     font-size: clamp(2.2rem, 5vw, 4rem);
 }
 
-.training-hero p {
+.drill-hero p {
     max-width: 760px;
     font-size: 1.08rem;
     opacity: 0.92;
 }
 
-.training-actions {
+.drill-actions {
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
     margin-top: 26px;
 }
 
-.btn-training-primary,
-.btn-training-light {
+.btn-drill-primary,
+.btn-drill-light {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -52,32 +52,24 @@
     transition: all 0.25s ease;
 }
 
-.btn-training-primary {
+.btn-drill-primary {
     background: #ffffff;
     color: #0f7a35;
 }
 
-.btn-training-light {
+.btn-drill-light {
     background: rgba(255, 255, 255, 0.16);
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-.btn-training-primary:hover,
-.btn-training-light:hover {
+.btn-drill-primary:hover,
+.btn-drill-light:hover {
     transform: translateY(-3px);
 }
 
-.btn-training-primary:hover {
-    color: #0f7a35;
-}
-
-.btn-training-light:hover {
-    color: #ffffff;
-}
-
-.training-card,
-.training-panel {
+.drill-card,
+.drill-panel {
     background: #ffffff;
     border-radius: 24px;
     padding: 28px;
@@ -86,14 +78,14 @@
     transition: all 0.25s ease;
 }
 
-.training-card:hover,
-.training-panel:hover {
+.drill-card:hover,
+.drill-panel:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14);
     border-color: rgba(30, 143, 60, 0.35);
 }
 
-.training-card i {
+.drill-card i {
     width: 54px;
     height: 54px;
     border-radius: 18px;
@@ -106,26 +98,34 @@
     margin-bottom: 18px;
 }
 
-.training-card h3,
+.drill-card h3,
+.featured-drill h3,
 .section-heading h2 {
     color: #0f172a;
     font-weight: 800;
 }
 
-.training-card p,
-.training-panel p,
+.drill-card p,
+.featured-drill p,
 .tip-item p {
     color: #64748b;
     margin-bottom: 0;
 }
 
-.training-table th {
-    color: #0f172a;
-    font-weight: 800;
+.featured-drill {
+    display: flex;
+    gap: 18px;
+    background: #f8fafc;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-left: 5px solid #1e8f3c;
 }
 
-.training-table td {
-    color: #64748b;
+.drill-number {
+    color: #1e8f3c;
+    font-size: 1.8rem;
+    font-weight: 900;
 }
 
 .tip-list {
@@ -148,8 +148,12 @@
 }
 
 @media (max-width: 768px) {
-    .training-hero {
+    .drill-hero {
         padding: 34px 24px;
         border-radius: 24px;
+    }
+
+    .featured-drill {
+        flex-direction: column;
     }
 }

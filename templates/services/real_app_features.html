@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/real_app_features.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <section class="features-hero mb-5">
+        <span class="features-badge">Real App Features</span>
+
+        <h1 class="fw-bold mt-3 mb-3">Real App Features</h1>
+
+        <p>
+            Explore useful tools that make your soccer training platform feel like
+            a complete real-world application.
+        </p>
+
+        <div class="features-actions">
+            <a href="{% url 'planner:dashboard' %}" class="btn-features-primary">
+                <i class="bi bi-speedometer2"></i>
+                Dashboard
+            </a>
+
+            <a href="{% url 'planner:my_sessions' %}" class="btn-features-light">
+                View Sessions
+            </a>
+
+            <button type="button" id="darkModeBtn" class="btn-features-light">
+                <i class="bi bi-moon-stars"></i>
+                Dark Mode
+            </button>
+        </div>
+    </section>
+
+    <section class="features-toolbar mb-4">
+        <input
+            type="text"
+            id="featureSearch"
+            class="form-control"
+            placeholder="Search features..."
+        >
+
+        <select id="featureFilter" class="form-select">
+            <option value="all">All Features</option>
+            <option value="planning">Planning</option>
+            <option value="analytics">Analytics</option>
+            <option value="players">Players</option>
+            <option value="tools">Tools</option>
+        </select>
+    </section>
+
+    <section class="row g-4" id="featureGrid">
+
+        <div class="col-md-6 col-xl-3 feature-box" data-category="planning">
+            <div class="feature-card h-100">
+                <button class="favorite-btn">☆</button>
+                <i class="bi bi-bell-fill"></i>
+                <h3>Notifications</h3>
+                <p>Alert users about upcoming sessions and coach updates.</p>
+                <a href="{% url 'planner:dashboard' %}" class="feature-link">Open</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 feature-box" data-category="tools">
+            <div class="feature-card h-100">
+                <button class="favorite-btn">☆</button>
+                <i class="bi bi-moon-stars-fill"></i>
+                <h3>Dark Mode</h3>
+                <p>Switch the page into a darker premium theme.</p>
+                <button type="button" class="feature-link dark-mode-card-btn">Try It</button>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 feature-box" data-category="planning">
+            <div class="feature-card h-100">
+                <button class="favorite-btn">☆</button>
+                <i class="bi bi-calendar-event-fill"></i>
+                <h3>Calendar Tools</h3>
+                <p>Organize practices, matches, and recovery days.</p>
+                <a href="{% url 'planner:my_sessions' %}" class="feature-link">Open</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 feature-box" data-category="tools">
+            <div class="feature-card h-100">
+                <button class="favorite-btn">☆</button>
+                <i class="bi bi-file-earmark-pdf-fill"></i>
+                <h3>PDF Export</h3>
+                <p>Export training plans and player reports.</p>
+                <a href="{% url 'planner:analytics' %}" class="feature-link">View Reports</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 feature-box" data-category="analytics">
+            <div class="feature-card h-100">
+                <button class="favorite-btn">☆</button>
+                <i class="bi bi-bar-chart-fill"></i>
+                <h3>Reports</h3>
+                <p>Create reports for sessions, players, and team progress.</p>
+                <a href="{% url 'planner:analytics' %}" class="feature-link">Open</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 feature-box" data-category="tools">
+            <div class="feature-card h-100">
+                <button class="favorite-btn">☆</button>
+                <i class="bi bi-search"></i>
+                <h3>Search & Filters</h3>
+                <p>Quickly find sessions, drills, players, and records.</p>
+                <a href="{% url 'planner:my_sessions' %}" class="feature-link">Search</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 feature-box" data-category="players">
+            <div class="feature-card h-100">
+                <button class="favorite-btn">☆</button>
+                <i class="bi bi-star-fill"></i>
+                <h3>Favorite Drills</h3>
+                <p>Save useful drills for faster session planning.</p>
+                <a href="{% url 'planner:drill_library' %}" class="feature-link">Open</a>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xl-3 feature-box" data-category="players">
+            <div class="feature-card h-100">
+                <button class="favorite-btn">☆</button>
+                <i class="bi bi-award-fill"></i>
+                <h3>Player Badges</h3>
+                <p>Reward players for attendance, effort, and improvement.</p>
+                <a href="{% url 'planner:player_tracking' %}" class="feature-link">Open</a>
+            </div>
+        </div>
+
+    </section>
+
+    <div id="emptyMessage" class="empty-message d-none">
+        No features found.
+    </div>
+
+</div>
+
+<script>
+    const searchInput = document.getElementById("featureSearch");
+    const filterSelect = document.getElementById("featureFilter");
+    const featureBoxes = document.querySelectorAll(".feature-box");
+    const emptyMessage = document.getElementById("emptyMessage");
+    const darkModeBtn = document.getElementById("darkModeBtn");
+    const darkModeCardBtns = document.querySelectorAll(".dark-mode-card-btn");
+
+    function filterFeatures() {
+        const searchValue = searchInput.value.toLowerCase();
+        const filterValue = filterSelect.value;
+        let visibleCount = 0;
+
+        featureBoxes.forEach(box => {
+            const title = box.querySelector("h3").textContent.toLowerCase();
+            const text = box.querySelector("p").textContent.toLowerCase();
+            const category = box.dataset.category;
+
+            const matchesSearch = title.includes(searchValue) || text.includes(searchValue);
+            const matchesFilter = filterValue === "all" || category === filterValue;
+
+            if (matchesSearch && matchesFilter) {
+                box.classList.remove("d-none");
+                visibleCount++;
+            } else {
+                box.classList.add("d-none");
+            }
+        });
+
+        if (visibleCount === 0) {
+            emptyMessage.classList.remove("d-none");
+        } else {
+            emptyMessage.classList.add("d-none");
+        }
+    }
+
+    searchInput.addEventListener("input", filterFeatures);
+    filterSelect.addEventListener("change", filterFeatures);
+
+    function toggleDarkMode() {
+        document.body.classList.toggle("features-dark-mode");
+
+        if (document.body.classList.contains("features-dark-mode")) {
+            localStorage.setItem("featuresDarkMode", "on");
+        } else {
+            localStorage.setItem("featuresDarkMode", "off");
+        }
+    }
+
+    darkModeBtn.addEventListener("click", toggleDarkMode);
+
+    darkModeCardBtns.forEach(button => {
+        button.addEventListener("click", toggleDarkMode);
+    });
+
+    if (localStorage.getItem("featuresDarkMode") === "on") {
+        document.body.classList.add("features-dark-mode");
+    }
+
+    document.querySelectorAll(".favorite-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            this.classList.toggle("active");
+            this.textContent = this.classList.contains("active") ? "★" : "☆";
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,13 +1,111 @@
+from functools import wraps
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login
+from django.contrib.auth.models import User
 from django.contrib import messages
-from django.views import View
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
-from .models import TrainingSession, UserProfile, Team
-from .forms import CustomUserCreationForm
+from .models import TrainingSession, UserProfile, Team, Player, Attendance, PlayerPerformance
+
+def coach_required(view_func):
+    @wraps(view_func)
+    def wrapper(request, *args, **kwargs):
+        if (
+            request.user.is_authenticated
+            and hasattr(request.user, "userprofile")
+            and request.user.userprofile.role == "coach"
+        ):
+            return view_func(request, *args, **kwargs)
+
+        messages.error(request, "Only coaches can access this page.")
+        return redirect("planner:dashboard")
+
+    return wrapper
+
+@login_required
+@coach_required
+def add_player(request):
+    teams = Team.objects.all()
+
+    if request.method == "POST":
+        team_id = request.POST.get("team")
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        position = request.POST.get("position")
+
+        team = get_object_or_404(Team, id=team_id)
+
+        Player.objects.create(
+            team=team,
+            first_name=first_name,
+            last_name=last_name,
+            position=position
+        )
+
+        messages.success(request, "Player added successfully!")
+        return redirect("planner:player_tracking")
+
+    return render(request, "services/add_player.html", {"teams": teams})
+
+@login_required
+@coach_required
+def mark_attendance(request):
+    sessions = TrainingSession.objects.all().order_by("-date")
+    players = Player.objects.all().order_by("last_name")
+
+    if request.method == "POST":
+        session_id = request.POST.get("session")
+        session = get_object_or_404(TrainingSession, id=session_id)
+
+        for player in players:
+            status = request.POST.get(f"status_{player.id}")
+
+            if status:
+                Attendance.objects.update_or_create(
+                    session=session,
+                    player=player,
+                    defaults={"status": status}
+                )
+
+        messages.success(request, "Attendance saved successfully!")
+        return redirect("planner:dashboard")
+
+    return render(request, "services/mark_attendance.html", {
+        "sessions": sessions,
+        "players": players
+    })
+
+@login_required
+def analytics(request):
+    total_players = Player.objects.count()
+    total_sessions = TrainingSession.objects.count()
+    completed_sessions = TrainingSession.objects.filter(completed=True).count()
+    attendance_records = Attendance.objects.count()
+    performances = PlayerPerformance.objects.all()
+
+    return render(request, "planner/analytics.html", {
+        "total_players": total_players,
+        "total_sessions": total_sessions,
+        "completed_sessions": completed_sessions,
+        "attendance_records": attendance_records,
+        "performances": performances
+    })
+
+
+@login_required
+@coach_required
+def delete_player(request, id):
+    player = get_object_or_404(Player, id=id)
+
+    if request.method == "POST":
+        player.delete()
+        messages.success(request, "Player deleted successfully!")
+        return redirect("planner:player_tracking")
+
+    return render(request, "services/delete_player.html", {"player": player})
 
 
 def home(request):
@@ -65,19 +163,16 @@ def services(request):
 @login_required
 def choose_plan(request, plan):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
-
     profile.plan = plan
 
     if plan == "free":
         profile.subscription_active = True
         profile.save()
-
         messages.success(request, "Free plan activated successfully!")
         return redirect("planner:dashboard")
 
     profile.subscription_active = False
     profile.save()
-
     return redirect("planner:payment_page")
 
 
@@ -93,15 +188,10 @@ def payment_page(request):
 @login_required
 def payment_success(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
-
     profile.subscription_active = True
     profile.save()
 
-    messages.success(
-        request,
-        f"{profile.plan.title()} plan activated successfully!"
-    )
-
+    messages.success(request, f"{profile.plan.title()} plan activated successfully!")
     return redirect("planner:dashboard")
 
 
@@ -127,23 +217,35 @@ def analytics(request):
     return render(request, "planner/analytics.html")
 
 
+@login_required
 def team_dashboard(request):
     return render(request, "planner/team_dashboard.html")
 
 
+@login_required
 def my_sessions(request):
-    return render(request, "planner/my_sessions.html")
+    sessions = TrainingSession.objects.all().order_by("-date")
+
+    return render(request, "planner/my_sessions.html", {
+        "sessions": sessions,
+        "total_sessions": sessions.count(),
+        "completed_sessions": sessions.filter(completed=True).count(),
+    })
 
 
+@login_required
 def my_progress(request):
     return render(request, "planner/my_progress.html")
 
 
+@login_required
 def session_detail(request, pk):
     session = get_object_or_404(TrainingSession, pk=pk)
     return render(request, "planner/session_detail.html", {"session": session})
 
 
+@login_required
+@coach_required
 def session_create(request):
     if request.method == "POST":
         title = request.POST.get("title")
@@ -151,7 +253,7 @@ def session_create(request):
         duration = request.POST.get("duration")
         notes = request.POST.get("notes")
 
-        if title:
+        if title and date:
             session = TrainingSession.objects.create(
                 title=title,
                 date=date,
@@ -159,41 +261,66 @@ def session_create(request):
                 notes=notes
             )
 
+            messages.success(request, "Training session created successfully!")
             return redirect("planner:session_detail", pk=session.pk)
+
+        messages.error(request, "Title and date are required.")
 
     return render(request, "planner/session_form.html")
 
 
+@login_required
+@coach_required
 def session_complete(request, pk):
     session = get_object_or_404(TrainingSession, pk=pk)
     session.completed = True
     session.save()
 
+    messages.success(request, "Session marked as completed.")
     return redirect("planner:session_detail", pk=pk)
 
 
-class RegisterView(View):
-    template_name = "planner/register.html"
+def register(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password1 = request.POST.get("password1")
+        password2 = request.POST.get("password2")
+        role = request.POST.get("role", "player")
 
-    def get(self, request):
-        form = CustomUserCreationForm()
-        return render(request, self.template_name, {"form": form})
+        allowed_roles = ["coach", "parent", "player"]
 
-    def post(self, request):
-        form = CustomUserCreationForm(request.POST)
+        if role not in allowed_roles:
+            role = "player"
 
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
+        if password1 != password2:
+            messages.error(request, "Passwords do not match.")
+            return redirect("planner:register")
 
-            messages.success(
-                request,
-                f"Welcome aboard, {user.username}! Your account is ready."
-            )
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username already exists.")
+            return redirect("planner:register")
 
-            return redirect("planner:home")
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "Email already exists.")
+            return redirect("planner:register")
 
-        return render(request, self.template_name, {"form": form})
+        user = User.objects.create_user(
+            username=username,
+            email=email,
+            password=password1
+        )
+
+        UserProfile.objects.create(
+            user=user,
+            role=role
+        )
+
+        login(request, user)
+        messages.success(request, f"Welcome, {username}! Your account was created.")
+        return redirect("planner:dashboard")
+
+    return render(request, "planner/register.html")
 
 
 def real_app_features(request):
@@ -228,10 +355,14 @@ def player_tracking(request):
     return render(request, "services/player_tracking.html")
 
 
+@login_required
+@coach_required
 def training_builder(request):
     return render(request, "services/training_builder.html")
 
 
+@login_required
+@coach_required
 def sessions_builder(request):
     return render(request, "services/session_builder.html")
 
@@ -240,10 +371,14 @@ def player_detail(request, id):
     return render(request, "services/player_detail.html", {"player_id": id})
 
 
+@login_required
+@coach_required
 def advanced_analytics(request):
     return render(request, "services/advanced_analytics.html")
 
 
+@login_required
+@coach_required
 def coaching_system(request):
     teams = Team.objects.prefetch_related(
         "players",

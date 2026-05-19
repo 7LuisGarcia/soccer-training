@@ -3,14 +3,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import views as auth_views
-
 from . import views
-from .views import RegisterView
 
 app_name = "planner"
 
 urlpatterns = [
-
     # HOME
     path("", views.home, name="home"),
 
@@ -27,20 +24,12 @@ urlpatterns = [
         LoginView.as_view(template_name="planner/login.html"),
         name="login"
     ),
-
     path(
         "logout/",
-        auth_views.LogoutView.as_view(
-            next_page="planner:home"
-        ),
+        auth_views.LogoutView.as_view(next_page="planner:home"),
         name="logout"
     ),
-
-    path(
-        "register/",
-        RegisterView.as_view(),
-        name="register"
-    ),
+    path("register/", views.register, name="register"),
 
     # DASHBOARD
     path("dashboard/", views.dashboard, name="dashboard"),
@@ -78,6 +67,9 @@ urlpatterns = [
 
     # PLAYERS
     path("player/<int:id>/", views.player_detail, name="player_detail"),
+    path("players/add/", views.add_player, name="add_player"),
+    path("players/<int:id>/delete/", views.delete_player, name="delete_player"),
+    path("attendance/mark/", views.mark_attendance, name="mark_attendance"),
 
     # ANALYTICS
     path(

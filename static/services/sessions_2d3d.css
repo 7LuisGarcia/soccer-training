@@ -1,4 +1,4 @@
-.training-hero {
+.sessions-hero {
     background: linear-gradient(135deg, #0f7a35, #1e8f3c);
     color: #ffffff;
     border-radius: 30px;
@@ -6,7 +6,7 @@
     box-shadow: 0 20px 50px rgba(15, 122, 53, 0.25);
 }
 
-.training-badge,
+.sessions-badge,
 .section-heading span {
     display: inline-block;
     color: #1e8f3c;
@@ -18,30 +18,30 @@
     text-transform: uppercase;
 }
 
-.training-hero .training-badge {
+.sessions-hero .sessions-badge {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.18);
 }
 
-.training-hero h1 {
+.sessions-hero h1 {
     font-size: clamp(2.2rem, 5vw, 4rem);
 }
 
-.training-hero p {
+.sessions-hero p {
     max-width: 760px;
     font-size: 1.08rem;
     opacity: 0.92;
 }
 
-.training-actions {
+.sessions-actions {
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
     margin-top: 26px;
 }
 
-.btn-training-primary,
-.btn-training-light {
+.btn-sessions-primary,
+.btn-sessions-light {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -52,103 +52,59 @@
     transition: all 0.25s ease;
 }
 
-.btn-training-primary {
+.btn-sessions-primary {
     background: #ffffff;
     color: #0f7a35;
 }
 
-.btn-training-light {
+.btn-sessions-light {
     background: rgba(255, 255, 255, 0.16);
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-.btn-training-primary:hover,
-.btn-training-light:hover {
+.btn-sessions-primary:hover,
+.btn-sessions-light:hover {
     transform: translateY(-3px);
 }
 
-.btn-training-primary:hover {
-    color: #0f7a35;
-}
-
-.btn-training-light:hover {
-    color: #ffffff;
-}
-
-.training-card,
-.training-panel {
+.sessions-panel,
+.plan-card {
     background: #ffffff;
     border-radius: 24px;
     padding: 28px;
     border: 1px solid rgba(30, 143, 60, 0.14);
     box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
-    transition: all 0.25s ease;
 }
 
-.training-card:hover,
-.training-panel:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14);
-    border-color: rgba(30, 143, 60, 0.35);
+.plan-card {
+    margin-top: 18px;
+    background: #f8fafc;
+    box-shadow: none;
 }
 
-.training-card i {
-    width: 54px;
-    height: 54px;
-    border-radius: 18px;
-    background: #dcfce7;
-    color: #1e8f3c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.35rem;
-    margin-bottom: 18px;
-}
-
-.training-card h3,
+.plan-card h3,
 .section-heading h2 {
     color: #0f172a;
     font-weight: 800;
 }
 
-.training-card p,
-.training-panel p,
-.tip-item p {
+.sessions-panel p,
+.plan-card li {
     color: #64748b;
+}
+
+.plan-card ul {
+    padding-left: 20px;
     margin-bottom: 0;
 }
 
-.training-table th {
-    color: #0f172a;
-    font-weight: 800;
-}
-
-.training-table td {
-    color: #64748b;
-}
-
-.tip-list {
-    display: grid;
-    gap: 14px;
-}
-
-.tip-item {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    background: #f8fafc;
-    border-radius: 18px;
-    padding: 15px;
-}
-
-.tip-item i {
-    color: #1e8f3c;
-    margin-top: 2px;
+.plan-card li {
+    margin-bottom: 8px;
 }
 
 @media (max-width: 768px) {
-    .training-hero {
+    .sessions-hero {
         padding: 34px 24px;
         border-radius: 24px;
     }

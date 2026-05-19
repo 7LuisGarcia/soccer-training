@@ -1,94 +1,162 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/player_tracking.css' %}">
+{% endblock %}
 
 {% block content %}
-<section class="page-header">
-    <h1>Player Tracking</h1>
-    <p>
-        Monitor player development throughout the season by tracking attendance,
-        performance, fitness, skills, and personal goals.
-    </p>
-</section>
 
-<section class="tracking-overview">
-    <h2>What You Can Track</h2>
+<div class="container py-5">
 
-    <div class="tracking-grid">
-        <div class="tracking-card">
-            <h3>Attendance</h3>
+    <section class="tracking-hero mb-5">
+        <div>
+            <span class="tracking-badge">Player Development</span>
+
+            <h1 class="fw-bold mt-3 mb-3">Player Tracking</h1>
+
             <p>
-                Record which players attend training sessions and matches.
-                Consistent attendance helps coaches understand commitment,
-                availability, and team reliability.
+                Monitor player development throughout the season by tracking attendance,
+                performance, fitness, skills, and personal goals.
             </p>
         </div>
 
-        <div class="tracking-card">
-            <h3>Fitness & Workload</h3>
-            <p>
-                Track endurance, speed, agility, recovery, and training intensity
-                to help prevent injuries and improve conditioning.
-            </p>
+        <div class="tracking-actions">
+            <a href="{% url 'planner:add_player' %}" class="btn-tracking-primary">
+                <i class="bi bi-person-plus"></i>
+                Add Player
+            </a>
+
+            <a href="{% url 'planner:mark_attendance' %}" class="btn-tracking-light">
+                Mark Attendance
+            </a>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="section-heading">
+            <span>Coach Dashboard</span>
+            <h2>What You Can Track</h2>
         </div>
 
-        <div class="tracking-card">
-            <h3>Technical Skills</h3>
-            <p>
-                Monitor passing, dribbling, shooting, first touch, ball control,
-                and defensive technique over time.
-            </p>
+        <div class="row g-4">
+            <div class="col-md-6 col-xl-3">
+                <div class="tracking-card h-100">
+                    <i class="bi bi-calendar-check"></i>
+                    <h3>Attendance</h3>
+                    <p>
+                        Record which players attend training sessions and matches to understand
+                        commitment, availability, and reliability.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="tracking-card h-100">
+                    <i class="bi bi-heart-pulse"></i>
+                    <h3>Fitness & Workload</h3>
+                    <p>
+                        Track endurance, speed, agility, recovery, and intensity to reduce injury risk.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="tracking-card h-100">
+                    <i class="bi bi-dribbble"></i>
+                    <h3>Technical Skills</h3>
+                    <p>
+                        Monitor passing, dribbling, shooting, first touch, ball control, and defending.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="tracking-card h-100">
+                    <i class="bi bi-trophy"></i>
+                    <h3>Match Performance</h3>
+                    <p>
+                        Review goals, assists, tackles, saves, communication, positioning, and decisions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row g-4 mb-5">
+        <div class="col-lg-7">
+            <div class="tracking-panel h-100">
+                <div class="section-heading">
+                    <span>Development Focus</span>
+                    <h2>Player Development Areas</h2>
+                </div>
+
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Passing accuracy and decision-making</p>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Dribbling confidence and ball control</p>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Shooting technique and finishing ability</p>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Defensive positioning and tackling</p>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Speed, stamina, agility, and strength</p>
+                    </div>
+
+                    <div class="skill-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Leadership, communication, and teamwork</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="tracking-card">
-            <h3>Match Performance</h3>
-            <p>
-                Review goals, assists, tackles, saves, communication, positioning,
-                and decision-making during games.
-            </p>
+        <div class="col-lg-5">
+            <div class="tracking-panel h-100">
+                <div class="section-heading">
+                    <span>Coach Notes</span>
+                    <h2>Example Tracking Notes</h2>
+                </div>
+
+                <div class="notes-box">
+                    <div>
+                        <span>Player</span>
+                        <strong>Alex Martinez</strong>
+                    </div>
+
+                    <div>
+                        <span>Strength</span>
+                        <strong>Strong passing and quick decision-making</strong>
+                    </div>
+
+                    <div>
+                        <span>Needs Improvement</span>
+                        <strong>Defensive positioning and stamina</strong>
+                    </div>
+
+                    <div>
+                        <span>Coach Action</span>
+                        <strong>Add defensive shape drills and conditioning work</strong>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="tracking-section">
-    <h2>Player Development Areas</h2>
-    <ul>
-        <li>Passing accuracy and decision-making</li>
-        <li>Dribbling confidence and ball control</li>
-        <li>Shooting technique and finishing ability</li>
-        <li>Defensive positioning and tackling</li>
-        <li>Speed, stamina, agility, and strength</li>
-        <li>Leadership, communication, and teamwork</li>
-    </ul>
-</section>
+</div>
 
-<section class="tracking-section">
-    <h2>How Coaches Can Use Tracking</h2>
-    <p>
-        Player tracking helps coaches make better training decisions. By reviewing
-        player data, coaches can identify strengths, spot areas for improvement,
-        create personalized development plans, and adjust training sessions based
-        on team needs.
-    </p>
-</section>
-
-<section class="tracking-section">
-    <h2>Example Tracking Notes</h2>
-
-    <div class="notes-box">
-        <p><strong>Player:</strong> Alex Martinez</p>
-        <p><strong>Strength:</strong> Strong passing and quick decision-making.</p>
-        <p><strong>Needs Improvement:</strong> Defensive positioning and stamina.</p>
-        <p><strong>Coach Action:</strong> Add more defensive shape drills and conditioning work.</p>
-    </div>
-</section>
-
-<section class="tracking-section">
-    <h2>Tracking Tips</h2>
-    <ul>
-        <li>Update player notes after each training session or match.</li>
-        <li>Use clear, measurable goals for each player.</li>
-        <li>Compare progress over weeks instead of judging one session.</li>
-        <li>Balance statistics with coach observations.</li>
-        <li>Give players feedback they can understand and act on.</li>
-    </ul>
-</section>
 {% endblock %}

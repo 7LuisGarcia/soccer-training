@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+  <h1 class="fw-bold mb-4">Mark Attendance</h1>
+
+  <form method="POST" class="card p-4 shadow-sm">
+    {% csrf_token %}
+
+    <div class="mb-4">
+      <label class="form-label">Training Session</label>
+      <select name="session" class="form-control" required>
+        {% for session in sessions %}
+          <option value="{{ session.id }}">{{ session.title }} - {{ session.date }}</option>
+        {% endfor %}
+        </select>
+        </div>
+
+        {% for player in players %}
+        <div class="border rounded p-3 mb-3">
+            <strong>{{ player.first_name }} {{ player.last_name }}</strong>
+
+            <select name="status_{{ player.id }}" class="form-control mt-2">
+            <option value="present">Present</option>
+            <option value="absent">Absent</option>
+            <option value="late">Late</option>
+            <option value="injured">Injured</option>
+            <option value="excused">Excused</option>
+            </select>
+        </div>
+        {% endfor %}
+
+        <button class="btn btn-success">Save Attendance</button>
+    </form>
+</div>
+{% endblock %}

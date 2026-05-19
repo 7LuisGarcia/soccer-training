@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="card p-4 shadow-sm">
+        <h2>Delete Player</h2>
+        <p>Are you sure you want to delete <strong>{{ player.first_name }} {{ player.last_name }}</strong>?</p>
+
+        <form method="POST">
+        {% csrf_token %}
+        <button class="btn btn-danger">Yes, Delete</button>
+        <a href="{% url 'planner:player_tracking' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

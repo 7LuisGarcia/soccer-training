@@ -1,65 +1,150 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/advanced_analytics.css' %}">
+{% endblock %}
 
 {% block content %}
-<section class="page-header">
-    <h1>Advanced Analytics</h1>
-    <p>
-        Use performance data to understand your team, improve training sessions,
-        and make smarter coaching decisions.
-    </p>
-</section>
 
-<section class="analytics-grid">
-    <div class="analytics-card">
-        <h2>Player Performance</h2>
+<div class="container py-5">
+
+    <section class="advanced-hero mb-5">
+        <span class="advanced-badge">Data-Driven Coaching</span>
+
+        <h1 class="fw-bold mt-3 mb-3">Advanced Analytics</h1>
+
         <p>
-            Track player speed, stamina, attendance, goals, assists, and overall
-            development across the season.
+            Use performance data to understand your team, improve training sessions,
+            reduce injury risk, and make smarter coaching decisions.
         </p>
-    </div>
 
-    <div class="analytics-card">
-        <h2>Training Progress</h2>
-        <p>
-            Review completed sessions, training intensity, drill focus, and areas
-            where the team needs improvement.
-        </p>
-    </div>
+        <div class="advanced-actions">
+            <a href="{% url 'planner:analytics' %}" class="btn-advanced-primary">
+                <i class="bi bi-bar-chart-line"></i>
+                View Dashboard
+            </a>
 
-    <div class="analytics-card">
-        <h2>Team Insights</h2>
-        <p>
-            Compare team performance over time and identify strengths,
-            weaknesses, and tactical trends.
-        </p>
-    </div>
+            <a href="{% url 'planner:mark_attendance' %}" class="btn-advanced-light">
+                Mark Attendance
+            </a>
+        </div>
+    </section>
 
-    <div class="analytics-card">
-        <h2>Match Preparation</h2>
-        <p>
-            Use analytics to plan lineups, adjust formations, and prepare players
-            for upcoming opponents.
-        </p>
-    </div>
-</section>
+    <section class="mb-5">
+        <div class="section-heading">
+            <span>Analytics Tools</span>
+            <h2>What You Can Analyze</h2>
+        </div>
 
-<section class="analytics-section">
-    <h2>Key Metrics</h2>
-    <ul>
-        <li>Attendance and player availability</li>
-        <li>Training completion rate</li>
-        <li>Player fitness and workload</li>
-        <li>Technical skill development</li>
-        <li>Team tactical performance</li>
-    </ul>
-</section>
+        <div class="row g-4">
+            <div class="col-md-6 col-xl-3">
+                <div class="advanced-card h-100">
+                    <i class="bi bi-person-lines-fill"></i>
+                    <h3>Player Performance</h3>
+                    <p>
+                        Track speed, stamina, attendance, goals, assists, ratings,
+                        and player development across the season.
+                    </p>
+                </div>
+            </div>
 
-<section class="analytics-section">
-    <h2>Why Analytics Matter</h2>
-    <p>
-        Advanced analytics help coaches move beyond guesswork. By reviewing data
-        from training sessions and player performance, coaches can create better
-        practice plans, reduce injury risk, and support long-term player growth.
-    </p>
-</section>
+            <div class="col-md-6 col-xl-3">
+                <div class="advanced-card h-100">
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <h3>Training Progress</h3>
+                    <p>
+                        Review completed sessions, intensity, drill focus,
+                        workload, and team improvement areas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="advanced-card h-100">
+                    <i class="bi bi-people-fill"></i>
+                    <h3>Team Insights</h3>
+                    <p>
+                        Compare team performance over time and identify strengths,
+                        weaknesses, and tactical trends.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-3">
+                <div class="advanced-card h-100">
+                    <i class="bi bi-diagram-3-fill"></i>
+                    <h3>Match Preparation</h3>
+                    <p>
+                        Plan lineups, adjust formations, and prepare players for
+                        upcoming opponents using real trends.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row g-4 mb-5">
+        <div class="col-lg-7">
+            <div class="advanced-panel h-100">
+                <div class="section-heading">
+                    <span>Performance Metrics</span>
+                    <h2>Key Metrics</h2>
+                </div>
+
+                <div class="metric-list">
+                    <div class="metric-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Attendance and player availability</p>
+                    </div>
+
+                    <div class="metric-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Training completion rate</p>
+                    </div>
+
+                    <div class="metric-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Player fitness and workload</p>
+                    </div>
+
+                    <div class="metric-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Technical skill development</p>
+                    </div>
+
+                    <div class="metric-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Team tactical performance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="advanced-panel h-100">
+                <div class="section-heading">
+                    <span>Coach Value</span>
+                    <h2>Why Analytics Matter</h2>
+                </div>
+
+                <p class="advanced-copy">
+                    Advanced analytics help coaches move beyond guesswork. By reviewing
+                    data from training sessions and player performance, coaches can create
+                    better practice plans, reduce injury risk, and support long-term player growth.
+                </p>
+
+                <div class="insight-box">
+                    <strong>Example Insight</strong>
+                    <p>
+                        If attendance drops and fatigue increases, the coach may reduce
+                        intensity, add recovery work, or adjust the weekly training load.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
 {% endblock %}

@@ -7,80 +7,130 @@
 
 {% block content %}
 
-<div class="builder-hero my-4">
-    <h1>Training Session Builder</h1>
-    <p>Build complete soccer sessions with drills, intensity, timeline, and total duration.</p>
-</div>
+<div class="container py-5">
 
-<div class="row g-4">
+    <section class="builder-hero mb-5">
+        <span class="builder-badge">Interactive Planner</span>
+        <h1 class="fw-bold mt-3 mb-3">Training Session Builder</h1>
+        <p>
+            Build complete soccer sessions with drills, intensity, field zones,
+            timeline structure, and total duration.
+        </p>
+    </section>
 
-    <div class="col-lg-4">
-        <div class="builder-card">
-            <h3>Drill Library</h3>
+    <div class="row g-4">
 
-            <div class="drill-item" draggable="true" data-name="Warm-up" data-time="10" data-tag="Warm-up">
-                <strong>Warm-up</strong>
-                <span>10 min</span>
-                <small>Mobility • Ball touches</small>
-            </div>
-
-            <div class="drill-item" draggable="true" data-name="Possession Drill" data-time="15" data-tag="Passing">
-                <strong>Possession Drill</strong>
-                <span>15 min</span>
-                <small>Passing • Movement</small>
-            </div>
-
-            <div class="drill-item" draggable="true" data-name="Finishing Drill" data-time="20" data-tag="Finishing">
-                <strong>Finishing Drill</strong>
-                <span>20 min</span>
-                <small>Shooting • Attacking</small>
-            </div>
-
-            <div class="drill-item" draggable="true" data-name="Scrimmage" data-time="15" data-tag="Game">
-                <strong>Scrimmage</strong>
-                <span>15 min</span>
-                <small>Game realistic play</small>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-8">
-        <div class="builder-card">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <div>
-                    <h3>Session Timeline</h3>
-                    <p class="text-muted mb-0">Drag drills into the session plan.</p>
+        <div class="col-lg-4">
+            <div class="builder-card h-100">
+                <div class="section-heading mb-4">
+                    <span>Drag & Drop</span>
+                    <h3>Drill Library</h3>
                 </div>
 
-                <div class="total-box">
-                    Total: <span id="totalTime">0</span> min
+                <div class="drill-item" draggable="true" data-name="Warm-up" data-time="10" data-tag="Warm-up">
+                    <div>
+                        <strong>Warm-up</strong>
+                        <small>Mobility • Ball touches</small>
+                    </div>
+                    <span>10 min</span>
+                </div>
+
+                <div class="drill-item" draggable="true" data-name="Possession Drill" data-time="15" data-tag="Passing">
+                    <div>
+                        <strong>Possession Drill</strong>
+                        <small>Passing • Movement</small>
+                    </div>
+                    <span>15 min</span>
+                </div>
+
+                <div class="drill-item" draggable="true" data-name="Finishing Drill" data-time="20" data-tag="Finishing">
+                    <div>
+                        <strong>Finishing Drill</strong>
+                        <small>Shooting • Attacking</small>
+                    </div>
+                    <span>20 min</span>
+                </div>
+
+                <div class="drill-item" draggable="true" data-name="Scrimmage" data-time="15" data-tag="Game">
+                    <div>
+                        <strong>Scrimmage</strong>
+                        <small>Game realistic play</small>
+                    </div>
+                    <span>15 min</span>
+                </div>
+
+                <div class="builder-tip mt-4">
+                    <i class="bi bi-info-circle"></i>
+                    Drag drills into the session timeline to build your plan.
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+
+            <div class="builder-card">
+                <div class="timeline-header mb-4">
+                    <div>
+                        <span class="mini-label">Session Plan</span>
+                        <h3>Session Timeline</h3>
+                        <p class="text-muted mb-0">Drop drills into the session plan.</p>
+                    </div>
+
+                    <div class="total-box">
+                        Total: <span id="totalTime">0</span> min
+                    </div>
+                </div>
+
+                <div id="sessionTimeline" class="session-drop-zone">
+                    <div class="empty-state">
+                        <i class="bi bi-arrow-down-circle"></i>
+                        <p>Drop drills here</p>
+                    </div>
+                </div>
+
+                <div class="builder-actions mt-4">
+                    <button type="button" class="btn btn-outline-danger" id="clearTimeline">
+                        Clear Timeline
+                    </button>
+
+                    <a href="{% url 'planner:session_create' %}" class="btn btn-success">
+                        Save Session
+                    </a>
                 </div>
             </div>
 
-            <div id="sessionTimeline" class="session-drop-zone">
-                <p class="empty-text">Drop drills here</p>
+            <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                    <div class="builder-card h-100">
+                        <h3>Intensity Meter</h3>
+
+                        <input type="range" min="1" max="10" value="5" class="form-range" id="intensityRange">
+
+                        <div class="intensity-output">
+                            Intensity: <span id="intensityValue">5</span>/10
+                        </div>
+
+                        <p class="text-muted mt-3 mb-0">
+                            Use this to estimate session difficulty and training load.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="builder-card h-100">
+                        <h3>Field Zones</h3>
+
+                        <div class="field-zones">
+                            <div>Defensive Third</div>
+                            <div>Middle Third</div>
+                            <div>Attacking Third</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
 
-        <div class="builder-card mt-4">
-            <h3>Intensity Meter</h3>
-
-            <input type="range" min="1" max="10" value="5" class="form-range" id="intensityRange">
-
-            <div class="intensity-output">
-                Intensity: <span id="intensityValue">5</span>/10
-            </div>
-        </div>
-
-        <div class="builder-card mt-4">
-            <h3>Field Zones</h3>
-
-            <div class="field-zones">
-                <div>Defensive Third</div>
-                <div>Middle Third</div>
-                <div>Attacking Third</div>
-            </div>
-        </div>
     </div>
 
 </div>
@@ -91,8 +141,25 @@
     const totalTime = document.getElementById("totalTime");
     const intensityRange = document.getElementById("intensityRange");
     const intensityValue = document.getElementById("intensityValue");
+    const clearTimeline = document.getElementById("clearTimeline");
 
     let total = 0;
+
+    function removeEmptyState() {
+        const emptyState = document.querySelector(".empty-state");
+        if (emptyState) {
+            emptyState.remove();
+        }
+    }
+
+    function showEmptyState() {
+        timeline.innerHTML = `
+            <div class="empty-state">
+                <i class="bi bi-arrow-down-circle"></i>
+                <p>Drop drills here</p>
+            </div>
+        `;
+    }
 
     drills.forEach(drill => {
         drill.addEventListener("dragstart", function (e) {
@@ -119,24 +186,50 @@
         const time = parseInt(e.dataTransfer.getData("time"));
         const tag = e.dataTransfer.getData("tag");
 
-        const emptyText = document.querySelector(".empty-text");
-        if (emptyText) emptyText.remove();
+        removeEmptyState();
 
         const item = document.createElement("div");
         item.classList.add("timeline-item");
+        item.dataset.time = time;
 
         item.innerHTML = `
             <div>
                 <strong>${name}</strong>
                 <p>${tag}</p>
             </div>
-            <span>${time} min</span>
+
+            <div class="timeline-right">
+                <span>${time} min</span>
+                <button type="button" class="remove-drill">×</button>
+            </div>
         `;
 
         timeline.appendChild(item);
 
         total += time;
         totalTime.textContent = total;
+    });
+
+    timeline.addEventListener("click", function (e) {
+        if (e.target.classList.contains("remove-drill")) {
+            const item = e.target.closest(".timeline-item");
+            const time = parseInt(item.dataset.time);
+
+            total -= time;
+            totalTime.textContent = total;
+
+            item.remove();
+
+            if (!timeline.querySelector(".timeline-item")) {
+                showEmptyState();
+            }
+        }
+    });
+
+    clearTimeline.addEventListener("click", function () {
+        total = 0;
+        totalTime.textContent = total;
+        showEmptyState();
     });
 
     intensityRange.addEventListener("input", function () {

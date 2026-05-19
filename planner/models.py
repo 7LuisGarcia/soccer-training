@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model):
     ROLE_CHOICES = [
         ("coach", "Coach"),
-        ("player", "Player"),
         ("parent", "Parent"),
+        ("player", "Player"),
     ]
 
     PLAN_CHOICES = [
@@ -122,7 +122,6 @@ class TrainingSession(models.Model):
 
 
 class Drill(models.Model):
-
     DIFFICULTY_CHOICES = [
         ("easy", "Easy"),
         ("medium", "Medium"),
@@ -154,7 +153,6 @@ class Drill(models.Model):
 
 
 class SessionDrill(models.Model):
-
     session = models.ForeignKey(
         TrainingSession,
         on_delete=models.CASCADE,
@@ -175,7 +173,6 @@ class SessionDrill(models.Model):
 
 
 class Attendance(models.Model):
-
     STATUS_CHOICES = [
         ("present", "Present"),
         ("absent", "Absent"),
@@ -206,7 +203,6 @@ class Attendance(models.Model):
 
 
 class PlayerPerformance(models.Model):
-
     session = models.ForeignKey(
         TrainingSession,
         on_delete=models.CASCADE,

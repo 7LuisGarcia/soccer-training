@@ -1,134 +1,205 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/training_planner.css' %}">
+{% endblock %}
 
 {% block content %}
-<section class="page-header">
-    <h1>Training Planner</h1>
-    <p>
-        Design structured, effective training sessions that improve player skills,
-        fitness, and tactical understanding throughout the season.
-    </p>
-</section>
 
-<section class="training-section">
-    <h2>What is a Training Planner?</h2>
-    <p>
-        A training planner helps coaches organize sessions with clear goals, structured
-        activities, and measurable outcomes. It ensures each session builds toward
-        long-term player and team development.
-    </p>
-</section>
+<div class="container py-5">
 
-<section class="training-section">
-    <h2>Key Components of a Training Plan</h2>
+    <section class="training-hero mb-5">
+        <span class="training-badge">Session Builder</span>
 
-    <div class="training-grid">
-        <div class="training-card">
-            <h3>Session Objective</h3>
-            <p>
-                Define the main focus of the session, such as passing, defending,
-                finishing, or team shape.
-            </p>
+        <h1 class="fw-bold mt-3 mb-3">Training Planner</h1>
+
+        <p>
+            Design structured, effective training sessions that improve player skills,
+            fitness, tactical understanding, and long-term team performance.
+        </p>
+
+        <div class="training-actions">
+            <a href="{% url 'planner:session_create' %}" class="btn-training-primary">
+                <i class="bi bi-plus-circle"></i>
+                Create Session
+            </a>
+
+            <a href="{% url 'planner:my_sessions' %}" class="btn-training-light">
+                View My Sessions
+            </a>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="section-heading">
+            <span>Purpose</span>
+            <h2>What is a Training Planner?</h2>
         </div>
 
-        <div class="training-card">
-            <h3>Warm-Up</h3>
+        <div class="training-panel">
             <p>
-                Prepare players with dynamic movement, stretching, and light ball work
-                to reduce injury risk and improve readiness.
+                A training planner helps coaches organize sessions with clear goals,
+                structured activities, and measurable outcomes. It ensures each session
+                builds toward long-term player and team development.
             </p>
         </div>
+    </section>
 
-        <div class="training-card">
-            <h3>Main Drills</h3>
-            <p>
-                Include technical and tactical exercises that directly support the
-                session objective.
-            </p>
+    <section class="mb-5">
+        <div class="section-heading">
+            <span>Session Structure</span>
+            <h2>Key Components of a Training Plan</h2>
         </div>
 
-        <div class="training-card">
-            <h3>Game-Based Activity</h3>
-            <p>
-                Use small-sided games to apply skills in realistic match situations.
-            </p>
+        <div class="row g-4">
+            <div class="col-md-6 col-xl-4">
+                <div class="training-card h-100">
+                    <i class="bi bi-bullseye"></i>
+                    <h3>Session Objective</h3>
+                    <p>Define the main focus, such as passing, defending, finishing, or team shape.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="training-card h-100">
+                    <i class="bi bi-activity"></i>
+                    <h3>Warm-Up</h3>
+                    <p>Prepare players with dynamic movement, stretching, and light ball work.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="training-card h-100">
+                    <i class="bi bi-grid-3x3-gap"></i>
+                    <h3>Main Drills</h3>
+                    <p>Use technical and tactical exercises that directly support the session objective.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="training-card h-100">
+                    <i class="bi bi-controller"></i>
+                    <h3>Game-Based Activity</h3>
+                    <p>Use small-sided games to apply skills in realistic match situations.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="training-card h-100">
+                    <i class="bi bi-heart-pulse"></i>
+                    <h3>Cool Down</h3>
+                    <p>End with stretching, recovery exercises, and a short session review.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4">
+                <div class="training-card h-100">
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <h3>Progress Review</h3>
+                    <p>Connect every session to player progress, attendance, and performance goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="row g-4 mb-5">
+        <div class="col-lg-8">
+            <div class="training-panel h-100">
+                <div class="section-heading">
+                    <span>Example</span>
+                    <h2>Example Training Session</h2>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table training-table align-middle">
+                        <thead>
+                            <tr>
+                                <th>Phase</th>
+                                <th>Time</th>
+                                <th>Activity</th>
+                                <th>Focus</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Warm-Up</td>
+                                <td>10 min</td>
+                                <td>Jogging, stretching, ball touches</td>
+                                <td>Prepare body and coordination</td>
+                            </tr>
+
+                            <tr>
+                                <td>Technical Drill</td>
+                                <td>20 min</td>
+                                <td>Passing and receiving drills</td>
+                                <td>Ball control and accuracy</td>
+                            </tr>
+
+                            <tr>
+                                <td>Tactical Drill</td>
+                                <td>20 min</td>
+                                <td>Positioning and movement exercise</td>
+                                <td>Game awareness</td>
+                            </tr>
+
+                            <tr>
+                                <td>Small-Sided Game</td>
+                                <td>25 min</td>
+                                <td>4v4 or 5v5 match</td>
+                                <td>Apply skills under pressure</td>
+                            </tr>
+
+                            <tr>
+                                <td>Cool Down</td>
+                                <td>5 min</td>
+                                <td>Stretching and feedback</td>
+                                <td>Recovery and reflection</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
-        <div class="training-card">
-            <h3>Cool Down</h3>
-            <p>
-                End with stretching and recovery exercises, along with a short session
-                review.
-            </p>
+        <div class="col-lg-4">
+            <div class="training-panel h-100">
+                <div class="section-heading">
+                    <span>Coach Notes</span>
+                    <h2>Coaching Tips</h2>
+                </div>
+
+                <div class="tip-list">
+                    <div class="tip-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Keep sessions focused on one main objective.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Use drills that simulate real match situations.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Adjust intensity based on age and fitness level.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Encourage communication and teamwork.</p>
+                    </div>
+
+                    <div class="tip-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Review each session and improve the next one.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="training-section">
-    <h2>Example Training Session</h2>
+</div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Phase</th>
-                <th>Time</th>
-                <th>Activity</th>
-                <th>Focus</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Warm-Up</td>
-                <td>10 min</td>
-                <td>Jogging, stretching, ball touches</td>
-                <td>Prepare body and coordination</td>
-            </tr>
-            <tr>
-                <td>Technical Drill</td>
-                <td>20 min</td>
-                <td>Passing and receiving drills</td>
-                <td>Ball control and accuracy</td>
-            </tr>
-            <tr>
-                <td>Tactical Drill</td>
-                <td>20 min</td>
-                <td>Positioning and movement exercise</td>
-                <td>Game awareness</td>
-            </tr>
-            <tr>
-                <td>Small-Sided Game</td>
-                <td>25 min</td>
-                <td>4v4 or 5v5 match</td>
-                <td>Apply skills under pressure</td>
-            </tr>
-            <tr>
-                <td>Cool Down</td>
-                <td>5 min</td>
-                <td>Stretching and feedback</td>
-                <td>Recovery and reflection</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
-<section class="training-section">
-    <h2>Benefits of Using a Training Planner</h2>
-    <ul>
-        <li>Improves session organization and efficiency</li>
-        <li>Ensures consistent player development</li>
-        <li>Helps track progress over time</li>
-        <li>Balances workload and recovery</li>
-        <li>Connects training sessions to match performance</li>
-    </ul>
-</section>
-
-<section class="training-section">
-    <h2>Coaching Tips</h2>
-    <ul>
-        <li>Keep sessions focused on one main objective.</li>
-        <li>Use drills that simulate real match situations.</li>
-        <li>Adjust intensity based on player age and fitness level.</li>
-        <li>Encourage communication and teamwork.</li>
-        <li>Review each session and plan improvements for the next one.</li>
-    </ul>
-</section>
 {% endblock %}

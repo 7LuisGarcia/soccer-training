@@ -1,69 +1,131 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/team_management.css' %}">
+{% endblock %}
 
 {% block content %}
-<section class="page-header">
-    <h1>Team Management</h1>
-    <p>
-        Organize your soccer team, manage player information, track attendance,
-        plan communication, and keep your season running smoothly.
-    </p>
-</section>
 
-<section class="team-section">
-    <h2>What Team Management Helps With</h2>
+<div class="container py-5">
 
-    <div class="team-grid">
-        <div class="team-card">
-            <h3>Player Roster</h3>
+    <section class="team-hero mb-5">
+        <div>
+            <span class="team-badge">Team Operations</span>
+            <h1 class="fw-bold mt-3 mb-3">Team Management</h1>
             <p>
-                Keep track of player names, positions, contact details, jersey numbers,
-                and availability throughout the season.
+                Organize your soccer team, manage player information, track attendance,
+                plan communication, and keep your season running smoothly.
             </p>
         </div>
 
-        <div class="team-card">
-            <h3>Attendance</h3>
-            <p>
-                Monitor who attends practices and games so you can understand commitment,
-                consistency, and player availability.
-            </p>
+        <a href="{% url 'planner:add_player' %}" class="team-hero-btn">
+            <i class="bi bi-person-plus"></i>
+            Add Player
+        </a>
+    </section>
+
+    <section class="row g-4 mb-5">
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="team-stat-card">
+                <i class="bi bi-people-fill"></i>
+                <h3>Roster</h3>
+                <p>Manage players, positions, numbers, and availability.</p>
+            </div>
         </div>
 
-        <div class="team-card">
-            <h3>Lineups & Positions</h3>
-            <p>
-                Plan formations, assign positions, rotate players, and prepare match-day
-                lineups more easily.
-            </p>
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="team-stat-card">
+                <i class="bi bi-calendar-check-fill"></i>
+                <h3>Attendance</h3>
+                <p>Track who attends training sessions and games.</p>
+            </div>
         </div>
 
-        <div class="team-card">
-            <h3>Team Communication</h3>
-            <p>
-                Keep players and families informed about training times, match schedules,
-                updates, and team expectations.
-            </p>
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="team-stat-card">
+                <i class="bi bi-diagram-3-fill"></i>
+                <h3>Lineups</h3>
+                <p>Plan formations, player rotations, and match-day roles.</p>
+            </div>
         </div>
-    </div>
-</section>
 
-<section class="team-section">
-    <h2>Team Management Checklist</h2>
-    <ul>
-        <li>Create and update your player roster.</li>
-        <li>Track attendance for every training session.</li>
-        <li>Record player positions and development goals.</li>
-        <li>Plan match lineups and substitutions.</li>
-        <li>Review player progress throughout the season.</li>
-    </ul>
-</section>
+        <div class="col-12 col-md-6 col-xl-3">
+            <div class="team-stat-card">
+                <i class="bi bi-chat-dots-fill"></i>
+                <h3>Communication</h3>
+                <p>Keep players and families informed about team updates.</p>
+            </div>
+        </div>
+    </section>
 
-<section class="team-section">
-    <h2>How This Helps Coaches</h2>
-    <p>
-        Good team management helps coaches stay organized and make better decisions.
-        When player information, schedules, attendance, and goals are easy to access,
-        coaches can spend less time managing details and more time developing players.
-    </p>
-</section>
+    <section class="row g-4 mb-5">
+        <div class="col-lg-7">
+            <div class="team-panel h-100">
+                <div class="section-heading">
+                    <span>Coach Checklist</span>
+                    <h2>Team Management Checklist</h2>
+                </div>
+
+                <div class="check-list">
+                    <div class="check-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Create and update your player roster.</p>
+                    </div>
+
+                    <div class="check-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Track attendance for every training session.</p>
+                    </div>
+
+                    <div class="check-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Record player positions and development goals.</p>
+                    </div>
+
+                    <div class="check-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Plan match lineups and substitutions.</p>
+                    </div>
+
+                    <div class="check-item">
+                        <i class="bi bi-check-circle-fill"></i>
+                        <p>Review player progress throughout the season.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="team-panel h-100">
+                <div class="section-heading">
+                    <span>Why It Matters</span>
+                    <h2>How This Helps Coaches</h2>
+                </div>
+
+                <p class="team-copy">
+                    Good team management helps coaches stay organized and make better decisions.
+                    When player information, schedules, attendance, and goals are easy to access,
+                    coaches can spend less time managing details and more time developing players.
+                </p>
+
+                <div class="quick-actions">
+                    <a href="{% url 'planner:add_player' %}" class="btn btn-success">
+                        Add Player
+                    </a>
+
+                    <a href="{% url 'planner:mark_attendance' %}" class="btn btn-outline-success">
+                        Mark Attendance
+                    </a>
+
+                    <a href="{% url 'planner:analytics' %}" class="btn btn-outline-success">
+                        View Analytics
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
 {% endblock %}
