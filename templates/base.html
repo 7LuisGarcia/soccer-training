@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'base.css' %}">
     <link rel="stylesheet" href="{% static 'mobile.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     {% block extra_css %}{% endblock %}
 </head>
@@ -21,7 +22,7 @@
         <a class="navbar-brand fw-bold fs-4 d-flex align-items-center gap-2"
         href="{% url 'planner:home' %}">
 
-        <i class="bi bi-dribbble"></i>
+        <i class="fa-solid fa-futbol fs-3 text-success"></i>
 
         <span>Soccer Home</span>
         </a>
@@ -166,10 +167,6 @@
 
             <a href="{% url 'planner:home' %}" class="text-light text-decoration-none">
                 Home
-            </a>
-
-            <a href="{% url 'planner:services' %}" class="text-light text-decoration-none">
-                Services
             </a>
 
             <a href="{% url 'planner:pricing' %}" class="text-light text-decoration-none">
