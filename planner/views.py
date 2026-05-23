@@ -10,6 +10,7 @@ from django.conf import settings
 
 from .models import TrainingSession, UserProfile, Team, Player, Attendance, PlayerPerformance
 
+
 def coach_required(view_func):
     @wraps(view_func)
     def wrapper(request, *args, **kwargs):
@@ -24,88 +25,6 @@ def coach_required(view_func):
         return redirect("planner:dashboard")
 
     return wrapper
-
-@login_required
-@coach_required
-def add_player(request):
-    teams = Team.objects.all()
-
-    if request.method == "POST":
-        team_id = request.POST.get("team")
-        first_name = request.POST.get("first_name")
-        last_name = request.POST.get("last_name")
-        position = request.POST.get("position")
-
-        team = get_object_or_404(Team, id=team_id)
-
-        Player.objects.create(
-            team=team,
-            first_name=first_name,
-            last_name=last_name,
-            position=position
-        )
-
-        messages.success(request, "Player added successfully!")
-        return redirect("planner:player_tracking")
-
-    return render(request, "services/add_player.html", {"teams": teams})
-
-@login_required
-@coach_required
-def mark_attendance(request):
-    sessions = TrainingSession.objects.all().order_by("-date")
-    players = Player.objects.all().order_by("last_name")
-
-    if request.method == "POST":
-        session_id = request.POST.get("session")
-        session = get_object_or_404(TrainingSession, id=session_id)
-
-        for player in players:
-            status = request.POST.get(f"status_{player.id}")
-
-            if status:
-                Attendance.objects.update_or_create(
-                    session=session,
-                    player=player,
-                    defaults={"status": status}
-                )
-
-        messages.success(request, "Attendance saved successfully!")
-        return redirect("planner:dashboard")
-
-    return render(request, "services/mark_attendance.html", {
-        "sessions": sessions,
-        "players": players
-    })
-
-@login_required
-def analytics(request):
-    total_players = Player.objects.count()
-    total_sessions = TrainingSession.objects.count()
-    completed_sessions = TrainingSession.objects.filter(completed=True).count()
-    attendance_records = Attendance.objects.count()
-    performances = PlayerPerformance.objects.all()
-
-    return render(request, "planner/analytics.html", {
-        "total_players": total_players,
-        "total_sessions": total_sessions,
-        "completed_sessions": completed_sessions,
-        "attendance_records": attendance_records,
-        "performances": performances
-    })
-
-
-@login_required
-@coach_required
-def delete_player(request, id):
-    player = get_object_or_404(Player, id=id)
-
-    if request.method == "POST":
-        player.delete()
-        messages.success(request, "Player deleted successfully!")
-        return redirect("planner:player_tracking")
-
-    return render(request, "services/delete_player.html", {"player": player})
 
 
 def home(request):
@@ -162,6 +81,12 @@ def services(request):
 
 @login_required
 def choose_plan(request, plan):
+    valid_plans = ["free", "pro", "elite"]
+
+    if plan not in valid_plans:
+        messages.error(request, "Invalid plan selected.")
+        return redirect("planner:pricing")
+
     profile, created = UserProfile.objects.get_or_create(user=request.user)
     profile.plan = plan
 
@@ -173,15 +98,20 @@ def choose_plan(request, plan):
 
     profile.subscription_active = False
     profile.save()
-    return redirect("planner:payment_page")
+
+    return redirect("planner:payment_page", plan=plan)
 
 
 @login_required
-def payment_page(request):
-    profile, created = UserProfile.objects.get_or_create(user=request.user)
+def payment_page(request, plan):
+    valid_plans = ["free", "pro", "elite"]
+
+    if plan not in valid_plans:
+        messages.error(request, "Invalid payment plan.")
+        return redirect("planner:pricing")
 
     return render(request, "pricing/payment_page.html", {
-        "plan": profile.plan
+        "plan": plan
     })
 
 
@@ -191,8 +121,12 @@ def payment_success(request):
     profile.subscription_active = True
     profile.save()
 
-    messages.success(request, f"{profile.plan.title()} plan activated successfully!")
-    return redirect("planner:dashboard")
+    messages.success(
+        request,
+        f"{profile.plan.title()} plan activated successfully!"
+    )
+
+    return render(request, "pricing/payment_success.html")
 
 
 def free_plan(request):
@@ -214,7 +148,19 @@ def dashboard(request):
 
 @login_required
 def analytics(request):
-    return render(request, "planner/analytics.html")
+    total_players = Player.objects.count()
+    total_sessions = TrainingSession.objects.count()
+    completed_sessions = TrainingSession.objects.filter(completed=True).count()
+    attendance_records = Attendance.objects.count()
+    performances = PlayerPerformance.objects.all()
+
+    return render(request, "planner/analytics.html", {
+        "total_players": total_players,
+        "total_sessions": total_sessions,
+        "completed_sessions": completed_sessions,
+        "attendance_records": attendance_records,
+        "performances": performances
+    })
 
 
 @login_required
@@ -278,6 +224,74 @@ def session_complete(request, pk):
 
     messages.success(request, "Session marked as completed.")
     return redirect("planner:session_detail", pk=pk)
+
+
+@login_required
+@coach_required
+def add_player(request):
+    teams = Team.objects.all()
+
+    if request.method == "POST":
+        team_id = request.POST.get("team")
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        position = request.POST.get("position")
+
+        team = get_object_or_404(Team, id=team_id)
+
+        Player.objects.create(
+            team=team,
+            first_name=first_name,
+            last_name=last_name,
+            position=position
+        )
+
+        messages.success(request, "Player added successfully!")
+        return redirect("planner:player_tracking")
+
+    return render(request, "services/add_player.html", {"teams": teams})
+
+
+@login_required
+@coach_required
+def delete_player(request, id):
+    player = get_object_or_404(Player, id=id)
+
+    if request.method == "POST":
+        player.delete()
+        messages.success(request, "Player deleted successfully!")
+        return redirect("planner:player_tracking")
+
+    return render(request, "services/delete_player.html", {"player": player})
+
+
+@login_required
+@coach_required
+def mark_attendance(request):
+    sessions = TrainingSession.objects.all().order_by("-date")
+    players = Player.objects.all().order_by("last_name")
+
+    if request.method == "POST":
+        session_id = request.POST.get("session")
+        session = get_object_or_404(TrainingSession, id=session_id)
+
+        for player in players:
+            status = request.POST.get(f"status_{player.id}")
+
+            if status:
+                Attendance.objects.update_or_create(
+                    session=session,
+                    player=player,
+                    defaults={"status": status}
+                )
+
+        messages.success(request, "Attendance saved successfully!")
+        return redirect("planner:dashboard")
+
+    return render(request, "services/mark_attendance.html", {
+        "sessions": sessions,
+        "players": players
+    })
 
 
 def register(request):

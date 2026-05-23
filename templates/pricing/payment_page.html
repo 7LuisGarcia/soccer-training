@@ -8,9 +8,7 @@
 {% block content %}
 
 <div class="container py-5">
-
     <div class="payment-wrapper mx-auto">
-
         <div class="payment-card">
 
             <div class="payment-icon">
@@ -27,25 +25,19 @@
             </p>
 
             <div class="selected-plan-box">
-
                 <p class="mb-1 text-muted">Selected Plan</p>
-
                 <h2>{{ plan|title }}</h2>
 
                 {% if plan == "pro" %}
                     <h3>$9.99 <span>/ month</span></h3>
-
                 {% elif plan == "elite" %}
                     <h3>$19.99 <span>/ month</span></h3>
-
                 {% else %}
                     <h3>$0 <span>/ month</span></h3>
                 {% endif %}
-
             </div>
 
             <div class="payment-features">
-
                 <div>
                     <i class="bi bi-shield-check"></i>
                     <span>Secure payment simulation</span>
@@ -60,31 +52,47 @@
                     <i class="bi bi-stars"></i>
                     <span>Unlock premium features</span>
                 </div>
-
             </div>
 
-            <div class="payment-actions">
+            <form method="POST" action="{% url 'planner:payment_success' %}">
+                {% csrf_token %}
 
-                <a href="{% url 'planner:payment_success' %}"
-                class="btn payment-primary-btn">
-                    Simulate Payment
-                </a>
+                <div class="payment-methods mt-4">
+                    <h4 class="fw-bold mb-3">Choose Payment Method</h4>
 
-                <a href="{% url 'planner:pricing' %}"
-                class="btn payment-secondary-btn">
-                    Change Plan
-                </a>
+                    <label class="payment-option">
+                        <input type="radio" name="payment_method" value="credit_card" required>
+                        <span><i class="bi bi-credit-card"></i> Credit / Debit Card</span>
+                    </label>
 
-            </div>
+                    <label class="payment-option">
+                        <input type="radio" name="payment_method" value="paypal">
+                        <span><i class="bi bi-paypal"></i> PayPal</span>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment_method" value="apple_pay">
+                        <span><i class="bi bi-apple"></i> Apple Pay</span>
+                    </label>
+                </div>
+
+                <div class="payment-actions mt-4">
+                    <button type="submit" class="btn payment-primary-btn">
+                        Simulate Payment
+                    </button>
+
+                    <a href="{% url 'planner:pricing' %}" class="btn payment-secondary-btn">
+                        Change Plan
+                    </a>
+                </div>
+            </form>
 
             <p class="payment-note">
                 This is a demo checkout page. Later, this button can connect to Stripe.
             </p>
 
         </div>
-
     </div>
-
 </div>
 
 {% endblock %}

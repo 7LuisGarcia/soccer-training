@@ -53,12 +53,6 @@ TEMPLATES = [
     },
 ]
 
-TEMPLATE_CONTEXT_PROCESSORS = [
-    'django.template.context_processors.request',
-]
-
-
-
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
@@ -115,7 +109,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = "garcia062785@gmail.com"
-EMAIL_HOST_PASSWORD = "yxdykjluytbuvkmt"
+EMAIL_HOST_PASSWORD = "ghdpahyauljdfuib"
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 CONTACT_EMAIL = "garcia062785@gmail.com"
