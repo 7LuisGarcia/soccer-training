@@ -1,0 +1,242 @@
+.builder-hero {
+    background: linear-gradient(135deg, #0f7a35, #1e8f3c);
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 56px;
+    box-shadow: 0 20px 50px rgba(15, 122, 53, 0.25);
+}
+
+.builder-badge,
+.section-heading span,
+.mini-label {
+    display: inline-block;
+    color: #1e8f3c;
+    background: #dcfce7;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.builder-hero .builder-badge {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.builder-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.builder-hero p {
+    max-width: 760px;
+    font-size: 1.08rem;
+    opacity: 0.92;
+}
+
+.builder-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 28px;
+    border: 1px solid rgba(30, 143, 60, 0.14);
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.builder-card h3,
+.section-heading h3 {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.drill-item {
+    background: #f8fafc;
+    border: 1px solid rgba(30, 143, 60, 0.14);
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 14px;
+    cursor: grab;
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    transition: all 0.25s ease;
+}
+
+.drill-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(30, 143, 60, 0.4);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.drill-item strong {
+    display: block;
+    color: #0f172a;
+}
+
+.drill-item small {
+    color: #64748b;
+}
+
+.drill-item span {
+    color: #1e8f3c;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.builder-tip {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #dcfce7;
+    color: #0f7a35;
+    border-radius: 16px;
+    padding: 14px;
+    font-weight: 700;
+}
+
+.timeline-header,
+.builder-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.total-box {
+    background: #dcfce7;
+    color: #0f7a35;
+    border-radius: 999px;
+    padding: 12px 18px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.session-drop-zone {
+    min-height: 260px;
+    border: 2px dashed rgba(30, 143, 60, 0.35);
+    border-radius: 24px;
+    padding: 18px;
+    background: #f8fafc;
+    transition: all 0.25s ease;
+}
+
+.session-drop-zone.drag-over {
+    background: #dcfce7;
+    border-color: #1e8f3c;
+}
+
+.empty-state {
+    min-height: 220px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: #64748b;
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    color: #1e8f3c;
+}
+
+.timeline-item {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(30, 143, 60, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.timeline-item strong {
+    color: #0f172a;
+}
+
+.timeline-item p {
+    color: #64748b;
+    margin-bottom: 0;
+}
+
+.timeline-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.timeline-right span {
+    color: #1e8f3c;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.remove-drill {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: #fee2e2;
+    color: #b91c1c;
+    font-size: 1.3rem;
+    line-height: 1;
+    font-weight: 900;
+}
+
+.intensity-output {
+    background: #f8fafc;
+    color: #0f172a;
+    border-radius: 16px;
+    padding: 14px;
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+.field-zones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 2px solid rgba(30, 143, 60, 0.25);
+    min-height: 160px;
+}
+
+.field-zones div {
+    background: #dcfce7;
+    color: #0f7a35;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 14px;
+    border-right: 2px solid rgba(30, 143, 60, 0.25);
+}
+
+.field-zones div:last-child {
+    border-right: none;
+}
+
+@media (max-width: 768px) {
+    .builder-hero {
+        padding: 34px 24px;
+        border-radius: 24px;
+    }
+
+    .timeline-header,
+    .builder-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .field-zones {
+        grid-template-columns: 1fr;
+    }
+
+    .field-zones div {
+        border-right: none;
+        border-bottom: 2px solid rgba(30, 143, 60, 0.25);
+    }
+
+    .field-zones div:last-child {
+        border-bottom: none;
+    }
+}

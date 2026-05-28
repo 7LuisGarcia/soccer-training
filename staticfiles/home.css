@@ -1,0 +1,450 @@
+/* GLOBAL */
+
+:root {
+    --green: #1e8f3c;
+    --green-dark: #166b2f;
+    --blue: #1e3a8a;
+    --dark: #102014;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --white: #ffffff;
+    --soft-bg: #f4f7f5;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(180deg, #f4f7f5 0%, #e8f3eb 100%);
+    color: var(--text);
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    padding-bottom: 70px;
+}
+
+h1, h2, h3 {
+    letter-spacing: -0.5px;
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.7;
+    color: var(--text);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    image-rendering: auto;
+}
+
+/* HERO */
+
+.hero-dark,
+.page-header {
+    background: linear-gradient(135deg, #166b2f 0%, #2fae52 100%);
+    color: white;
+    border-radius: 24px;
+    padding: 60px;
+    margin: 30px 0;
+    box-shadow: var(--card-shadow);
+}
+
+.hero-dark h1,
+.page-header h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 15px;
+}
+
+.hero-dark p,
+.page-header p {
+    color: #eefdf1;
+    font-size: 1.15rem;
+    max-width: 850px;
+}
+
+/* CARDS */
+
+.card,
+.feature-card,
+.training-card,
+.season-card,
+.session-card,
+.tracking-card,
+.analytics-card,
+.team-card,
+.drill-card,
+.drill-item {
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px solid rgba(30, 143, 60, 0.12);
+    padding: 28px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.feature-card:hover,
+.training-card:hover,
+.season-card:hover,
+.session-card:hover,
+.tracking-card:hover,
+.analytics-card:hover,
+.team-card:hover,
+.drill-card:hover,
+.drill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.12);
+}
+
+.card h2,
+.card h3,
+.feature-card h3,
+.training-card h3,
+.season-card h3,
+.session-card h3,
+.tracking-card h3,
+.analytics-card h3,
+.team-card h3,
+.drill-card h3,
+.drill-item h3 {
+    color: var(--green);
+}
+
+/* GRIDS */
+
+.training-grid,
+.season-grid,
+.session-grid,
+.tracking-grid,
+.analytics-grid,
+.team-grid,
+.drill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 25px;
+}
+
+/* SECTIONS */
+
+.training-section,
+.season-section,
+.sessions-section,
+.tracking-section,
+.analytics-section,
+.team-section,
+.tips-section,
+.featured-drills,
+.drill-categories {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 22px;
+    padding: 40px;
+    margin: 35px 0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+section h2 {
+    color: var(--blue);
+    margin-bottom: 18px;
+}
+
+/* IMAGES */
+
+.home-image {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 22px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.25s ease, filter 0.25s ease;
+    filter: contrast(1.04) saturate(1.05);
+}
+
+.home-image:hover {
+    transform: scale(1.015);
+    filter: contrast(1.08) saturate(1.08);
+}
+
+.feature-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    filter: contrast(1.04) saturate(1.06);
+}
+
+.thumbnail-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+/* Prevent stretching on large screens */
+.image-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* VIDEO */
+
+.ratio iframe {
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+}
+
+/* TABLES */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+th {
+    background: var(--green);
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* BUTTONS */
+
+.blue-btn,
+.btn-primary {
+    background: var(--green);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.blue-btn:hover,
+.btn-primary:hover {
+    background: var(--green-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* IMAGE SIZE GUIDE
+
+Use these source image sizes:
+
+Hero/home images:
+1920 x 1080 px
+
+Feature/card images:
+1200 x 750 px
+
+Small thumbnails:
+800 x 500 px
+
+Player/profile images:
+800 x 800 px
+
+Avoid images smaller than 1000px wide for large sections.
+*/
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .hero-dark,
+    .page-header {
+        padding: 35px 25px;
+        text-align: center;
+    }
+
+    .hero-dark p,
+    .page-header p {
+        font-size: 1rem;
+    }
+
+    .training-section,
+    .season-section,
+    .sessions-section,
+    .tracking-section,
+    .analytics-section,
+    .team-section,
+    .tips-section,
+    .featured-drills,
+    .drill-categories {
+        padding: 25px;
+    }
+
+    .card,
+    .feature-card,
+    .training-card,
+    .season-card,
+    .session-card,
+    .tracking-card,
+    .analytics-card,
+    .team-card,
+    .drill-card,
+    .drill-item {
+        padding: 22px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+}
+
+/* =========================
+   PREMIUM BLACK FOOTER
+========================= */
+
+.footer {
+    background: linear-gradient(135deg, #000000, #0f0f0f);
+    color: #f8fafc !important;
+
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+
+    padding-top: 42px !important;
+    padding-bottom: 24px !important;
+
+    margin-top: 60px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 -10px 35px rgba(0,0,0,0.25);
+}
+
+/* FOOTER TITLE */
+
+.footer h5 {
+    color: #ffffff !important;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+
+    margin-bottom: 14px;
+}
+
+/* FOOTER PARAGRAPH */
+
+.footer p {
+    color: rgba(255,255,255,0.72) !important;
+    font-size: 1.05rem;
+    line-height: 1.8;
+
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* FOOTER LINKS */
+
+.footer a {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 500;
+
+    transition: all 0.25s ease;
+}
+
+.footer a:hover {
+    color: #d1d5db !important;
+    transform: translateY(-1px);
+}
+
+/* SOCIAL ICONS */
+
+.social-icons {
+    gap: 24px !important;
+}
+
+.social-icons a {
+    color: #ffffff !important;
+    font-size: 1.4rem !important;
+
+    transition: all 0.25s ease;
+}
+
+.social-icons a:hover {
+    color: #d1d5db !important;
+    transform: translateY(-4px) scale(1.08);
+}
+
+/* FOOTER LINKS ROW */
+
+.footer .d-flex {
+    gap: 24px !important;
+}
+
+/* COPYRIGHT */
+
+.footer .small {
+    color: rgba(255,255,255,0.45) !important;
+    font-size: 0.92rem;
+
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+
+    margin-top: 24px;
+    padding-top: 18px !important;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .footer {
+        border-top-left-radius: 22px;
+        border-top-right-radius: 22px;
+
+        padding-top: 32px !important;
+    }
+
+    .footer h5 {
+        font-size: 1.6rem;
+    }
+
+    .footer p {
+        font-size: 0.98rem;
+    }
+
+    .social-icons {
+        gap: 18px !important;
+    }
+
+    .footer .d-flex {
+        gap: 16px !important;
+        flex-wrap: wrap;
+    }
+}

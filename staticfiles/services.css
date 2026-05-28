@@ -1,0 +1,234 @@
+/* SERVICES HERO */
+.services-hero {
+    background: linear-gradient(135deg, #0f7a35, #1e8f3c);
+    color: #ffffff;
+    padding: 70px 50px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(15, 122, 53, 0.25);
+}
+
+.services-hero h1,
+.services-hero h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+}
+
+.services-hero p {
+    max-width: 720px;
+    opacity: 0.92;
+}
+
+/* SERVICE CARDS */
+.service-card {
+    background: var(--white);
+    border-radius: 20px;
+    border: 2px solid rgba(30, 143, 60, 0.25);
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background: var(--green);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.14);
+    border-color: var(--green);
+}
+
+/* ICONS */
+.service-card img,
+.service-card i {
+    transition: transform 0.25s ease;
+}
+
+.service-card:hover img,
+.service-card:hover i {
+    transform: scale(1.08);
+}
+
+.service-card img {
+    width: 70px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 4px 10px rgba(30, 143, 60, 0.25));
+}
+
+.service-card i {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px;
+    border-radius: 20px;
+    background: #e8f5ec;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 4px 10px rgba(30, 143, 60, 0.25));
+}
+
+/* TITLES */
+.service-card h4 {
+    font-weight: 800;
+    color: var(--green);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.service-card h4::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--green);
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* TEXT */
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* CTA */
+.services-cta {
+    background: linear-gradient(135deg, #0f7a35, #1e8f3c);
+    color: #ffffff;
+    padding: 55px 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(15, 122, 53, 0.25);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .service-grid,
+    .services-grid,
+    .row {
+        gap: 18px;
+    }
+
+    .services-hero {
+        padding: 38px 26px;
+        border-radius: 24px;
+        text-align: center;
+    }
+
+    .services-hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .service-card {
+        padding: 24px 20px;
+        margin: 0 8px 22px;
+        border-radius: 22px;
+        border: 1px solid rgba(30, 143, 60, 0.22);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+        background: linear-gradient(180deg, #ffffff 0%, #f7fff9 100%);
+    }
+
+    .service-card::before {
+        height: 7px;
+        background: linear-gradient(90deg, var(--green), #2fae52);
+    }
+
+    .service-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.10);
+    }
+
+    .service-card i,
+    .service-card img {
+        width: 62px;
+        height: 62px;
+        font-size: 1.6rem;
+        border-radius: 18px;
+        margin: 0 auto 14px;
+    }
+
+    .service-card img {
+        object-fit: contain;
+        padding: 10px;
+        background: #e8f5ec;
+    }
+
+    .service-card h4 {
+        font-size: 1.15rem;
+        font-weight: 900;
+    }
+
+    .service-card h4::after {
+        width: 36px;
+        height: 3px;
+        margin-top: 9px;
+    }
+
+    .service-card p {
+        font-size: 0.92rem;
+        line-height: 1.65;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-hero {
+        padding: 30px 22px;
+        border-radius: 22px;
+    }
+
+    .services-hero h1,
+    .services-hero h2 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    .services-hero p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .service-card {
+        padding: 22px 18px;
+        margin: 0 0 20px;
+        border-radius: 20px;
+    }
+
+    .service-card i,
+    .service-card img {
+        width: 58px;
+        height: 58px;
+    }
+
+    .service-card h4 {
+        font-size: 1.08rem;
+    }
+
+    .service-card p {
+        font-size: 0.88rem;
+    }
+
+    .services-cta {
+        padding: 32px 22px;
+        border-radius: 22px;
+    }
+
+    .services-cta .btn {
+        width: 100%;
+        border-radius: 999px;
+        padding: 13px;
+    }
+}

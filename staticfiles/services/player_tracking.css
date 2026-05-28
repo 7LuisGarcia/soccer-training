@@ -1,0 +1,174 @@
+.tracking-hero {
+    background: linear-gradient(135deg, #0f7a35, #1e8f3c);
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 56px;
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    align-items: center;
+    box-shadow: 0 20px 50px rgba(15, 122, 53, 0.25);
+}
+
+.tracking-badge,
+.section-heading span {
+    display: inline-block;
+    color: #1e8f3c;
+    background: #dcfce7;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.tracking-hero .tracking-badge {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.tracking-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.tracking-hero p {
+    max-width: 760px;
+    font-size: 1.08rem;
+    opacity: 0.92;
+    margin-bottom: 0;
+}
+
+.tracking-actions {
+    display: grid;
+    gap: 12px;
+    min-width: 180px;
+}
+
+.btn-tracking-primary,
+.btn-tracking-light {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    padding: 13px 22px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.btn-tracking-primary {
+    background: #ffffff;
+    color: #0f7a35;
+}
+
+.btn-tracking-light {
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-tracking-primary:hover,
+.btn-tracking-light:hover {
+    transform: translateY(-3px);
+}
+
+.tracking-card,
+.tracking-panel {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 28px;
+    border: 1px solid rgba(30, 143, 60, 0.14);
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    transition: all 0.25s ease;
+}
+
+.tracking-card:hover,
+.tracking-panel:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.14);
+    border-color: rgba(30, 143, 60, 0.35);
+}
+
+.tracking-card i {
+    width: 54px;
+    height: 54px;
+    border-radius: 18px;
+    background: #dcfce7;
+    color: #1e8f3c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 18px;
+}
+
+.tracking-card h3,
+.section-heading h2 {
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.tracking-card p,
+.skill-item p {
+    color: #64748b;
+    margin-bottom: 0;
+}
+
+.skill-list {
+    display: grid;
+    gap: 14px;
+}
+
+.skill-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #f8fafc;
+    border-radius: 18px;
+    padding: 15px;
+}
+
+.skill-item i {
+    color: #1e8f3c;
+    margin-top: 2px;
+}
+
+.notes-box {
+    display: grid;
+    gap: 14px;
+}
+
+.notes-box div {
+    background: #f8fafc;
+    border-radius: 18px;
+    padding: 16px;
+    border-left: 5px solid #1e8f3c;
+}
+
+.notes-box span {
+    display: block;
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.notes-box strong {
+    color: #0f172a;
+}
+
+@media (max-width: 768px) {
+    .tracking-hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 34px 24px;
+        border-radius: 24px;
+    }
+
+    .tracking-actions {
+        width: 100%;
+    }
+}
