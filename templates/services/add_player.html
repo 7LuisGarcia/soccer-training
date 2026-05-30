@@ -2,36 +2,74 @@
 
 {% block content %}
 <div class="container py-5">
-    <h1 class="fw-bold mb-4">Add Player</h1>
+    <h1 class="fw-bold mb-4">Manage Players</h1>
 
-    <form method="POST" class="card p-4 shadow-sm">
+    
+
+    <!-- Add Player Form -->
+    <form method="POST" class="card p-4 shadow-sm mb-5">
         {% csrf_token %}
+        <input type="hidden" name="action" value="add">
 
-        <div class="mb-3">
-        <label class="form-label">Team</label>
-        <select name="team" class="form-control" required>
-            {% for team in teams %}
-            <option value="{{ team.id }}">{{ team.name }}</option>
-            {% endfor %}
-        </select>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="col-md-6">
+                <label class="form-label">Team Name</label>
+                <input type="text" name="team_name" class="form-control" placeholder="e.g. U12 Lions" required>
+            </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Position</label>
+                <input type="text" name="position" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">First Name</label>
+                <input type="text" name="first_name" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Last Name</label>
+                <input type="text" name="last_name" class="form-control" required>
+            </div>
         </div>
 
-        <div class="mb-3">
-        <label class="form-label">First Name</label>
-        <input type="text" name="first_name" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-        <label class="form-label">Last Name</label>
-        <input type="text" name="last_name" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-        <label class="form-label">Position</label>
-        <input type="text" name="position" class="form-control" required>
-        </div>
-
-        <button class="btn btn-success">Add Player</button>
+        <button class="btn btn-success mt-3">+ Add Player</button>
     </form>
+
+    <!-- Players Table -->
+    <h4 class="fw-bold mb-3">Current Players</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Position</th>
+                    <th>Team</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                <tr>
+                    <td>{{ player.first_name }}</td>
+                    <td>{{ player.last_name }}</td>
+                    <td>{{ player.position }}</td>
+                    <td>{{ player.team.name }}</td>
+                    <td>
+                        <form method="POST" style="display:inline"
+                            onsubmit="return confirm('Delete {{ player.first_name }} {{ player.last_name }}?')">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="player_id" value="{{ player.id }}">
+                            <button class="btn btn-danger btn-sm">🗑 Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="5" class="text-center text-muted py-3">No players yet.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

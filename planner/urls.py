@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView, LogoutView
 from . import views
-from django.contrib.auth import views as auth_views 
+from django.contrib.auth import views as auth_views
 
 app_name = "planner"
 
@@ -22,40 +22,24 @@ urlpatterns = [
     path("login/", LoginView.as_view(template_name="planner/login.html"), name="login"),
     path("logout/", LogoutView.as_view(next_page="planner:home"), name="logout"),
     path("register/", views.register, name="register"),
+
     # PASSWORD RESET
-    path(
-    "password-reset/",
-    auth_views.PasswordResetView.as_view(
+    path("password-reset/", auth_views.PasswordResetView.as_view(
         template_name="planner/password_reset_form.html",
         email_template_name="planner/password_reset_email.html",
         subject_template_name="planner/password_reset_subject.txt",
         success_url="done/"
-    ),
-    name="password_reset"
-    ),
-    path(
-        "password-reset/done/",
-        auth_views.PasswordResetDoneView.as_view(
-            template_name="planner/password_reset_done.html"
-        ),
-        name="password_reset_done"
-    ),
+    ), name="password_reset"),
+    path("password-reset/done/", auth_views.PasswordResetDoneView.as_view(
+        template_name="planner/password_reset_done.html"
+    ), name="password_reset_done"),
+    path("reset/<uidb64>/<token>/", auth_views.PasswordResetConfirmView.as_view(
+        template_name="planner/password_reset_confirm.html"
+    ), name="password_reset_confirm"),
+    path("reset/done/", auth_views.PasswordResetCompleteView.as_view(
+        template_name="registration/password_reset_complete.html"
+    ), name="password_reset_complete"),
 
-    path(
-        "reset/<uidb64>/<token>/",
-        auth_views.PasswordResetConfirmView.as_view(
-            template_name="planner/password_reset_confirm.html"
-        ),
-        name="password_reset_confirm"
-    ),
-
-    path(
-        "reset/done/",
-        auth_views.PasswordResetCompleteView.as_view(
-            template_name="registration/password_reset_complete.html"
-        ),
-        name="password_reset_complete"
-    ),
     # DASHBOARD
     path("dashboard/", views.dashboard, name="dashboard"),
     path("analytics/", views.analytics, name="analytics"),
@@ -83,9 +67,9 @@ urlpatterns = [
     path("services/team-management/", views.services_team_management, name="services_team_management"),
 
     # PLAYERS
-    path("player/<int:id>/", views.player_detail, name="player_detail"),
     path("players/add/", views.add_player, name="add_player"),
     path("players/<int:id>/delete/", views.delete_player, name="delete_player"),
+    path("player/<int:id>/", views.player_detail, name="player_detail"),
     path("attendance/mark/", views.mark_attendance, name="mark_attendance"),
 
     # EXTRA FEATURES
